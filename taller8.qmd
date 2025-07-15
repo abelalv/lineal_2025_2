@@ -1,0 +1,135 @@
+---
+title: "Operaciones con matrices"
+format: html
+filters:
+  - pyodide
+---
+1. Resuelva el siguiente sistema de ecuaciones lineales usando la regla de Cramer
+$$
+\begin{aligned}
+    2x_1 + 3x_2 - x_3  &= 10 \\
+    -x_1 +  + 2x_3 - 3x_4 &= 5 \\
+     - 2x_2 + x_3  &= 7 \\
+    4x_1 + x_2 - 5x_4 &= 12
+\end{aligned}
+$$
+
+2. Resuelva el sistema anterior usando eliminación gaussiana
+
+
+3. Encuentre la matriz escalonada de la matriz
+
+$$
+\begin{bmatrix}
+    2 & 3 & -1 & 0 \\
+    -1 & 0 & 2 & -3 \\
+    0 & -2 & 1 & 0 \\
+    4 & 1 & 0 & -5
+\end{bmatrix}
+$$
+
+4. Encuentre la matriz inversa 
+
+$$
+\begin{bmatrix}
+    2 & 3 & -1 & 0 \\
+    -1 & 0 & 2 & -3 \\
+    0 & -2 & 1 & 0 \\
+    4 & 1 & 0 & -5
+\end{bmatrix}
+$$
+
+5. Encuentre el valor de $a$ para que la matriz tenga inversa
+
+$$
+\begin{bmatrix}
+    a^2 & &03 \\
+    5 & a & 2  \\
+    3 & 0 & 1 
+\end{bmatrix}
+$$
+
+6.  Decida si la afirmación es verdadera o falsa y justifique su respuesta
+
+- $det(AA^T)=det(A)^2$
+
+- $det(-A)=-det(A)$
+
+- Si $A^T=A^{-1}$, entonces $det(A)=1$
+
+- Si $B=PAP^{-1}$, entonces $det(B)=det(A)$
+
+- $det(A+B)=det(A)+det(B)$
+
+7.  Sea lso vectores 
+$$
+\vec{v}=\begin{bmatrix}
+    1 \\
+    2 \\
+    3
+\end{bmatrix},\ \    
+\vec{u}=\begin{bmatrix}
+    2 \\
+    3 \\
+    4
+\end{bmatrix}       
+$$
+
+Calcule 
+
+a. $\vec{v}+\vec{u}$
+
+b. $\vec{v}-\vec{u}$
+
+c. $2\vec{v}$
+
+d. $\vec{v}^T\vec{u}$
+
+e. $\vec{v}^T\vec{u}^T$
+
+8. Que valor de $a$, para que los vectores sean ortogonales
+
+$$
+\vec{v}=\begin{bmatrix}
+    1 \\
+    2 \\
+    a
+\end{bmatrix},\ \
+\vec{u}=\begin{bmatrix}
+    2 \\
+    -1 \\
+    4
+\end{bmatrix}
+$$
+
+9. Encuentre 
+
+$$
+\vec{v}=\begin{bmatrix}
+    1 \\
+    2 \\
+    3
+\end{bmatrix},\ \
+\vec{u}=\begin{bmatrix}
+    2 \\
+    3 \\
+    4
+\end{bmatrix}
+$$
+
+a. $\vec{v}\times\vec{u}$
+
+b. $\vec{u}\times\vec{v}$
+
+c. Represente este producto en un $R^3$
+
+10. LAs siguientes son verdaderas
+
+- $||\vec{u}+\vec{v}||^2=||\vec{u}||^2+||\vec{v}||^2+2\vec{u}\cdot\vec{v}$
+
+- $|\vec{a}+\vec{b}|=||\vec{a}||+||\vec{b}||$
+
+- Si $x,y\in R^n$, entonces $||x\cdot y||^2=xy^T$
+
+- Si $\vec{u}=c\vec{v}$ entonces $\vec{u}\times\vec{v}=0$
+

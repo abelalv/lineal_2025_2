@@ -1,0 +1,170 @@
+---
+title: Subespacion en  $R^n$
+format: html
+filters:
+  - pyodide
+---
+
+
+Un subespacio vectorial en $R^n$ es un subconjunto $W$ de $R^n$ que cumple las siguientes propiedades:
+
+
+1ote que $0\in W$, ¿Por qué?
+
+**Ejemplo**: Sea $W=\{(x,y,z)\in R^3: x+y+z=0\}$. ¿Es $W$ un subespacio vectorial de $R^3$? ¿Por qué?
+
+**Ejemplo**: Sea $W=\{(x,y,z)\in R^3: x+y+z=2\}$. ¿Es $W$ un subespacio vectorial de $R^3$? ¿Por qué?
+
+# Combinaciones lineales
+
+Una combinación lineal de los vectores $v_1,v_2,\ldots,v_k$ es un vector de la forma:
+
+$$
+\sum_{i=1}^k a_i v_i = a_1 v_1 + a_2 v_2 + \ldots + a_k v_k
+$$
+
+donde $a_1,a_2,\ldots,a_k$ son escalares.
+
+
+**Ejemplo**
+
+Sea $v_1=(1,2,3)$ y $v_2=(4,5,6)$. El vector  $w=(7,8,9)$ es combinación lineal de $\{v_1,v_2\}$.
+
+
+Para resolver esto podemos escribir el sistema de ecuaciones:
+
+$$
+a_1\begin{bmatrix}
+1\\2\\3\end{bmatrix} + a_2\begin{bmatrix}4\\5\\6\end{bmatrix} = \begin{bmatrix}7\\8\\9\end{bmatrix}
+$$
+
+¿Como podemos resolver este sistema de ecuaciones?
+
+- Encontremos la matriz aumentada del sistema de ecuaciones y escribamos el sistema de ecuaciones asociado:
+
+$$
+\begin{bmatrix}
+1 & 4 \\
+2 & 5 \\
+3 & 6 
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+7\\
+8\\
+9
+\end{bmatrix}
+$$
+
+de esta forma podemos escribir el sistema de ecuaciones como:
+
+$$
+\begin{bmatrix}
+1 & 4 & | &7 \\
+2 & 5 & | &8 \\
+3 & 6 & | &9
+\end{bmatrix}
+$$
+
+Ahora escalonemos la matriz aumentada:
+$$
+\begin{bmatrix}
+1 & 4 & | &7 \\
+0 & -3 & | &-6 \\
+0 & 0 & | &0
+\end{bmatrix}
+$$
+
+de esta forma podemos encontrar la solución del sistema de ecuaciones:
+$$
+a_1= -1\ \ a_2=2
+$$
+
+**Independencia lineal**
+
+Un conjunto de vectores $v_1,v_2,\ldots,v_k$ es linealmente independiente si la única combinación lineal que da cero es la trivial, es decir:
+$$
+a_1 v_1 + a_2 v_2 + \ldots + a_k v_k = 0 \implies a_1=a_2=\ldots=a_k=0
+$$
+
+Un conjunto de vectores $v_1,v_2,\ldots,v_k$ es linealmente dependiente si existe una combinación lineal no trivial que da cero, es decir:
+$$
+a_1 v_1 + a_2 v_2 + \ldots + a_k v_k = 0 \implies a_1,a_2,\ldots,a_k \text{ no todos son cero}
+$$
+
+**Ejemplo**
+
+Sea $v_1=(1,0,1)$, v_2=(0,1,1)$ y $v_3=(1,1,0)$. ¿Son linealmente independientes o dependientes?
+
+Para resolver esto podemos escribir el sistema de ecuaciones:
+
+$$
+a_1\begin{bmatrix}
+1\\0\\1\end{bmatrix} + a_2\begin{bmatrix}0\\1\\1\end{bmatrix} + a_3\begin{bmatrix}1\\1\\0\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}
+$$
+¿Como podemos resolver este sistema de ecuaciones?
+
+
+- Encontremos la matriz aumentada del sistema de ecuaciones y escribamos el sistema de ecuaciones asociado:
+$$
+\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+a_3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix}
+$$
+
+
+Note que si podemos escalonar la matriz podemos decir que los vectores son linealmente independientes. Si no podemos escalonar la matriz entonces los vectores son linealmente dependientes.
+
+## Subespacios generados por un conjunto de vectores
+
+Un subespacio generado por un conjunto de vectores $v_1,v_2,\ldots,v_k$ es el conjunto de todas las combinaciones lineales de los vectores $v_1,v_2,\ldots,v_k$.
+
+## Ejemplo
+Sea $v_1=(1,0,0)$ y $v_2=(0,1,0)$. El subespacio generado por $\{v_1,v_2\}$ es el plano que pasa por el origen y es paralelo al plano $xy$.
+
+## Ejemplo
+
+Sea el conjunto de vectores linealmente idependientes $W_1=\{v_1,V_2,v_3\}$ en $R^4$ y
+$W_2=\{v_1,V_2,v\_3,v_4}$ donde $v_4$ es una combinación lineal de $v_1,v_2,v_3$. ¿Los subespacios generados por  $W_1$ y $W_2$ son iguales? ¿Por qué?
+
+## Ejemplo
+
+El vector $w=(1,0,0,-1)$ se encuentra en el subespacio generado por $V_1=(1,0,1,1),v_2=(1,0,0,0)$ y $v_3=(0,1,0,0)$. ¿Por qué?
+
+## Dimensión de un subespacio
+
+La dimensión de un subespacio $W$ es el número de vectores linealmente independientes que genera un subespacio $W$.
+
+## Ejemplo
+
+Sea $W=\{(x,y,z)\in R^3: x+y+z=0\}$. ¿Cuál es la dimensión de $W$? ¿Cuál es una base de $W$?
+
+
+## E
+## Base
+
+Una base de un subespacio $W$ es un conjunto de vectores linealmente independientes que generan el subespacio $W$.
+La dimensión de un subespacio $W$ es el número de vectores en una base de $W$.
+
+
+## Ejemplo
+
+Sea $W=\{(x,y,z)\in R^3: x+y+z=0\}$. ¿Cuál es la dimensión de $W$? ¿Cuál es una base de $W$?
+

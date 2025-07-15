@@ -1,0 +1,177 @@
+---
+title: Trabajo computacional
+format: html
+filters:
+  - pyodide
+---
+
+en esta sección usaremos python para calcular operaciones con matrices y vectores. Para las operaciones vectoriales y matriciales, usaremos la librería `numpy`.
+
+
+## Generar una matriz
+
+Generar la matriz debemos usar el comando `np.array` de la librería `numpy`, la matriz se debe ingresar como una lista de listas. Por ejemplo, para generar la matriz
+$$A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$$
+
+
+
+```{pyodide-python}
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+
+print(A)
+```
+
+**Crear un vector columna**
+
+Ahora vamos a generar el vector columna
+
+$$v=\begin{pmatrix} 1 \\ 2 \end{pmatrix},$$
+
+
+
+```{pyodide-python}
+import numpy as np
+
+v = np.array([[1], [2]])
+
+print(v)
+```
+
+**Crear un vector fila**
+
+$$w=\begin{pmatrix} 1 & 2 \end{pmatrix}$$
+
+```{pyodide-python}
+import numpy as np
+
+w = np.array([[1, 2]])
+
+print(w)
+```
+
+# Operaciones con matrices
+
+Recuerde que para sumar dos matrices, estas deben tener la misma dimensión. Por ejemplo, si tenemos las matrices
+
+$$A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \text{ y } B=\begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix},$$
+
+la suma de estas matrices es
+
+```{pyodide-python}
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+C = A + B
+
+print(C)
+
+```
+
+de la misma forma si queremos multiplicar una matriz por un escalar, por ejemplo, queremos multiplicar la matriz $A$ por el escalar $\alpha=2$:
+
+```{pyodide-python}
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+alpha = 2
+C=alpha*A
+
+print(C)
+```
+
+Para la multiplicación de matrices podemos usar el comando `np.dot` de la librería `numpy` ó `@`. Por ejemplo, si tenemos las matrices
+
+$$A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \text{ y } B=\begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix},$$
+
+la multiplicación de estas matrices es
+
+```{pyodide-python}
+import numpy as np
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+C_dot = np.dot(A, B)
+C_at = A @ B
+
+print("Usando el comando np.dot",C_dot)
+print("Usando el comando @",C_at)
+
+```
+
+## Ejericios
+
+1. Seas $A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ y $B=\begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$, $X=\begin{pmatrix} 1 \\ 2 \end{pmatrix}$ y $Y=\begin{pmatrix} 3 \\ 4 \end{pmatrix}$, 
+
+Calcule 
+1. $A+B$, 
+
+2. $A-B$, 
+
+3. $A\cdot B$, 
+
+4. $A\cdot X$, 
+
+5. $A\cdot Y$
+
+6. $X\cdot Y$.
+
+# Transpuesta de una matriz
+
+Para calcula la transpuesta de una matriz, usamos el comando `np.transpose` de la librería `numpy`, o desúes de generar la matriz usamos el comando .T. Por ejemplo, si tenemos la matriz
+
+$$A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix},$$
+
+```{pyodide-python}
+
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+
+A_transpuesta1 = np.transpose(A)
+
+A_transpuesta2=A.T
+
+print("usando el p comando mp.transpose",A_transpuesta1)
+print("usando el segundo .T",A_transpuesta2)
+
+```
+
+# Determinante de una matriz
+
+Para calcular el determinante de una matriz, usamos el comando `np.linalg.det` de la librería `numpy`. Por ejemplo, si tenemos la matriz
+
+$$A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix},$$
+
+```{pyodide-python}
+
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+
+det_A = np.linalg.det(A)
+
+print(det_A)
+
+```
+
+# Inversa de una matriz
+
+Para calcular la inversa de una matriz, usamos el comando `np.linalg.inv` de la librería `numpy`. Por ejemplo, si tenemos la matriz
+
+$$A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix},$$
+
+```{pyodide-python}
+
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+
+A_inversa = np.linalg.inv(A)
+
+print(A_inversa)
+
+```

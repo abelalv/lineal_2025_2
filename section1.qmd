@@ -1,0 +1,388 @@
+---
+title: Operaciones en $\mathbb{R}^2$
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+filters:
+  - pyodide
+---
+## Clase de Álgebra Lineal: Operaciones en $\mathbb{R}^2$
+
+En esta clase, vamos a repasar los conceptos fundamentales de los vectores en $\mathbb{R}^2$, la suma de vectores, la multiplicación por escalar, las normas y la proyección de un vector sobre otro.
+
+---
+
+##  Vectores en $\mathbb{R}^2$
+
+###  Definición
+- Un **vector** en $\mathbb{R}^2$ es un par ordenado de números reales.
+- Podemos denotarlo como $\mathbf{v}=(v_1,v_2)$ o como columna:
+  $$
+  \mathbf{v}=\begin{pmatrix}v_1\\v_2\end{pmatrix}
+  $$
+  donde $v_1,v_2\in\mathbb{R}$.
+
+###  Interpretación Geométrica
+- Cada vector en $\mathbb{R}^2$ puede representarse como un **segmento dirigido** en el plano cartesiano, con origen en $(0,0)$ y extremo en $(v_1,v_2)$.
+- Su **longitud** (o magnitud) y **dirección** permiten describir el vector de forma geométrica.
+
+---
+
+##  Suma de Vectores
+
+###  Definición de la Suma
+Dadas dos vectores $\mathbf{u}=(u_1,u_2)$ y $\mathbf{v}=(v_1,v_2)$ en $\mathbb{R}^2$, su **suma** se define como:
+$$
+\mathbf{u}+\mathbf{v}=(u_1+v_1,u_2+v_2)
+$$
+
+###  Interpretación Geométrica
+- Para sumar los vectores $\mathbf{u}$ y $\mathbf{v}$ en el plano, se utiliza la **regla del paralelogramo** o el **método cabeza-cola**:
+  1. Trasladar (sin rotar) el vector $\mathbf{v}$ de modo que su cola coincida con la cabeza de $\mathbf{u}$.
+  2. El vector resultante va desde la cola de $\mathbf{u}$ hasta la cabeza de $\mathbf{v}$.
+
+###  Ejemplo
+Supongamos:
+$$
+\mathbf{u}=(2,3),\mathbf{v}=(-1,5).
+$$
+Entonces:
+$$
+\mathbf{u}+\mathbf{v}=(2+(-1),3+5)=(1,8).
+$$
+
+---
+
+### Multiplicación por un Escalar
+
+###  Definición
+Dado un vector $\mathbf{v}=(v_1,v_2)$ y un número real $\alpha\in\mathbb{R}$ (llamado **escalar**), la **multiplicación por escalar** se define como:
+$$
+\alpha\mathbf{v}=(\alpha v_1,\alpha v_2)
+$$
+
+###  Interpretación Geométrica
+- Multiplicar un vector por un escalar **estira** o **encoge** al vector (cambiando su magnitud) y, si $\alpha<0$, también **invierte** su dirección.
+
+### Ejemplo
+Sea $\mathbf{v}=(2,-1)$ y $\alpha=3$. Entonces:
+$$
+3\mathbf{v}=3\cdot(2,-1)=(6,-3).
+$$
+
+---
+## Propiedades de la Suma y la Multiplicación por Escalar en $\mathbb{R}^2$
+
+Las operaciones de suma de vectores y multiplicación por escalar en $\mathbb{R}^2$ cumplen con las siguientes propiedades:
+
+1. **Conmutatividad de la Suma**:
+   $$
+   \mathbf{u}+\mathbf{v}=\mathbf{v}+\mathbf{u}.
+   $$
+2. **Asociatividad de la Suma**:
+    $$
+    (\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w}).
+    $$
+3. **Elemento Neutro de la Suma**:
+    $$
+    \mathbf{v}+\mathbf{0}=\mathbf{v},
+    $$
+    donde $\mathbf{0}=(0,0)$ es el **vector nulo**.
+4. **Inverso Aditivo**:
+    $$
+    \mathbf{v}+(-\mathbf{v})=\mathbf{0}.
+    $$
+5. **Distributividad de la Multiplicación por Escalar**:
+    $$
+    \alpha(\mathbf{u}+\mathbf{v})=\alpha\mathbf{u}+\alpha\mathbf{v}.
+    $$
+6. **Asociatividad de la Multiplicación por Escalar**:
+    $$
+    \alpha(\beta\mathbf{v})=(\alpha\beta)\mathbf{v}.
+    $$
+7. **Identidad de la Multiplicación por Escalar**:
+    $$
+    1\mathbf{v}=\mathbf{v}.
+    $$
+
+
+
+
+
+---
+## Normas de un Vector
+
+La **norma** de un vector se refiere a la “longitud” o “magnitud” de dicho vector. Existen varias normas, pero la más común en $\mathbb{R}^2$ es la norma Euclidiana.
+
+###  Norma Euclidiana ($\|\cdot\|_2$), llamada norma $L_2$
+Para un vector $\mathbf{v}=(v_1,v_2)$, la norma euclidiana se define como:
+$$
+\|\mathbf{v}\|_2=\sqrt{v_1^2+v_2^2}.
+$$
+- Ejemplo: Si $\mathbf{v}=(3,4)$,
+  $$
+  \|\mathbf{v}\|_2=\sqrt{3^2+4^2}=\sqrt{9+16}=\sqrt{25}=5.
+  $$
+
+###  Otras Normas (opcional) 
+- **Norma 1**: $\|\mathbf{v}\|_1=|v_1|+|v_2|$.
+- **Norma Infinito**: $\|\mathbf{v}\|_\infty=\max(|v_1|,|v_2|)$.
+
+Para la mayor parte de los casos en geometría básica y proyecciones, la **norma euclidiana** es la más utilizada.
+
+De esta forma podemos visualizar las diferencias entre las normas de un vector en $\mathbb{R}^2$. Para ello veremos como se puede interpretar una circunferencia en cada una de las normas.
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Valores de p para los que se dibujarán las circunferencias
+valores_de_p = [1,2]
+colores = ['red', 'blue', 'green', 'orange']
+
+# Definición de los puntos en el círculo unitario
+theta = np.linspace(0, 2 * np.pi, 1000)
+x =  np.linspace(-1, 1, 1000)
+
+
+# Configuración del gráfico
+plt.figure(figsize=(10, 8))
+plt.title("Circunferencias en Normas $L_p$")
+
+# Dibuja las circunferencias para diferentes valores de p
+for j in range(len(valores_de_p)):
+    p=valores_de_p[j]
+    y = (1-np.abs(x) ** p ) ** (1 / p)
+    plt.plot(x, y, label=f"$L_{p}$ Norma, p={p}",color=colores[j])
+    plt.plot(x, -y, color=colores[j])
+
+# Añade etiquetas y leyenda
+plt.xlabel("Eje X")
+plt.ylabel("Eje Y")
+plt.legend()
+plt.grid(True)
+
+# Muestra el gráfico
+plt.axis("equal")
+plt.show()
+```
+
+
+::: {.callout-caution collapse="true"}
+## Ejercicio
+
+¿Cómo se debería dibujar la circunferencia en el caso de la norma infinito?
+
+:::
+
+### Propiedades de la Norma
+
+La norma euclidiana en $\mathbb{R}^2$ cumple con las siguientes propiedades:
+
+1. **Positividad**:
+   $$
+   \|\mathbf{v}\|_2\geq 0,\quad\text{y}\quad\|\mathbf{v}\|_2=0\text{ si y solo si }\mathbf{v}=\mathbf{0}.
+   $$
+2. **Homogeneidad**:
+    $$
+    \|\alpha\mathbf{v}\|_2=|\alpha|\|\mathbf{v}\|_2.
+    $$
+3. **Desigualdad Triangular**:
+    $$
+    \|\mathbf{u}+\mathbf{v}\|_2\leq\|\mathbf{u}\|_2+\|\mathbf{v}\|_2.
+    $$
+
+
+## Proyección de un Vector en $\mathbb{R}^2$
+
+La **proyección** de un vector $\mathbf{u}$ sobre otro vector $\mathbf{v}$ (asumiendo $\mathbf{v}\neq\mathbf{0}$) es el vector en la dirección de $\mathbf{v}$ que representa la parte de $\mathbf{u}$ en esa dirección.
+
+### 5.1 Definición
+La proyección de $\mathbf{u}$ sobre $\mathbf{v}$, denotada como $\text{proj}_{\mathbf{v}}(\mathbf{u})$, se define como:
+$$
+\text{proj}_{\mathbf{v}}(\mathbf{u})=\left(\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\right)\mathbf{v}.
+$$
+- $\mathbf{u}\cdot\mathbf{v}$ es el **producto punto**:
+  $$
+  \mathbf{u}\cdot\mathbf{v}=u_1v_1+u_2v_2.
+  $$
+- $\mathbf{v}\cdot\mathbf{v}=\|\mathbf{v}\|_2^2=v_1^2+v_2^2$.
+
+### 5.2 Ejemplo
+Sean:
+$$
+\mathbf{u}=(2,1),\mathbf{v}=(3,0).
+$$
+1. Calcular el producto punto $\mathbf{u}\cdot\mathbf{v}$:
+   $$
+   \mathbf{u}\cdot\mathbf{v}=(2)(3)+(1)(0)=6.
+   $$
+2. Calcular $\mathbf{v}\cdot\mathbf{v}$:
+   $$
+   \mathbf{v}\cdot\mathbf{v}=(3)(3)+(0)(0)=9.
+   $$
+3. Hallar la proyección:
+   $$
+   \text{proj}_{\mathbf{v}}(\mathbf{u})=\left(\frac{6}{9}\right)(3,0)=\left(\frac{2}{3}\right)(3,0)=(2,0).
+   $$
+
+Geométricamente, $\mathbf{u}$ se proyecta sobre $\mathbf{v}$ y el vector resultante es **paralelo** a $\mathbf{v}$.
+
+---
+
+## 6. Resumen
+
+1. **Vectores en $\mathbb{R}^2$:** Se representan como pares ordenados $(v_1,v_2)$.
+2. **Suma de Vectores:** Suma componente a componente.
+3. **Multiplicación por Escalar:** Escala la magnitud del vector y puede invertir su dirección (si el escalar es negativo).
+4. **Normas:** Principalmente la norma euclidiana $\sqrt{v_1^2+v_2^2}$ para medir la “longitud” del vector.
+5. **Proyección:** $\text{proj}_{\mathbf{v}}(\mathbf{u})$ calcula la componente de $\mathbf{u}$ en la dirección de $\mathbf{v}$.
+
+Con estos conceptos, ya tienes las bases para entender y trabajar con operaciones vectoriales fundamentales en $\mathbb{R}^2$. ¡Sigue practicando con ejemplos para reforzar tu comprensión!
+
+
+
+
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definimos las funciones
+
+def vector_addition(u, v):
+    """Suma de dos vectores en R2"""
+    return np.array([u[0] + v[0], u[1] + v[1]])
+
+def scalar_multiplication(alpha, v):
+    """Multiplicación de un vector por un escalar"""
+    return np.array([alpha * v[0], alpha * v[1]])
+
+def vector_norm(v):
+    """Calcula la norma euclidiana de un vector"""
+    return np.sqrt(v[0]**2 + v[1]**2)
+
+def vector_projection(u, v):
+    """Proyección del vector u sobre v"""
+    v_norm_squared = v[0]**2 + v[1]**2
+    scalar_projection = np.dot(u, v) / v_norm_squared
+    return scalar_projection * v
+
+# Visualización gráfica de la suma de vectores
+def plot_vector_addition(u, v):
+    """Representa gráficamente la suma de vectores usando el método cabeza-cola"""
+    result = vector_addition(u, v)
+
+    plt.figure(figsize=(8, 8))
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.grid(color='gray', linestyle='--', linewidth=0.5)
+
+    # Dibujar los vectores
+    plt.quiver(0, 0, u[0], u[1], angles='xy', scale_units='xy', scale=1, color='blue', label='u')
+    plt.quiver(u[0], u[1], v[0], v[1], angles='xy', scale_units='xy', scale=1, color='green', label='v')
+    plt.quiver(0, 0, result[0], result[1], angles='xy', scale_units='xy', scale=1, color='red', label='u+v')
+
+    # Configurar límites y etiquetas
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
+    plt.legend()
+    plt.title('Suma de vectores (Método cabeza-cola)')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Visualización gráfica de la multiplicación por escalar
+def plot_scalar_multiplication(alpha, v):
+    """Representa gráficamente la multiplicación por escalar"""
+    scaled_v = scalar_multiplication(alpha, v)
+
+    plt.figure(figsize=(8, 8))
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.grid(color='gray', linestyle='--', linewidth=0.5)
+
+    # Dibujar el vector original y el escalado
+    plt.quiver(0, 0, v[0], v[1], angles='xy', scale_units='xy', scale=1, color='blue', label='v')
+    plt.quiver(0, 0, scaled_v[0], scaled_v[1], angles='xy', scale_units='xy', scale=1, color='red', label=f'{alpha}v')
+
+    # Configurar límites y etiquetas
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
+    plt.legend()
+    plt.title('Multiplicación por escalar')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Visualización gráfica de la proyección
+def plot_vector_projection(u, v):
+    """Representa gráficamente la proyección de un vector sobre otro"""
+    proj = vector_projection(u, v)
+
+    plt.figure(figsize=(8, 8))
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.grid(color='gray', linestyle='--', linewidth=0.5)
+
+    # Dibujar los vectores
+    plt.quiver(0, 0, u[0], u[1], angles='xy', scale_units='xy', scale=1, color='blue', label='u')
+    plt.quiver(0, 0, v[0], v[1], angles='xy', scale_units='xy', scale=1, color='green', label='v')
+    plt.quiver(0, 0, proj[0], proj[1], angles='xy', scale_units='xy', scale=1, color='red', label='Proyección de u sobre v')
+
+    # Configurar límites y etiquetas
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
+    plt.legend()
+    plt.title('Proyección de un vector sobre otro')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    # Definir vectores
+    u = np.array([3, 2])
+    v = np.array([1, 4])
+
+    print("Vector u:", u)
+    print("Vector v:", v)
+
+    # Suma de vectores
+    u_plus_v = vector_addition(u, v)
+    print("Suma de vectores u + v:", u_plus_v)
+
+    # Multiplicación por escalar
+    alpha = 2
+    scaled_u = scalar_multiplication(alpha, u)
+    print(f"Vector u multiplicado por {alpha}:", scaled_u)
+
+    # Norma de un vector
+    norm_u = vector_norm(u)
+    print("Norma del vector u:", norm_u)
+
+    # Proyección de u sobre v
+    proj_u_on_v = vector_projection(u, v)
+    print("Proyección de u sobre v:", proj_u_on_v)
+
+    # Visualización gráfica
+    plot_vector_addition(u, v)
+    plot_scalar_multiplication(alpha, u)
+    plot_vector_projection(u, v)
+
+```
+Para realizar las anteriores operaciones con vectores en $\mathbb{R}^2$, podemos utilizar la librería NumPy en Python. A continuación, se muestra un ejemplo de código que realiza la suma de vectores, la multiplicación por escalar, el cálculo de la norma de un vector y la proyección de un vector sobre otro en $\mathbb{R}^2$:
+```{pyodide-python}
+import numpy as np
+u = np.array([3, -6])
+v = np.array([-1, 4])
+print("Vector u:", u)
+print("Vector v:", v)
+print("Suma de vectores u + v:", u + v)
+print("Vector u multiplicado por 2:", 2 * u)
+print("Norma del vector u:", np.linalg.norm(u))
+print("Proyección de u sobre v:", np.dot(u, v) / np.dot(v, v) * v)
+```

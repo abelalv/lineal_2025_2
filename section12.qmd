@@ -1,0 +1,418 @@
+---
+title: Vectores de $R^n$
+format: html
+filters:
+  - pyodide
+---
+
+
+Un vector $v$ de tamaño $n \times 1$ se puede escribir como:
+
+$$
+v = \begin{bmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{bmatrix}
+$$
+
+donde $v_i$ es el $i$-ésimo elemento del vector $v$. Un vector se puede representar como una matriz de una sola columna. Por ejemplo, el vector $v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ se puede representar como la matriz $A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{bmatrix}$.
+
+En python se puede escribir un vector como una lista o como un array de numpy. Por ejemplo, el vector $v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ se puede escribir como:
+
+```{python}
+import numpy as np
+v = np.array([[1], [2], [3]])
+print(v)
+```
+otra forma de escribirlo es como un array de numpy de una sola fila y tres columnas:
+```{python}
+import numpy as np
+v = np.array([1, 2, 3])
+v=v.reshape(3, 1)
+print(v)
+```
+Operaciones con vectores
+
+1. Suma de vectores:
+
+Sea $v_1 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ y $v_2 = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}$, entonces la suma de los vectores $v_1$ y $v_2$ se define como:
+
+$$
+v_1 + v_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} + \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 1 + 4 \\ 2 + 5 \\ 3 + 6 \end{bmatrix} = \begin{bmatrix} 5 \\ 7 \\ 9 \end{bmatrix}
+$$
+
+2. Multiplicación de un vector por un escalar:
+
+Sea $v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ y $k = 2$, entonces la multiplicación del vector $v$ por el escalar $k$ se define como:
+
+$$
+kv = 2 \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} = \begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}
+$$
+
+## Propiedades de la suma y multiplicación de vectores
+
+1. La suma de vectores es conmutativa:
+$$
+v_1 + v_2 = v_2 + v_1
+$$
+2. La suma de vectores es asociativa:
+$$
+(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)
+$$
+3. La multiplicación de un vector por un escalar es distributiva:
+$$
+k(v_1 + v_2) = kv_1 + kv_2
+$$
+4. La multiplicación de un vector por un escalar es asociativa:
+
+$$
+k(v_1 + v_2) = kv_1 + kv_2
+$$
+5. La multiplicación de un vector por un escalar es conmutativa:
+$$
+kv_1 = v_1k
+$$
+
+
+3. Producto punto de dos vectores:
+
+Sea $v_1 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ y $v_2 = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}$, entonces el producto punto de los vectores $v_1$ y $v_2$ se define como:
+
+$$
+v_1 \cdot v_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \cdot \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} = 1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 4 + 10 + 18 = 32
+$$
+
+Estas operaciones las podemos realizar en python de la siguiente manera:
+
+```{python}
+import numpy as np
+v1 = np.array([[1], [2], [3]])
+v2 = np.array([[4], [5], [6]])
+suma = v1 + v2
+multiplicacion = 2 * v1
+producto_punto = np.dot(v1.T, v2)
+print("Suma de vectores:", suma)
+print("Multiplicación de un vector por un escalar:", multiplicacion)
+print("Producto punto de dos vectores:", producto_punto)
+```
+## Propiedades del producto punto
+
+1. El producto punto es conmutativo:
+$$
+v_1 \cdot v_2 = v_2 \cdot v_1
+$$
+2. El producto punto es distributivo:
+$$
+v_1 \cdot (v_2 + v_3) = v_1 \cdot v_2 + v_1 \cdot v_3
+$$
+## Definición
+
+Dos vectores $v_1$ y $v_2$ son ortogonales si su producto punto es cero:
+
+$$
+v_1 \cdot v_2 = 0
+$$
+
+## Normas de vectores
+
+La norma de un vector $v$ se define como la longitud del vector. La norma de un vector se puede calcular utilizando la siguiente fórmula:
+
+$$
+||v|| = \sqrt{v_1^2 + v_2^2 + \ldots + v_n^2}
+$$
+
+La norma de un vector se puede calcular en python utilizando la función `numpy.linalg.norm()`. Por ejemplo, la norma del vector $v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ se puede calcular de la siguiente manera:
+```{python}
+import numpy as np
+v = np.array([[1], [2], [3]])
+norma = np.linalg.norm(v)
+print("Norma del vector:", norma)
+```
+
+## Propiedades de la norma 
+
+1. La norma de un vector es siempre no negativa:
+$$
+||v|| \geq 0
+$$
+2. La norma de un vector es cero si y solo si el vector es el vector cero:
+$$
+||v|| = 0 \Leftrightarrow v = 0
+$$
+3. La norma de un vector es homogénea:
+$$
+||kv|| = |k| ||v||
+$$
+4.Desigualdad triangular:
+$$
+||v_1 + v_2|| \leq ||v_1|| + ||v_2||
+$$
+
+## Como podemos interpretar la norma de un vector en $R^N$?
+
+La norma de un vector en $R^N$ se puede interpretar como la distancia entre el origen y el punto representado por el vector en el espacio euclidiano. Por ejemplo en $R^3$ la norma de un vector $v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ se puede interpretar como la distancia entre el origen $(0,0,0)$ y el punto $(1,2,3)$ en el espacio tridimensional. Esta distancia se puede calcular utilizando la fórmula de la distancia euclidiana:
+
+$$
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+$$
+
+Veamos la siguiente animación en python:
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Create the figure and 3D axis
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Initial vector
+v = np.array([1, 2, 3])
+
+# Plot the origin
+ax.scatter(0, 0, 0, color='black', label='Origen')
+
+# Plot the initial vector
+ax.plot([0, v[0]], [0, v[1]], [0, v[2]], label='Vector', color='black')
+
+# Plot projections on each axis
+ax.plot([0, v[0]], [0, 0], [0, 0], label='Distancia en X', color='red', linestyle='dotted')
+ax.plot([0, 0], [0, v[1]], [0, 0], label='Distancia en Y', color='blue', linestyle='dotted')
+ax.plot([0, 0], [0, 0], [0, v[2]], label='Distancia en Z', color='green', linestyle='dotted')
+
+
+# Set axis limits
+ax.set_xlim([-5, 5])
+ax.set_ylim([-5, 5])
+ax.set_zlim([-5, 5])
+
+# Add labels
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+# Show the plot
+plt.legend()
+plt.show()
+```
+
+## Relación entre la norma y el producto punto
+
+La norma de un vector se puede calcular utilizando el producto punto de la siguiente manera:
+$$
+||v|| = \sqrt{v \cdot v}=\sum_{i=1}^{n} v_i^2
+$$
+
+
+## Ejercicio
+Encuentra la norma del vector $v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$ utilizando la definición de norma y el producto punto.
+
+```{pyodide-python}
+import numpy as np
+v = np.array([[1], [2], [3]])
+norma = np.sqrt(np.dot(v.T, v))
+print("Norma del vector:", norma)
+```
+## Desigualdad de Cauchy-Schwarz
+
+La desigualdad de Cauchy-Schwarz establece que para cualquier par de vectores $u$ y $v$ en un espacio euclidiano, se cumple la siguiente desigualdad:
+
+$$
+|u \cdot v| \leq ||u|| \cdot ||v||
+$$  
+
+
+
+```{pyodide-python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create the figure
+fig, ax = plt.subplots()
+
+# Define vectors u and v
+u = np.array([3, 2])
+v = np.array([1, 4])
+
+# Calculate dot product and norms
+dot_product = np.dot(u, v)
+norm_u = np.linalg.norm(u)
+norm_v = np.linalg.norm(v)
+
+# Plot vectors u and v
+ax.quiver(0, 0, u[0], u[1], angles='xy', scale_units='xy', scale=1, color='blue', label='Vector u')
+ax.quiver(0, 0, v[0], v[1], angles='xy', scale_units='xy', scale=1, color='green', label='Vector v')
+
+# Add text to explain the inequality
+ax.text(0.5, 3.5, f"|u · v| = {abs(dot_product):.2f}", color='black')
+ax.text(0.5, 3.0, f"||u|| * ||v|| = {norm_u * norm_v:.2f}", color='black')
+ax.text(0.5, 2.5, "|u · v| ≤ ||u|| * ||v||", color='red')
+
+# Set axis limits and labels
+ax.set_xlim(-1, 5)
+ax.set_ylim(-1, 5)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.axhline(0, color='black',linewidth=0.5)
+ax.axvline(0, color='black',linewidth=0.5)
+ax.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+ax.legend()
+
+# Show the plot
+plt.title("Desigualdad de Cauchy-Schwarz en R²")
+plt.show()
+```
+
+
+## Ejercicio
+
+
+Compruebe la desigualdad de Cauchy-Schwarz para los vectores $para los vecores en
+$R^4$ $u = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}$ y $v = \begin{bmatrix} 5 \\ 6 \\ 7 \\ 8 \end{bmatrix}$.
+
+```{pyodide-python}
+## Vector normal 
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the vector and its normal
+v = np.array([2, 3])
+normal = np.array([-v[1], v[0]])  # Rotate 90 degrees to get the normal vector
+
+# Create the figure
+fig, ax = plt.subplots()
+
+# Plot the vector
+ax.quiver(0, 0, v[0], v[1], angles='xy', scale_units='xy', scale=1, color='blue', label='Vector v')
+
+# Plot the normal vector
+ax.quiver(0, 0, normal[0], normal[1], angles='xy', scale_units='xy', scale=1, color='red', label='Normal vector')
+
+```
+# Producto Cruz 
+
+El producto cruz de dos vectores $u$ y $v$ en $R^3$ se define como un nuevo vector que es ortogonal a ambos vectores. El producto cruz se denota como $u \times v$ y se calcula utilizando la siguiente fórmula:
+$$
+u \times v = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3
+\end{vmatrix}
+= \begin{bmatrix}
+u_2v_3 - u_3v_2 \\ u_3v_1 - u_1v_3 \\ u_1v_2 - u_2v_1
+\end{bmatrix}
+$$
+donde $\hat{i}$, $\hat{j}$ y $\hat{k}$ son los vectores unitarios en las direcciones $x$, $y$ y $z$ respectivamente.
+
+
+```{pyodide-python}
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.widgets import Slider
+
+# Define initial vectors u and v
+u = np.array([1, 0, 0])
+v = np.array([0, 1, 0])
+
+# Compute the cross product
+cross_product = np.cross(u, v)
+
+# Create the figure and 3D axis
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Plot vectors u, v, and their cross product
+quiver_u = ax.quiver(0, 0, 0, u[0], u[1], u[2], color='blue', label='Vector u')
+quiver_v = ax.quiver(0, 0, 0, v[0], v[1], v[2], color='green', label='Vector v')
+quiver_cross = ax.quiver(0, 0, 0, cross_product[0], cross_product[1], cross_product[2], color='red', label='u × v')
+
+# Set axis limits
+ax.set_xlim([-1, 1])
+ax.set_ylim([-1, 1])
+ax.set_zlim([-1, 1])
+
+# Add labels
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+# Add legend
+ax.legend()
+
+# Add sliders for u and v components
+ax_slider_u = plt.axes([0.2, 0.02, 0.65, 0.03])
+slider_u = Slider(ax_slider_u, 'u', -1.0, 1.0, valinit=1.0)
+
+ax_slider_v = plt.axes([0.2, 0.06, 0.65, 0.03])
+slider_v = Slider(ax_slider_v, 'v', -1.0, 1.0, valinit=1.0)
+
+# Update function for sliders
+def update(val):
+    u[0] = slider_u.val
+    v[1] = slider_v.val
+    cross_product = np.cross(u, v)
+    
+    # Update quivers
+    quiver_u.remove()
+    quiver_v.remove()
+    quiver_cross.remove()
+    ax.quiver(0, 0, 0, u[0], u[1], u[2], color='blue', label='Vector u')
+    ax.quiver(0, 0, 0, v[0], v[1], v[2], color='green', label='Vector v')
+    ax.quiver(0, 0, 0, cross_product[0], cross_product[1], cross_product[2], color='red', label='u × v')
+    fig.canvas.draw_idle()
+
+# Connect sliders to update function
+slider_u.on_changed(update)
+slider_v.on_changed(update)
+
+# Show the plot
+plt.title("Producto Cruz de u y v en R³ con Sliders")
+plt.show()
+```
+## Propiedades del producto cruz
+
+1. El producto cruz es anticomutativo:
+$$
+u \times v = - (v \times u)
+$$
+2. El producto cruz es distributivo:
+$$
+u \times (v + w) = u \times v + u \times w
+$$
+3. El producto cruz es bilineal:
+$$
+k(u \times v) = (ku) \times v = u \times (kv)
+$$
+4. La magnitud del producto cruz es igual al área del paralelogramo formado por los vectores $u$ y $v$:
+$$
+||u \times v|| = ||u|| \cdot ||v|| \cdot \sin(\theta)
+$$
+donde $\theta$ es el ángulo entre los vectores $u$ y $v$.
+5. El producto cruz de dos vectores paralelos es cero:
+$$
+u \times v = 0
+$$
+
+
+## Rectas de planos en $R^3$
+
+Una recta en $R^3$ se puede definir como el conjunto de puntos que satisfacen la ecuación paramétrica:
+
+$L(t)=v+tu$
+
+Ejemplo el calculo de que pasa por el punto
+$$v=(1,2,3)$$ y tiene como vector directriz 
+$$v=[1,2,0]$$
+es
+
+$$L(t)=(1+t,2+t,3)$$
+
+Ademas podemos calcular la ecaución simetricas para esto igualamos cada elemento 
+
+$$1+t=x$$
+$$2+t=y$$
+$$3=z$$
+
+ahora 
+
+$$x-1=y-2,\ z=3$$

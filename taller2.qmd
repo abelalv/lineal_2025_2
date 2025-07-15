@@ -1,0 +1,33 @@
+---
+title: Ejercicios $\mathbb{R}^2$
+format: html
+filters:
+  - pyodide
+---
+## **Problema 1**  
+
+En una ciudad se úed modelar mediante un plano cartesiano, en ella existen doa avenidas, **La avenida A** pasa por el punto $(2,5)$ y tiene dirección $(6,9)$, mientras que **La avenida B** pasa por el punto $(5,8)$ y tiene dirección $(1,\dfrac{3}{2})$.
+
+### **Pregunta:**  
+Encuentra la distancia mínima entre ellas. 
+
+
+## **Problema 2**
+
+
+Un ingeniero está analizando un sistema mecánico en el que dos fuerzas actúan sobre un punto en el plano \( \mathbb{R}^2 \). Estas fuerzas están representadas por los siguientes vectores en Newtons:
+
+- **Fuerza 1**:  
+  $$
+  \mathbf{F}_1 = (5, 2)
+  $$
+- **Fuerza 2**:  
+  $$
+  \mathbf{F}_2 = (3, 6)
+  $$
+
+El ingeniero necesita determinar el ángulo entre estas dos fuerzas para analizar su efecto combinado sobre la estructura.  
+
+### **Preguntas:**  
+a. Calcula el ángulo $\theta$ entre los dos vectores 
+b. ¿Cómo influiría este ángulo en la estabilidad del sistema si ambas fuerzas estuvieran actuando sobre un mismo punto?  

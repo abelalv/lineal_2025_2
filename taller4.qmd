@@ -1,0 +1,165 @@
+---
+title: "Ejercicios de Autovalores y Autovectores (Matrices 2x2)"
+format: html
+filters:
+  - pyodide
+---
+
+# Introducción
+
+
+## Ejercicios
+
+
+Dada la matriz, encontrar los valores propios y vectores propios.
+1. $A = \begin{bmatrix} 4 & 2 \\ 1 & 3 \end{bmatrix}$
+
+
+2. $B = \begin{bmatrix} 5 & -2 \\ 2 & 1 \end{bmatrix}$
+
+3. $E = \begin{bmatrix} 6 & 2 \\ 2 & 3 \end{bmatrix}$
+
+4. $G = \begin{bmatrix} -1 & -2 \\ 2 & -3 \end{bmatrix}$
+
+5. Determina para que valor $\alpha$ la matriz $H = \begin{bmatrix} 2 & 1 \\ 1 & \alpha \end{bmatrix}$ tiene un solo valor propio.
+
+
+6. Un modelo lineal de evolución poblacional para dos especies está dado por la matriz:
+
+$$
+\begin{bmatrix}y_{n+1}\\ x_{n+1}\end{bmatrix}= \begin{bmatrix} 0.8 & 0.3 \\ 0.2 & 0.7 \end{bmatrix}\begin{bmatrix}y_{n}\\ x_{n}\end{bmatrix}
+$$
+
+El sistema anterior, la matriz de transición describe cómo las poblaciones de dos especies (denotadas como $y$ y $x$) evolucionan de un tiempo $n$ al siguiente tiempo $n+1$. Los elementos de la matriz representan las tasas de crecimiento y las interacciones entre las dos especies. 
+Si la población inicial es $y_0= 0.2$ y $x_0=0.8$, (Usa un computador para realizar rápidamente los cálculos)
+
+a. ¿cuál será la población en tiempo n=10. Halla los valores propios y vectores propios para analizar el comportamiento del sistema. 
+
+b. Como podemos interpretar los valores propios en este contexto.
+
+
+7. En el siguiente plano se dibuja una casa. 
+
+Los puntos se encuentran en las coordenadas:
+
+$$\begin{array}{|c|c|c|c|c|c|c|} \hline
+\text{Punto} & A & B & C & D & E & A \\ \hline
+x & 0 & 4 & 4 & 2 & 0 & 0 \\ \hline
+y & 0 & 0 & 3 & 5 & 3 & 0 \\ \hline
+\end{array}$$
+
+Multiplica a cada uno de los puntos por la matriz
+
+$$A= \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$$
+
+y dibuja la nueva casa.
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+# Cambiar la fuente predeterminada para evitar DejaVuSans
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Liberation Sans', 'Helvetica']
+
+
+
+
+# Definir la matriz de coordenadas de la casa
+H = np.array([[0, 4, 4, 2, 0, 0], 
+              [0, 0, 3, 5, 3, 0]])  # Se repite el primer punto para cerrar la casa
+
+# Matriz de Rotación de 45 grados
+theta = np.radians(45)  # Convertir a radianes
+T = np.array([[np.cos(theta), -np.sin(theta)], 
+              [np.sin(theta), np.cos(theta)]])
+
+# Aplicar la transformación
+#H_transformed = T @ H  # Multiplicación de matrices
+
+# Graficar la casa original y la transformada
+plt.figure(figsize=(6,6))
+plt.plot(H[0], H[1], 'bo-', label="Casa Original")  # Dibujo original
+#plt.plot(H_transformed[0], H_transformed[1], 'ro-', label="Casa Transformada")  # Transformada
+
+# Configuración de la gráfica
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
+plt.xlim(-5, 6)
+plt.ylim(-5, 6)
+plt.grid(True, linestyle="--", linewidth=0.5)
+plt.gca().set_aspect('equal', adjustable='box')  # Establecer la grilla 1 en 1
+plt.gca().set_xticks(np.arange(-5, 7, 1))  # Espaciado de 1 en 1 en el eje x
+plt.gca().set_yticks(np.arange(-5, 7, 1))  # Espaciado de 1 en 1 en el eje y
+plt.legend()
+#plt.title("Transformación de la Casa (Rotación 45°)")
+plt.show()
+```
+a. Como podemos interpretar la transformación de la casa en este contexto.
+
+b. Encuentra los valores propios y vectores propios de la matriz de rotación y analiza su comportamiento.
+
+c. ¿Qué pasa si la matriz de rotación es $A= \begin{bmatrix} 1 & 0 \\ -1 & 0 \end{bmatrix}$? ¿Qué sucede con la casa? ¿Cuales son los valores propios y vectores propios de la matriz? ¿Qué interpretación podemos dar a los valores propios en este contexto?
+
+d. Crea la matriz en python de la forma 
+
+>import numpy as np
+>H = np.array([[0, 4, 4, 2, 0, 0], 
+              [0, 0, 3, 5, 3, 0]]) 
+
+>A= np.array([[2, 1], 
+              [1, 2]])              
+
+para aplicar la transformación  
+
+
+>H_transformed = A @ H
+
+Para dibujar la nueva casa.
+
+
+>import matplotlib.pyplot as plt
+
+>plt.plot(H[0], H[1], 'bo-', label="Casa Original")  # Dibujo original
+
+>plt.plot(H_transformed[0], H_transformed[1], 'ro-', label="Casa Transformada")  # Transformada
+
+
+
+```{pyodide-python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definir la matriz de coordenadas de la casa
+H = np.array([[0, 4, 4, 2, 0, 0], 
+              [0, 0, 3, 5, 3, 0]])  # Se repite el primer punto para cerrar la casa
+
+# Matriz de Rotación
+T = np.array([[2, 1], 
+              [1,2]])
+
+# Aplicar la transformación
+H_transformed = T @ H  # Multiplicación de matrices
+
+# Graficar la casa original y la transformada
+plt.figure(figsize=(6,6))
+plt.plot(H[0], H[1], 'bo-', label="Casa Original")  # Dibujo original
+plt.plot(H_transformed[0], H_transformed[1], 'ro-', label="Casa Transformada")  # Transformada
+
+# Configuración de la gráfica
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
+plt.xlim(-1, 20)
+plt.ylim(-1, 20)
+plt.grid(True, linestyle="--", linewidth=0.5)
+plt.gca().set_aspect('equal', adjustable='box')  # Establecer la grilla 1 en 1
+plt.gca().set_xticks(np.arange(-1, 20, 1))  # Espaciado de 1 en 1 en el eje x
+plt.gca().set_yticks(np.arange(-1, 20, 1))  # Espaciado de 1 en 1 en el eje y
+plt.legend()
+plt.title("Transformación de la Casa ")
+plt.show()
+
+```
