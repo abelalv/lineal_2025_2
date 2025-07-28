@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Operaciones con matrices</title>
+<title>Subespacion en R^n</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller7.html">Taller Operaciones con matrices n x n</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Subespacion en <span class="math inline">\(R^n\)</span></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +146,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -298,25 +298,25 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller7.html" class="sidebar-item-text sidebar-link active">
+  <a href="./taller7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller Operaciones con matrices n x n</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -327,15 +327,32 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#combinaciones-lineales" id="toc-combinaciones-lineales" class="nav-link active" data-scroll-target="#combinaciones-lineales">Combinaciones lineales</a>
+  <ul class="collapse">
+  <li><a href="#subespacios-generados-por-un-conjunto-de-vectores" id="toc-subespacios-generados-por-un-conjunto-de-vectores" class="nav-link" data-scroll-target="#subespacios-generados-por-un-conjunto-de-vectores">Subespacios generados por un conjunto de vectores</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#ejemplo-1" id="toc-ejemplo-1" class="nav-link" data-scroll-target="#ejemplo-1">Ejemplo</a></li>
+  <li><a href="#ejemplo-2" id="toc-ejemplo-2" class="nav-link" data-scroll-target="#ejemplo-2">Ejemplo</a></li>
+  <li><a href="#dimensión-de-un-subespacio" id="toc-dimensión-de-un-subespacio" class="nav-link" data-scroll-target="#dimensión-de-un-subespacio">Dimensión de un subespacio</a></li>
+  <li><a href="#ejemplo-3" id="toc-ejemplo-3" class="nav-link" data-scroll-target="#ejemplo-3">Ejemplo</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">E</a></li>
+  <li><a href="#base" id="toc-base" class="nav-link" data-scroll-target="#base">Base</a></li>
+  <li><a href="#ejemplo-4" id="toc-ejemplo-4" class="nav-link" data-scroll-target="#ejemplo-4">Ejemplo</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller7.html">Taller Operaciones con matrices n x n</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Operaciones con matrices</h1>
+<h1 class="title">Subespacion en <span class="math inline">\(R^n\)</span></h1>
 </div>
 
 
@@ -352,77 +369,136 @@ window.Quarto = {
 </header>
 
 
-<ol type="1">
-<li>Sean las matraces</li>
-</ol>
-<p><span class="math display">\[A=\begin{bmatrix} 1 &amp; 2 &amp;2\\ 0&amp;3 &amp; 4\\ 0&amp;3 &amp; -1 \end{bmatrix}, \quad B=\begin{bmatrix} -1 &amp; 0&amp;-2 \\ 0 &amp; -1&amp;1\\ 1 &amp; -1&amp;1 \\ 2 &amp; 1&amp;1\end{bmatrix}\]</span></p>
-<p>Calcule</p>
-<ol type="a">
-<li><p><span class="math inline">\(3A\)</span></p></li>
-<li><p><span class="math inline">\(B*A\)</span></p></li>
-<li><p>Calcule la inversa de <span class="math inline">\(A\)</span> si es posible</p></li>
-<li><p>Encuentre la matriz escalonada de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span></p></li>
-</ol>
-<ol start="2" type="1">
-<li>Responda las siguientes preguntas</li>
-</ol>
-<ol type="a">
-<li><p>¿Por que se dice que encontrar la inversa de una matriz de tamaño <span class="math inline">\(n\times n\)</span> es equivalente a resolver <span class="math inline">\(n\)</span> sistemas de ecuaciones lineales?</p></li>
-<li><p>¿Que significa que una matriz sea singular?</p></li>
-<li><p>Si un matriz es invertible entonces ¿<span class="math inline">\(A^T\)</span> es invertible?</p></li>
-</ol>
-<ol start="3" type="1">
-<li>Resuelva los siguientes sistemas de ecuaciones lineales</li>
-</ol>
-<ol type="a">
-<li><p><span class="math inline">\(\begin{cases*} 3x + 2y +3z = 1 \\ 2x + 3y + 3z = 2 \\ 3x + 3y + 4z = 3 \end{cases*}\)</span></p></li>
-<li><p><span class="math inline">\(\begin{cases*} 2x + 3y + 4z = 1 \\ 3x + 4y + 5z = 2 \\ 4x + 5y + 6z = 3 \end{cases*}\)</span></p></li>
-</ol>
-<ol start="4" type="1">
-<li>Un grupo de agricultores gestiona un sistema de riego compuesto por <strong>10 parcelas consecutivas</strong> que reciben agua de un canal principal. El flujo de agua en cada parcela depende del agua que recibe de la parcela anterior y de la que cede a la siguiente, además de un aporte externo que varía en cada una.</li>
-</ol>
-<p>La cantidad de agua <span class="math inline">\(x_i\)</span> distribuida a cada parcela <span class="math inline">\(i\)</span> (con <span class="math inline">\(i = 1, 2, ..., 10\)</span>) se modela mediante un sistema de <strong>ecuaciones tridiagonales</strong>, considerando que:</p>
+<p>Un subespacio vectorial en <span class="math inline">\(R^n\)</span> es un subconjunto <span class="math inline">\(W\)</span> de <span class="math inline">\(R^n\)</span> que cumple las siguientes propiedades:</p>
+<p>1ote que <span class="math inline">\(0\in W\)</span>, ¿Por qué?</p>
+<p><strong>Ejemplo</strong>: Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=0\}\)</span>. ¿Es <span class="math inline">\(W\)</span> un subespacio vectorial de <span class="math inline">\(R^3\)</span>? ¿Por qué?</p>
+<p><strong>Ejemplo</strong>: Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=2\}\)</span>. ¿Es <span class="math inline">\(W\)</span> un subespacio vectorial de <span class="math inline">\(R^3\)</span>? ¿Por qué?</p>
+<section id="combinaciones-lineales" class="level1">
+<h1>Combinaciones lineales</h1>
+<p>Una combinación lineal de los vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es un vector de la forma:</p>
+<p><span class="math display">\[
+\sum_{i=1}^k a_i v_i = a_1 v_1 + a_2 v_2 + \ldots + a_k v_k
+\]</span></p>
+<p>donde <span class="math inline">\(a_1,a_2,\ldots,a_k\)</span> son escalares.</p>
+<p><strong>Ejemplo</strong></p>
+<p>Sea <span class="math inline">\(v_1=(1,2,3)\)</span> y <span class="math inline">\(v_2=(4,5,6)\)</span>. El vector <span class="math inline">\(w=(7,8,9)\)</span> es combinación lineal de <span class="math inline">\(\{v_1,v_2\}\)</span>.</p>
+<p>Para resolver esto podemos escribir el sistema de ecuaciones:</p>
+<p><span class="math display">\[
+a_1\begin{bmatrix}
+1\\2\\3\end{bmatrix} + a_2\begin{bmatrix}4\\5\\6\end{bmatrix} = \begin{bmatrix}7\\8\\9\end{bmatrix}
+\]</span></p>
+<p>¿Como podemos resolver este sistema de ecuaciones?</p>
 <ul>
-<li>Cada parcela recibe agua de la anterior en una proporción <span class="math inline">\(a_i\)</span>.<br>
-</li>
-<li>Cada parcela cede una parte <span class="math inline">\(c_i\)</span> del agua que recibe a la siguiente.<br>
-</li>
-<li>Se añade un flujo externo <span class="math inline">\(b_i\)</span> que varía para cada parcela.<br>
-</li>
-<li>Se debe garantizar un equilibrio hídrico en cada parcela para maximizar la eficiencia del riego. es decir $<span class="math inline">\(a_i​x_{i−1}​+b_i​x_i​+c_i​x_{i+1}​=d_i\)</span> Para este ejemplo particular se tomo el sistema de ecuaciones es el siguiente:</li>
+<li>Encontremos la matriz aumentada del sistema de ecuaciones y escribamos el sistema de ecuaciones asociado:</li>
 </ul>
 <p><span class="math display">\[
-\begin{aligned}
-    4 x_1 +  x_2 &amp;= 10, \\
-     x_1 + 4 x_2 +  x_3 &amp;= 10, \\
-     x_2 + 4 x_3 +  x_4 &amp;= 10, \\
-     x_3 + 4 x_4 +  x_5 &amp;= 10, \\
-     x_4 + 4 x_5 +  x_6 &amp;= 10, \\
-     x_5 + 4 x_6 +  x_7 &amp;= 10, \\
-     x_6 + 4 x_7 +  x_8 &amp;= 10, \\
-     x_7 + 4 x_8 +  x_9 &amp;= 10, \\
-     x_8 + 4 x_9 +  x_{10} &amp;= 10, \\
-     x_9 + 4 x_{10} &amp;= 10.
-\end{aligned}
+\begin{bmatrix}
+1 &amp; 4 \\
+2 &amp; 5 \\
+3 &amp; 6
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+7\\
+8\\
+9
+\end{bmatrix}
 \]</span></p>
-<p>El objetivo es determinar la cantidad óptima de agua <span class="math inline">\(x_i\)</span> que debe asignarse a cada parcela para asegurar un riego eficiente en todo el sistema.</p>
-<ol type="a">
-<li><p>Escriba el sistema de ecuaciones lineales en forma matricial <span class="math inline">\(Ax = d\)</span>.</p></li>
-<li><p>El sistema tiene una solución única, ¿por qué?</p></li>
-</ol>
-<ol start="5" type="1">
-<li><p>Usando Colab y Python, resuelva el sistema de ecuaciones lineales del punto anterior y determine la cantidad óptima de agua que debe asignarse a cada parcela para asegurar un riego eficiente en todo el sistema.</p></li>
-<li><p>Sean las matrices</p></li>
-</ol>
-<p><span class="math display">\[A=\begin{bmatrix} 1 &amp; 2 &amp;2\\ 0&amp;3 &amp; 4\\ 0&amp;3 &amp; -1 \end{bmatrix}, \quad B=\begin{bmatrix} -1 &amp; 0&amp;-2 \\ 0 &amp; -1&amp;1\\ 1 &amp; -1&amp;1 \\ 2 &amp; 1&amp;1\end{bmatrix}\]</span> y <span class="math inline">\(C=\begin{bmatrix} 1 &amp; 2 &amp;2\\ 0&amp;3 &amp; 4\\ 0&amp;3 &amp; -1 \end{bmatrix}\)</span></p>
-<p>Calcule usando Colab y Python</p>
-<ol type="a">
-<li><p><span class="math inline">\(3AC\)</span></p></li>
-<li><p><span class="math inline">\(BAC\)</span></p></li>
-<li><p>Calcule la inversa de <span class="math inline">\(A\)</span> y <span class="math inline">\(C\)</span> si es posible</p></li>
-</ol>
+<p>de esta forma podemos escribir el sistema de ecuaciones como:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 4 &amp; | &amp;7 \\
+2 &amp; 5 &amp; | &amp;8 \\
+3 &amp; 6 &amp; | &amp;9
+\end{bmatrix}
+\]</span></p>
+<p>Ahora escalonemos la matriz aumentada: <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 4 &amp; | &amp;7 \\
+0 &amp; -3 &amp; | &amp;-6 \\
+0 &amp; 0 &amp; | &amp;0
+\end{bmatrix}
+\]</span></p>
+<p>de esta forma podemos encontrar la solución del sistema de ecuaciones: <span class="math display">\[
+a_1= -1\ \ a_2=2
+\]</span></p>
+<p><strong>Independencia lineal</strong></p>
+<p>Un conjunto de vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es linealmente independiente si la única combinación lineal que da cero es la trivial, es decir: <span class="math display">\[
+a_1 v_1 + a_2 v_2 + \ldots + a_k v_k = 0 \implies a_1=a_2=\ldots=a_k=0
+\]</span></p>
+<p>Un conjunto de vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es linealmente dependiente si existe una combinación lineal no trivial que da cero, es decir: <span class="math display">\[
+a_1 v_1 + a_2 v_2 + \ldots + a_k v_k = 0 \implies a_1,a_2,\ldots,a_k \text{ no todos son cero}
+\]</span></p>
+<p><strong>Ejemplo</strong></p>
+<p>Sea <span class="math inline">\(v_1=(1,0,1)\)</span>, v_2=(0,1,1)$ y <span class="math inline">\(v_3=(1,1,0)\)</span>. ¿Son linealmente independientes o dependientes?</p>
+<p>Para resolver esto podemos escribir el sistema de ecuaciones:</p>
+<p><span class="math display">\[
+a_1\begin{bmatrix}
+1\\0\\1\end{bmatrix} + a_2\begin{bmatrix}0\\1\\1\end{bmatrix} + a_3\begin{bmatrix}1\\1\\0\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}
+\]</span> ¿Como podemos resolver este sistema de ecuaciones?</p>
+<ul>
+<li>Encontremos la matriz aumentada del sistema de ecuaciones y escribamos el sistema de ecuaciones asociado: <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+a_3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix}
+\]</span></li>
+</ul>
+<p>Note que si podemos escalonar la matriz podemos decir que los vectores son linealmente independientes. Si no podemos escalonar la matriz entonces los vectores son linealmente dependientes.</p>
+<section id="subespacios-generados-por-un-conjunto-de-vectores" class="level2">
+<h2 class="anchored" data-anchor-id="subespacios-generados-por-un-conjunto-de-vectores">Subespacios generados por un conjunto de vectores</h2>
+<p>Un subespacio generado por un conjunto de vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es el conjunto de todas las combinaciones lineales de los vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span>.</p>
+</section>
+<section id="ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo">Ejemplo</h2>
+<p>Sea <span class="math inline">\(v_1=(1,0,0)\)</span> y <span class="math inline">\(v_2=(0,1,0)\)</span>. El subespacio generado por <span class="math inline">\(\{v_1,v_2\}\)</span> es el plano que pasa por el origen y es paralelo al plano <span class="math inline">\(xy\)</span>.</p>
+</section>
+<section id="ejemplo-1" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-1">Ejemplo</h2>
+<p>Sea el conjunto de vectores linealmente idependientes <span class="math inline">\(W_1=\{v_1,V_2,v_3\}\)</span> en <span class="math inline">\(R^4\)</span> y <span class="math inline">\(W_2=\{v_1,V_2,v\_3,v_4}\)</span> donde <span class="math inline">\(v_4\)</span> es una combinación lineal de <span class="math inline">\(v_1,v_2,v_3\)</span>. ¿Los subespacios generados por <span class="math inline">\(W_1\)</span> y <span class="math inline">\(W_2\)</span> son iguales? ¿Por qué?</p>
+</section>
+<section id="ejemplo-2" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-2">Ejemplo</h2>
+<p>El vector <span class="math inline">\(w=(1,0,0,-1)\)</span> se encuentra en el subespacio generado por <span class="math inline">\(V_1=(1,0,1,1),v_2=(1,0,0,0)\)</span> y <span class="math inline">\(v_3=(0,1,0,0)\)</span>. ¿Por qué?</p>
+</section>
+<section id="dimensión-de-un-subespacio" class="level2">
+<h2 class="anchored" data-anchor-id="dimensión-de-un-subespacio">Dimensión de un subespacio</h2>
+<p>La dimensión de un subespacio <span class="math inline">\(W\)</span> es el número de vectores linealmente independientes que genera un subespacio <span class="math inline">\(W\)</span>.</p>
+</section>
+<section id="ejemplo-3" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-3">Ejemplo</h2>
+<p>Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=0\}\)</span>. ¿Cuál es la dimensión de <span class="math inline">\(W\)</span>? ¿Cuál es una base de <span class="math inline">\(W\)</span>?</p>
+</section>
+<section id="e" class="level2">
+<h2 class="anchored" data-anchor-id="e">E</h2>
+</section>
+<section id="base" class="level2">
+<h2 class="anchored" data-anchor-id="base">Base</h2>
+<p>Una base de un subespacio <span class="math inline">\(W\)</span> es un conjunto de vectores linealmente independientes que generan el subespacio <span class="math inline">\(W\)</span>. La dimensión de un subespacio <span class="math inline">\(W\)</span> es el número de vectores en una base de <span class="math inline">\(W\)</span>.</p>
+</section>
+<section id="ejemplo-4" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-4">Ejemplo</h2>
+<p>Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=0\}\)</span>. ¿Cuál es la dimensión de <span class="math inline">\(W\)</span>? ¿Cuál es una base de <span class="math inline">\(W\)</span>?</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

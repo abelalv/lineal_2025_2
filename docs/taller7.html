@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Taller 3</title>
+<title>Operaciones con matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller3.html">Taller 3 (matrices)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller7.html">Taller Operaciones con matrices n x n</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +146,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -274,7 +274,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./taller3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 3 (matrices)</span></a>
   </div>
 </li>
@@ -292,31 +292,31 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller6.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller resumen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller7.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller7.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Taller Operaciones con matrices n x n</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -333,9 +333,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller3.html">Taller 3 (matrices)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller7.html">Taller Operaciones con matrices n x n</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Taller 3</h1>
+<h1 class="title">Operaciones con matrices</h1>
 </div>
 
 
@@ -353,34 +353,73 @@ window.Quarto = {
 
 
 <ol type="1">
-<li><p>Sea la matriz <span class="math inline">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span> y el vector <span class="math inline">\(\mathbf{v} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}\)</span>.</p>
-<ol type="1">
-<li>Calcula <span class="math inline">\(A\mathbf{v}\)</span>.<br>
-</li>
-<li>Calcula <span class="math inline">\(A^2\mathbf{v}\)</span>.<br>
-</li>
-<li>Calcula <span class="math inline">\(A\mathbf{v} + A^2\mathbf{v}\)</span>.</li>
-</ol></li>
-<li><p><strong>Problema en Contexto: Compra de Frutas</strong></p>
-<p>Un comerciante de frutas desea determinar el precio de cada unidad de manzanas y naranjas. Sabe que si compra 4 manzanas y 3 naranjas, el gasto total es de $26, y que si compra 2 manzanas y 5 naranjas, el gasto es de $23.</p>
+<li>Sean las matraces</li>
+</ol>
+<p><span class="math display">\[A=\begin{bmatrix} 1 &amp; 2 &amp;2\\ 0&amp;3 &amp; 4\\ 0&amp;3 &amp; -1 \end{bmatrix}, \quad B=\begin{bmatrix} -1 &amp; 0&amp;-2 \\ 0 &amp; -1&amp;1\\ 1 &amp; -1&amp;1 \\ 2 &amp; 1&amp;1\end{bmatrix}\]</span></p>
+<p>Calcule</p>
 <ol type="a">
-<li>¿Cuánto costaría comprar 3 manzanas y 4 naranjas?<br>
-</li>
-<li>Verifica la solución sustituyendo los valores en ambas ecuaciones.</li>
-</ol></li>
-<li><p><strong>Problema en Contexto: Producción de Camisas y Pantalones</strong></p>
-<p>Una fábrica produce camisas y pantalones. La producción de una camisa requiere 2 horas de trabajo y la de un pantalón 1 hora. El tiempo total de trabajo disponible es de 100 horas por semana. Si la fábrica produce 40 camisas y 60 pantalones, el beneficio semanal es de 3000 dólares, y si produce 60 camisas y 40 pantalones, el beneficio es de 3100 dólares.</p>
+<li><p><span class="math inline">\(3A\)</span></p></li>
+<li><p><span class="math inline">\(B*A\)</span></p></li>
+<li><p>Calcule la inversa de <span class="math inline">\(A\)</span> si es posible</p></li>
+<li><p>Encuentre la matriz escalonada de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span></p></li>
+</ol>
+<ol start="2" type="1">
+<li>Responda las siguientes preguntas</li>
+</ol>
 <ol type="a">
-<li>¿Cuál es el beneficio de producir 50 camisas y 50 pantalones?</li>
-<li>Verifica la solución sustituyendo los valores en ambas ecuaciones.</li>
-</ol></li>
-<li><p>Si una matriz <span class="math inline">\(A\)</span> de <span class="math inline">\(2\times 2\)</span> tiene columnas linealmente independientes, ¿es cierto que <span class="math inline">\(A\)</span> tiene filas linealmente independientes? Justifica tu respuesta.</p></li>
-<li><p>Escribe 3 formas diferentes de saber si una matriz invertible.</p></li>
-<li><p>Si <span class="math inline">\(X=(3,6)\)</span> y <span class="math inline">\(Y=(-2,3)\)</span>, que representaría <span class="math display">\[proy_{X}Y\]</span> y <span class="math display">\[proy_{Y}X\]</span> Grafica la situación.</p></li>
-<li><p>Como podemos interpretar el determinante de una matriz? ¿Qué significa que el determinante sea igual a cero?</p></li>
-<li><p>Los vectores <span class="math inline">\(\mathbf{v}_1 = (1, 2)\)</span> y <span class="math inline">\(\mathbf{v}_2 = (-2, 1)\)</span> ortogonales (verifique) entonces son linealmente dependientes. De esta forma, ¿podemos decir que dos vectores ortogonales son linealmente independientes? Justifica tu respuesta. El reciproco ¿es cierto?</p></li>
-<li><p>Sea el sistema de ecuaciones lineales <span class="math display">\[Ax=b\]</span> y <span class="math inline">\(A\)</span> una matriz cuadrada de <span class="math inline">\(2\times 2\)</span> con determinante distinto de cero. ¿Cuál es la condición para que el sistema tenga solución única? Justifica tu respuesta. ¿Qué sucede si el determinante de <span class="math inline">\(A\)</span> es igual a cero?</p></li>
-<li><p>¿Qué significa que un conjunto de vectores sea linealmente independiente? ¿Qué significa que un conjunto de vectores sea linealmente dependiente? Da un ejemplo de cada uno.</p></li>
+<li><p>¿Por que se dice que encontrar la inversa de una matriz de tamaño <span class="math inline">\(n\times n\)</span> es equivalente a resolver <span class="math inline">\(n\)</span> sistemas de ecuaciones lineales?</p></li>
+<li><p>¿Que significa que una matriz sea singular?</p></li>
+<li><p>Si un matriz es invertible entonces ¿<span class="math inline">\(A^T\)</span> es invertible?</p></li>
+</ol>
+<ol start="3" type="1">
+<li>Resuelva los siguientes sistemas de ecuaciones lineales</li>
+</ol>
+<ol type="a">
+<li><p><span class="math inline">\(\begin{cases*} 3x + 2y +3z = 1 \\ 2x + 3y + 3z = 2 \\ 3x + 3y + 4z = 3 \end{cases*}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{cases*} 2x + 3y + 4z = 1 \\ 3x + 4y + 5z = 2 \\ 4x + 5y + 6z = 3 \end{cases*}\)</span></p></li>
+</ol>
+<ol start="4" type="1">
+<li>Un grupo de agricultores gestiona un sistema de riego compuesto por <strong>10 parcelas consecutivas</strong> que reciben agua de un canal principal. El flujo de agua en cada parcela depende del agua que recibe de la parcela anterior y de la que cede a la siguiente, además de un aporte externo que varía en cada una.</li>
+</ol>
+<p>La cantidad de agua <span class="math inline">\(x_i\)</span> distribuida a cada parcela <span class="math inline">\(i\)</span> (con <span class="math inline">\(i = 1, 2, ..., 10\)</span>) se modela mediante un sistema de <strong>ecuaciones tridiagonales</strong>, considerando que:</p>
+<ul>
+<li>Cada parcela recibe agua de la anterior en una proporción <span class="math inline">\(a_i\)</span>.<br>
+</li>
+<li>Cada parcela cede una parte <span class="math inline">\(c_i\)</span> del agua que recibe a la siguiente.<br>
+</li>
+<li>Se añade un flujo externo <span class="math inline">\(b_i\)</span> que varía para cada parcela.<br>
+</li>
+<li>Se debe garantizar un equilibrio hídrico en cada parcela para maximizar la eficiencia del riego. es decir $<span class="math inline">\(a_i​x_{i−1}​+b_i​x_i​+c_i​x_{i+1}​=d_i\)</span> Para este ejemplo particular se tomo el sistema de ecuaciones es el siguiente:</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+    4 x_1 +  x_2 &amp;= 10, \\
+     x_1 + 4 x_2 +  x_3 &amp;= 10, \\
+     x_2 + 4 x_3 +  x_4 &amp;= 10, \\
+     x_3 + 4 x_4 +  x_5 &amp;= 10, \\
+     x_4 + 4 x_5 +  x_6 &amp;= 10, \\
+     x_5 + 4 x_6 +  x_7 &amp;= 10, \\
+     x_6 + 4 x_7 +  x_8 &amp;= 10, \\
+     x_7 + 4 x_8 +  x_9 &amp;= 10, \\
+     x_8 + 4 x_9 +  x_{10} &amp;= 10, \\
+     x_9 + 4 x_{10} &amp;= 10.
+\end{aligned}
+\]</span></p>
+<p>El objetivo es determinar la cantidad óptima de agua <span class="math inline">\(x_i\)</span> que debe asignarse a cada parcela para asegurar un riego eficiente en todo el sistema.</p>
+<ol type="a">
+<li><p>Escriba el sistema de ecuaciones lineales en forma matricial <span class="math inline">\(Ax = d\)</span>.</p></li>
+<li><p>El sistema tiene una solución única, ¿por qué?</p></li>
+</ol>
+<ol start="5" type="1">
+<li><p>Usando Colab y Python, resuelva el sistema de ecuaciones lineales del punto anterior y determine la cantidad óptima de agua que debe asignarse a cada parcela para asegurar un riego eficiente en todo el sistema.</p></li>
+<li><p>Sean las matrices</p></li>
+</ol>
+<p><span class="math display">\[A=\begin{bmatrix} 1 &amp; 2 &amp;2\\ 0&amp;3 &amp; 4\\ 0&amp;3 &amp; -1 \end{bmatrix}, \quad B=\begin{bmatrix} -1 &amp; 0&amp;-2 \\ 0 &amp; -1&amp;1\\ 1 &amp; -1&amp;1 \\ 2 &amp; 1&amp;1\end{bmatrix}\]</span> y <span class="math inline">\(C=\begin{bmatrix} 1 &amp; 2 &amp;2\\ 0&amp;3 &amp; 4\\ 0&amp;3 &amp; -1 \end{bmatrix}\)</span></p>
+<p>Calcule usando Colab y Python</p>
+<ol type="a">
+<li><p><span class="math inline">\(3AC\)</span></p></li>
+<li><p><span class="math inline">\(BAC\)</span></p></li>
+<li><p>Calcule la inversa de <span class="math inline">\(A\)</span> y <span class="math inline">\(C\)</span> si es posible</p></li>
 </ol>
 
 

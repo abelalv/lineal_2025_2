@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ejercicios de Autovalores y Autovectores (Matrices 2x2)</title>
+<title>Vectores de R^n</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -228,7 +262,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"read-only":"false","context":"interactive","out-height":"","message":"true","label":"","autorun":"","out-width":"700px","classes":"","output":"true","warning":"true","results":"markup","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"comment":""},"id":1,"code":"\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Definir la matriz de coordenadas de la casa\nH = np.array([[0, 4, 4, 2, 0, 0], \n              [0, 0, 3, 5, 3, 0]])  # Se repite el primer punto para cerrar la casa\n\n# Matriz de Rotación\nT = np.array([[2, 1], \n              [1,2]])\n\n# Aplicar la transformación\nH_transformed = T @ H  # Multiplicación de matrices\n\n# Graficar la casa original y la transformada\nplt.figure(figsize=(6,6))\nplt.plot(H[0], H[1], 'bo-', label=\"Casa Original\")  # Dibujo original\nplt.plot(H_transformed[0], H_transformed[1], 'ro-', label=\"Casa Transformada\")  # Transformada\n\n# Configuración de la gráfica\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.xlim(-1, 20)\nplt.ylim(-1, 20)\nplt.grid(True, linestyle=\"--\", linewidth=0.5)\nplt.gca().set_aspect('equal', adjustable='box')  # Establecer la grilla 1 en 1\nplt.gca().set_xticks(np.arange(-1, 20, 1))  # Espaciado de 1 en 1 en el eje x\nplt.gca().set_yticks(np.arange(-1, 20, 1))  # Espaciado de 1 en 1 en el eje y\nplt.legend()\nplt.title(\"Transformación de la Casa \")\nplt.show()"}];
+globalThis.qpyodideCellDetails = [{"options":{"warning":"true","fig-cap":"","dpi":72,"comment":"","context":"interactive","out-height":"","output":"true","message":"true","fig-width":7,"autorun":"","out-width":"700px","read-only":"false","label":"","classes":"","fig-height":5,"results":"markup"},"id":1,"code":"import numpy as np\nv = np.array([[1], [2], [3]])\nnorma = np.sqrt(np.dot(v.T, v))\nprint(\"Norma del vector:\", norma)"},{"options":{"warning":"true","fig-cap":"","dpi":72,"comment":"","context":"interactive","out-height":"","output":"true","message":"true","fig-width":7,"autorun":"","out-width":"700px","read-only":"false","label":"","classes":"","fig-height":5,"results":"markup"},"id":2,"code":"import numpy as np\nimport matplotlib.pyplot as plt\n\n# Create the figure\nfig, ax = plt.subplots()\n\n# Define vectors u and v\nu = np.array([3, 2])\nv = np.array([1, 4])\n\n# Calculate dot product and norms\ndot_product = np.dot(u, v)\nnorm_u = np.linalg.norm(u)\nnorm_v = np.linalg.norm(v)\n\n# Plot vectors u and v\nax.quiver(0, 0, u[0], u[1], angles='xy', scale_units='xy', scale=1, color='blue', label='Vector u')\nax.quiver(0, 0, v[0], v[1], angles='xy', scale_units='xy', scale=1, color='green', label='Vector v')\n\n# Add text to explain the inequality\nax.text(0.5, 3.5, f\"|u · v| = {abs(dot_product):.2f}\", color='black')\nax.text(0.5, 3.0, f\"||u|| * ||v|| = {norm_u * norm_v:.2f}\", color='black')\nax.text(0.5, 2.5, \"|u · v| ≤ ||u|| * ||v||\", color='red')\n\n# Set axis limits and labels\nax.set_xlim(-1, 5)\nax.set_ylim(-1, 5)\nax.set_xlabel('X')\nax.set_ylabel('Y')\nax.axhline(0, color='black',linewidth=0.5)\nax.axvline(0, color='black',linewidth=0.5)\nax.grid(color = 'gray', linestyle = '--', linewidth = 0.5)\nax.legend()\n\n# Show the plot\nplt.title(\"Desigualdad de Cauchy-Schwarz en R²\")\nplt.show()"},{"options":{"warning":"true","fig-cap":"","dpi":72,"comment":"","context":"interactive","out-height":"","output":"true","message":"true","fig-width":7,"autorun":"","out-width":"700px","read-only":"false","label":"","classes":"","fig-height":5,"results":"markup"},"id":3,"code":"## Vector normal \nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Define the vector and its normal\nv = np.array([2, 3])\nnormal = np.array([-v[1], v[0]])  # Rotate 90 degrees to get the normal vector\n\n# Create the figure\nfig, ax = plt.subplots()\n\n# Plot the vector\nax.quiver(0, 0, v[0], v[1], angles='xy', scale_units='xy', scale=1, color='blue', label='Vector v')\n\n# Plot the normal vector\nax.quiver(0, 0, normal[0], normal[1], angles='xy', scale_units='xy', scale=1, color='red', label='Normal vector')"},{"options":{"warning":"true","fig-cap":"","dpi":72,"comment":"","context":"interactive","out-height":"","output":"true","message":"true","fig-width":7,"autorun":"","out-width":"700px","read-only":"false","label":"","classes":"","fig-height":5,"results":"markup"},"id":4,"code":"import numpy as np\nimport matplotlib.pyplot as plt\nfrom mpl_toolkits.mplot3d import Axes3D\nfrom matplotlib.widgets import Slider\n\n# Define initial vectors u and v\nu = np.array([1, 0, 0])\nv = np.array([0, 1, 0])\n\n# Compute the cross product\ncross_product = np.cross(u, v)\n\n# Create the figure and 3D axis\nfig = plt.figure()\nax = fig.add_subplot(111, projection='3d')\n\n# Plot vectors u, v, and their cross product\nquiver_u = ax.quiver(0, 0, 0, u[0], u[1], u[2], color='blue', label='Vector u')\nquiver_v = ax.quiver(0, 0, 0, v[0], v[1], v[2], color='green', label='Vector v')\nquiver_cross = ax.quiver(0, 0, 0, cross_product[0], cross_product[1], cross_product[2], color='red', label='u × v')\n\n# Set axis limits\nax.set_xlim([-1, 1])\nax.set_ylim([-1, 1])\nax.set_zlim([-1, 1])\n\n# Add labels\nax.set_xlabel('X')\nax.set_ylabel('Y')\nax.set_zlabel('Z')\n\n# Add legend\nax.legend()\n\n# Add sliders for u and v components\nax_slider_u = plt.axes([0.2, 0.02, 0.65, 0.03])\nslider_u = Slider(ax_slider_u, 'u', -1.0, 1.0, valinit=1.0)\n\nax_slider_v = plt.axes([0.2, 0.06, 0.65, 0.03])\nslider_v = Slider(ax_slider_v, 'v', -1.0, 1.0, valinit=1.0)\n\n# Update function for sliders\ndef update(val):\n    u[0] = slider_u.val\n    v[1] = slider_v.val\n    cross_product = np.cross(u, v)\n    \n    # Update quivers\n    quiver_u.remove()\n    quiver_v.remove()\n    quiver_cross.remove()\n    ax.quiver(0, 0, 0, u[0], u[1], u[2], color='blue', label='Vector u')\n    ax.quiver(0, 0, 0, v[0], v[1], v[2], color='green', label='Vector v')\n    ax.quiver(0, 0, 0, cross_product[0], cross_product[1], cross_product[2], color='red', label='u × v')\n    fig.canvas.draw_idle()\n\n# Connect sliders to update function\nslider_u.on_changed(update)\nslider_v.on_changed(update)\n\n# Show the plot\nplt.title(\"Producto Cruz de u y v en R³ con Sliders\")\nplt.show()"}];
 
 
 </script>
@@ -461,7 +495,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller4.html">Taller 4 (Valores propios)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section12.html">Transformaciones</a></li><li class="breadcrumb-item"><a href="./section12.html">Vectores en R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -498,7 +532,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -597,7 +631,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section12.html" class="sidebar-item-text sidebar-link">
+  <a href="./section12.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Vectores en R</span></a>
   </div>
 </li>
@@ -632,7 +666,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./taller4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 4 (Valores propios)</span></a>
   </div>
 </li>
@@ -644,31 +678,31 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller6.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller resumen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller7.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller Operaciones con matrices n x n</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -684,9 +718,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a>
+  <li><a href="#propiedades-de-la-suma-y-multiplicación-de-vectores" id="toc-propiedades-de-la-suma-y-multiplicación-de-vectores" class="nav-link active" data-scroll-target="#propiedades-de-la-suma-y-multiplicación-de-vectores">Propiedades de la suma y multiplicación de vectores</a></li>
+  <li><a href="#propiedades-del-producto-punto" id="toc-propiedades-del-producto-punto" class="nav-link" data-scroll-target="#propiedades-del-producto-punto">Propiedades del producto punto</a></li>
+  <li><a href="#normas-de-vectores" id="toc-normas-de-vectores" class="nav-link" data-scroll-target="#normas-de-vectores">Normas de vectores</a></li>
+  <li><a href="#propiedades-de-la-norma" id="toc-propiedades-de-la-norma" class="nav-link" data-scroll-target="#propiedades-de-la-norma">Propiedades de la norma</a></li>
+  <li><a href="#como-podemos-interpretar-la-norma-de-un-vector-en-rn" id="toc-como-podemos-interpretar-la-norma-de-un-vector-en-rn" class="nav-link" data-scroll-target="#como-podemos-interpretar-la-norma-de-un-vector-en-rn">Como podemos interpretar la norma de un vector en <span class="math inline">\(R^N\)</span>?</a></li>
+  <li><a href="#relación-entre-la-norma-y-el-producto-punto" id="toc-relación-entre-la-norma-y-el-producto-punto" class="nav-link" data-scroll-target="#relación-entre-la-norma-y-el-producto-punto">Relación entre la norma y el producto punto</a></li>
+  <li><a href="#ejercicio" id="toc-ejercicio" class="nav-link" data-scroll-target="#ejercicio">Ejercicio</a></li>
+  <li><a href="#desigualdad-de-cauchy-schwarz" id="toc-desigualdad-de-cauchy-schwarz" class="nav-link" data-scroll-target="#desigualdad-de-cauchy-schwarz">Desigualdad de Cauchy-Schwarz</a></li>
+  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio</a></li>
+  <li><a href="#producto-cruz" id="toc-producto-cruz" class="nav-link" data-scroll-target="#producto-cruz">Producto Cruz</a>
   <ul class="collapse">
-  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
+  <li><a href="#propiedades-del-producto-cruz" id="toc-propiedades-del-producto-cruz" class="nav-link" data-scroll-target="#propiedades-del-producto-cruz">Propiedades del producto cruz</a></li>
+  <li><a href="#rectas-de-planos-en-r3" id="toc-rectas-de-planos-en-r3" class="nav-link" data-scroll-target="#rectas-de-planos-en-r3">Rectas de planos en <span class="math inline">\(R^3\)</span></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -704,9 +748,9 @@ window.Quarto = {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller4.html">Taller 4 (Valores propios)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section12.html">Transformaciones</a></li><li class="breadcrumb-item"><a href="./section12.html">Vectores en R</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Ejercicios de Autovalores y Autovectores (Matrices 2x2)</h1>
+<h1 class="title">Vectores de <span class="math inline">\(R^n\)</span></h1>
 </div>
 
 
@@ -723,75 +767,270 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level1">
-<h1>Introducción</h1>
-<section id="ejercicios" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
-<p>Dada la matriz, encontrar los valores propios y vectores propios. 1. <span class="math inline">\(A = \begin{bmatrix} 4 &amp; 2 \\ 1 &amp; 3 \end{bmatrix}\)</span></p>
+<p>Un vector <span class="math inline">\(v\)</span> de tamaño <span class="math inline">\(n \times 1\)</span> se puede escribir como:</p>
+<p><span class="math display">\[
+v = \begin{bmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_n
+\end{bmatrix}
+\]</span></p>
+<p>donde <span class="math inline">\(v_i\)</span> es el <span class="math inline">\(i\)</span>-ésimo elemento del vector <span class="math inline">\(v\)</span>. Un vector se puede representar como una matriz de una sola columna. Por ejemplo, el vector <span class="math inline">\(v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> se puede representar como la matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 3 \end{bmatrix}\)</span>.</p>
+<p>En python se puede escribir un vector como una lista o como un array de numpy. Por ejemplo, el vector <span class="math inline">\(v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> se puede escribir como:</p>
+<div id="cdd49062" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">1</span>], [<span class="dv">2</span>], [<span class="dv">3</span>]])</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]
+ [2]
+ [3]]</code></pre>
+</div>
+</div>
+<p>otra forma de escribirlo es como un array de numpy de una sola fila y tres columnas:</p>
+<div id="f80aec71" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>v<span class="op">=</span>v.reshape(<span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]
+ [2]
+ [3]]</code></pre>
+</div>
+</div>
+<p>Operaciones con vectores</p>
+<ol type="1">
+<li>Suma de vectores:</li>
+</ol>
+<p>Sea <span class="math inline">\(v_1 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> y <span class="math inline">\(v_2 = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}\)</span>, entonces la suma de los vectores <span class="math inline">\(v_1\)</span> y <span class="math inline">\(v_2\)</span> se define como:</p>
+<p><span class="math display">\[
+v_1 + v_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} + \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 1 + 4 \\ 2 + 5 \\ 3 + 6 \end{bmatrix} = \begin{bmatrix} 5 \\ 7 \\ 9 \end{bmatrix}
+\]</span></p>
 <ol start="2" type="1">
-<li><p><span class="math inline">\(B = \begin{bmatrix} 5 &amp; -2 \\ 2 &amp; 1 \end{bmatrix}\)</span></p></li>
-<li><p><span class="math inline">\(E = \begin{bmatrix} 6 &amp; 2 \\ 2 &amp; 3 \end{bmatrix}\)</span></p></li>
-<li><p><span class="math inline">\(G = \begin{bmatrix} -1 &amp; -2 \\ 2 &amp; -3 \end{bmatrix}\)</span></p></li>
-<li><p>Determina para que valor <span class="math inline">\(\alpha\)</span> la matriz <span class="math inline">\(H = \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; \alpha \end{bmatrix}\)</span> tiene un solo valor propio.</p></li>
-<li><p>Un modelo lineal de evolución poblacional para dos especies está dado por la matriz:</p></li>
+<li>Multiplicación de un vector por un escalar:</li>
+</ol>
+<p>Sea <span class="math inline">\(v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> y <span class="math inline">\(k = 2\)</span>, entonces la multiplicación del vector <span class="math inline">\(v\)</span> por el escalar <span class="math inline">\(k\)</span> se define como:</p>
+<p><span class="math display">\[
+kv = 2 \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} = \begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}
+\]</span></p>
+<section id="propiedades-de-la-suma-y-multiplicación-de-vectores" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-de-la-suma-y-multiplicación-de-vectores">Propiedades de la suma y multiplicación de vectores</h2>
+<ol type="1">
+<li>La suma de vectores es conmutativa: <span class="math display">\[
+v_1 + v_2 = v_2 + v_1
+\]</span></li>
+<li>La suma de vectores es asociativa: <span class="math display">\[
+(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)
+\]</span></li>
+<li>La multiplicación de un vector por un escalar es distributiva: <span class="math display">\[
+k(v_1 + v_2) = kv_1 + kv_2
+\]</span></li>
+<li>La multiplicación de un vector por un escalar es asociativa:</li>
 </ol>
 <p><span class="math display">\[
-\begin{bmatrix}y_{n+1}\\ x_{n+1}\end{bmatrix}= \begin{bmatrix} 0.8 &amp; 0.3 \\ 0.2 &amp; 0.7 \end{bmatrix}\begin{bmatrix}y_{n}\\ x_{n}\end{bmatrix}
+k(v_1 + v_2) = kv_1 + kv_2
+\]</span> 5. La multiplicación de un vector por un escalar es conmutativa: <span class="math display">\[
+kv_1 = v_1k
 \]</span></p>
-<p>El sistema anterior, la matriz de transición describe cómo las poblaciones de dos especies (denotadas como <span class="math inline">\(y\)</span> y <span class="math inline">\(x\)</span>) evolucionan de un tiempo <span class="math inline">\(n\)</span> al siguiente tiempo <span class="math inline">\(n+1\)</span>. Los elementos de la matriz representan las tasas de crecimiento y las interacciones entre las dos especies. Si la población inicial es <span class="math inline">\(y_0= 0.2\)</span> y <span class="math inline">\(x_0=0.8\)</span>, (Usa un computador para realizar rápidamente los cálculos)</p>
-<ol type="a">
-<li><p>¿cuál será la población en tiempo n=10. Halla los valores propios y vectores propios para analizar el comportamiento del sistema.</p></li>
-<li><p>Como podemos interpretar los valores propios en este contexto.</p></li>
+<ol start="3" type="1">
+<li>Producto punto de dos vectores:</li>
 </ol>
-<ol start="7" type="1">
-<li>En el siguiente plano se dibuja una casa.</li>
+<p>Sea <span class="math inline">\(v_1 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> y <span class="math inline">\(v_2 = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}\)</span>, entonces el producto punto de los vectores <span class="math inline">\(v_1\)</span> y <span class="math inline">\(v_2\)</span> se define como:</p>
+<p><span class="math display">\[
+v_1 \cdot v_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \cdot \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} = 1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 4 + 10 + 18 = 32
+\]</span></p>
+<p>Estas operaciones las podemos realizar en python de la siguiente manera:</p>
+<div id="37276715" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> np.array([[<span class="dv">1</span>], [<span class="dv">2</span>], [<span class="dv">3</span>]])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> np.array([[<span class="dv">4</span>], [<span class="dv">5</span>], [<span class="dv">6</span>]])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>suma <span class="op">=</span> v1 <span class="op">+</span> v2</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>multiplicacion <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> v1</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>producto_punto <span class="op">=</span> np.dot(v1.T, v2)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Suma de vectores:"</span>, suma)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Multiplicación de un vector por un escalar:"</span>, multiplicacion)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Producto punto de dos vectores:"</span>, producto_punto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Suma de vectores: [[5]
+ [7]
+ [9]]
+Multiplicación de un vector por un escalar: [[2]
+ [4]
+ [6]]
+Producto punto de dos vectores: [[32]]</code></pre>
+</div>
+</div>
+</section>
+<section id="propiedades-del-producto-punto" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-del-producto-punto">Propiedades del producto punto</h2>
+<ol type="1">
+<li>El producto punto es conmutativo: <span class="math display">\[
+v_1 \cdot v_2 = v_2 \cdot v_1
+\]</span></li>
+<li>El producto punto es distributivo: <span class="math display">\[
+v_1 \cdot (v_2 + v_3) = v_1 \cdot v_2 + v_1 \cdot v_3
+\]</span> ## Definición</li>
 </ol>
-<p>Los puntos se encuentran en las coordenadas:</p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|c|c|} \hline
-\text{Punto} &amp; A &amp; B &amp; C &amp; D &amp; E &amp; A \\ \hline
-x &amp; 0 &amp; 4 &amp; 4 &amp; 2 &amp; 0 &amp; 0 \\ \hline
-y &amp; 0 &amp; 0 &amp; 3 &amp; 5 &amp; 3 &amp; 0 \\ \hline
-\end{array}\]</span></p>
-<p>Multiplica a cada uno de los puntos por la matriz</p>
-<p><span class="math display">\[A= \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\]</span></p>
-<p>y dibuja la nueva casa.</p>
-<div id="655b729f" class="cell" data-execution_count="1">
+<p>Dos vectores <span class="math inline">\(v_1\)</span> y <span class="math inline">\(v_2\)</span> son ortogonales si su producto punto es cero:</p>
+<p><span class="math display">\[
+v_1 \cdot v_2 = 0
+\]</span></p>
+</section>
+<section id="normas-de-vectores" class="level2">
+<h2 class="anchored" data-anchor-id="normas-de-vectores">Normas de vectores</h2>
+<p>La norma de un vector <span class="math inline">\(v\)</span> se define como la longitud del vector. La norma de un vector se puede calcular utilizando la siguiente fórmula:</p>
+<p><span class="math display">\[
+||v|| = \sqrt{v_1^2 + v_2^2 + \ldots + v_n^2}
+\]</span></p>
+<p>La norma de un vector se puede calcular en python utilizando la función <code>numpy.linalg.norm()</code>. Por ejemplo, la norma del vector <span class="math inline">\(v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> se puede calcular de la siguiente manera:</p>
+<div id="ac2630e1" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([[<span class="dv">1</span>], [<span class="dv">2</span>], [<span class="dv">3</span>]])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>norma <span class="op">=</span> np.linalg.norm(v)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Norma del vector:"</span>, norma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Norma del vector: 3.7416573867739413</code></pre>
+</div>
+</div>
+</section>
+<section id="propiedades-de-la-norma" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-de-la-norma">Propiedades de la norma</h2>
+<ol type="1">
+<li>La norma de un vector es siempre no negativa: <span class="math display">\[
+||v|| \geq 0
+\]</span></li>
+<li>La norma de un vector es cero si y solo si el vector es el vector cero: <span class="math display">\[
+||v|| = 0 \Leftrightarrow v = 0
+\]</span></li>
+<li>La norma de un vector es homogénea: <span class="math display">\[
+||kv|| = |k| ||v||
+\]</span> 4.Desigualdad triangular: <span class="math display">\[
+||v_1 + v_2|| \leq ||v_1|| + ||v_2||
+\]</span></li>
+</ol>
+</section>
+<section id="como-podemos-interpretar-la-norma-de-un-vector-en-rn" class="level2">
+<h2 class="anchored" data-anchor-id="como-podemos-interpretar-la-norma-de-un-vector-en-rn">Como podemos interpretar la norma de un vector en <span class="math inline">\(R^N\)</span>?</h2>
+<p>La norma de un vector en <span class="math inline">\(R^N\)</span> se puede interpretar como la distancia entre el origen y el punto representado por el vector en el espacio euclidiano. Por ejemplo en <span class="math inline">\(R^3\)</span> la norma de un vector <span class="math inline">\(v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> se puede interpretar como la distancia entre el origen <span class="math inline">\((0,0,0)\)</span> y el punto <span class="math inline">\((1,2,3)\)</span> en el espacio tridimensional. Esta distancia se puede calcular utilizando la fórmula de la distancia euclidiana:</p>
+<p><span class="math display">\[
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+\]</span></p>
+<p>Veamos la siguiente animación en python:</p>
+<div id="bb83e915" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure and 3D axis</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial vector</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the origin</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Origen'</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the initial vector</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, v[<span class="dv">0</span>]], [<span class="dv">0</span>, v[<span class="dv">1</span>]], [<span class="dv">0</span>, v[<span class="dv">2</span>]], label<span class="op">=</span><span class="st">'Vector'</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot projections on each axis</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, v[<span class="dv">0</span>]], [<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], label<span class="op">=</span><span class="st">'Distancia en X'</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, v[<span class="dv">1</span>]], [<span class="dv">0</span>, <span class="dv">0</span>], label<span class="op">=</span><span class="st">'Distancia en Y'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, v[<span class="dv">2</span>]], label<span class="op">=</span><span class="st">'Distancia en Z'</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Set axis limits</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>])</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>])</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>ax.set_zlim([<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>])</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">'Z'</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="taller4_files/figure-html/cell-2-output-1.png" width="491" height="489" class="figure-img"></p>
+<p><img src="section12_files/figure-html/cell-6-output-1.png" width="402" height="392" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<ol type="a">
-<li><p>Como podemos interpretar la transformación de la casa en este contexto.</p></li>
-<li><p>Encuentra los valores propios y vectores propios de la matriz de rotación y analiza su comportamiento.</p></li>
-<li><p>¿Qué pasa si la matriz de rotación es <span class="math inline">\(A= \begin{bmatrix} 1 &amp; 0 \\ -1 &amp; 0 \end{bmatrix}\)</span>? ¿Qué sucede con la casa? ¿Cuales son los valores propios y vectores propios de la matriz? ¿Qué interpretación podemos dar a los valores propios en este contexto?</p></li>
-<li><p>Crea la matriz en python de la forma</p></li>
-</ol>
-<blockquote class="blockquote">
-<p>import numpy as np H = np.array([[0, 4, 4, 2, 0, 0], [0, 0, 3, 5, 3, 0]])</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>A= np.array([[2, 1], [1, 2]])</p>
-</blockquote>
-<p>para aplicar la transformación</p>
-<blockquote class="blockquote">
-<p>H_transformed = A @ H</p>
-</blockquote>
-<p>Para dibujar la nueva casa.</p>
-<blockquote class="blockquote">
-<p>import matplotlib.pyplot as plt</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>plt.plot(H[0], H[1], ‘bo-’, label=“Casa Original”) # Dibujo original</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>plt.plot(H_transformed[0], H_transformed[1], ‘ro-’, label=“Casa Transformada”) # Transformada</p>
-</blockquote>
+</section>
+<section id="relación-entre-la-norma-y-el-producto-punto" class="level2">
+<h2 class="anchored" data-anchor-id="relación-entre-la-norma-y-el-producto-punto">Relación entre la norma y el producto punto</h2>
+<p>La norma de un vector se puede calcular utilizando el producto punto de la siguiente manera: <span class="math display">\[
+||v|| = \sqrt{v \cdot v}=\sum_{i=1}^{n} v_i^2
+\]</span></p>
+</section>
+<section id="ejercicio" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio">Ejercicio</h2>
+<p>Encuentra la norma del vector <span class="math inline">\(v = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\)</span> utilizando la definición de norma y el producto punto.</p>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="desigualdad-de-cauchy-schwarz" class="level2">
+<h2 class="anchored" data-anchor-id="desigualdad-de-cauchy-schwarz">Desigualdad de Cauchy-Schwarz</h2>
+<p>La desigualdad de Cauchy-Schwarz establece que para cualquier par de vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> en un espacio euclidiano, se cumple la siguiente desigualdad:</p>
+<p><span class="math display">\[
+|u \cdot v| \leq ||u|| \cdot ||v||
+\]</span></p>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="ejercicio-1" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-1">Ejercicio</h2>
+<p>Compruebe la desigualdad de Cauchy-Schwarz para los vectores <span class="math inline">\(para los vecores en\)</span>R^4$ <span class="math inline">\(u = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}\)</span> y <span class="math inline">\(v = \begin{bmatrix} 5 \\ 6 \\ 7 \\ 8 \end{bmatrix}\)</span>.</p>
+<div id="qpyodide-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="producto-cruz" class="level1">
+<h1>Producto Cruz</h1>
+<p>El producto cruz de dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> en <span class="math inline">\(R^3\)</span> se define como un nuevo vector que es ortogonal a ambos vectores. El producto cruz se denota como <span class="math inline">\(u \times v\)</span> y se calcula utilizando la siguiente fórmula: <span class="math display">\[
+u \times v = \begin{vmatrix}
+\hat{i} &amp; \hat{j} &amp; \hat{k} \\
+u_1 &amp; u_2 &amp; u_3 \\ v_1 &amp; v_2 &amp; v_3
+\end{vmatrix}
+= \begin{bmatrix}
+u_2v_3 - u_3v_2 \\ u_3v_1 - u_1v_3 \\ u_1v_2 - u_2v_1
+\end{bmatrix}
+\]</span> donde <span class="math inline">\(\hat{i}\)</span>, <span class="math inline">\(\hat{j}\)</span> y <span class="math inline">\(\hat{k}\)</span> son los vectores unitarios en las direcciones <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> y <span class="math inline">\(z\)</span> respectivamente.</p>
+<div id="qpyodide-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="propiedades-del-producto-cruz" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-del-producto-cruz">Propiedades del producto cruz</h2>
+<ol type="1">
+<li>El producto cruz es anticomutativo: <span class="math display">\[
+u \times v = - (v \times u)
+\]</span></li>
+<li>El producto cruz es distributivo: <span class="math display">\[
+u \times (v + w) = u \times v + u \times w
+\]</span></li>
+<li>El producto cruz es bilineal: <span class="math display">\[
+k(u \times v) = (ku) \times v = u \times (kv)
+\]</span></li>
+<li>La magnitud del producto cruz es igual al área del paralelogramo formado por los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>: <span class="math display">\[
+||u \times v|| = ||u|| \cdot ||v|| \cdot \sin(\theta)
+\]</span> donde <span class="math inline">\(\theta\)</span> es el ángulo entre los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>.</li>
+<li>El producto cruz de dos vectores paralelos es cero: <span class="math display">\[
+u \times v = 0
+\]</span></li>
+</ol>
+</section>
+<section id="rectas-de-planos-en-r3" class="level2">
+<h2 class="anchored" data-anchor-id="rectas-de-planos-en-r3">Rectas de planos en <span class="math inline">\(R^3\)</span></h2>
+<p>Una recta en <span class="math inline">\(R^3\)</span> se puede definir como el conjunto de puntos que satisfacen la ecuación paramétrica:</p>
+<p><span class="math inline">\(L(t)=v+tu\)</span></p>
+<p>Ejemplo el calculo de que pasa por el punto <span class="math display">\[v=(1,2,3)\]</span> y tiene como vector directriz <span class="math display">\[v=[1,2,0]\]</span> es</p>
+<p><span class="math display">\[L(t)=(1+t,2+t,3)\]</span></p>
+<p>Ademas podemos calcular la ecaución simetricas para esto igualamos cada elemento</p>
+<p><span class="math display">\[1+t=x\]</span> <span class="math display">\[2+t=y\]</span> <span class="math display">\[3=z\]</span></p>
+<p>ahora</p>
+<p><span class="math display">\[x-1=y-2,\ z=3\]</span></p>
 
 
 </section>

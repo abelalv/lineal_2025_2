@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ejercicio computacional valores y vectores propios (Matrices 2x2)</title>
+<title>Taller de Álgebra Lineal: Subespacios, Combinaciones Lineales, Independencia y Bases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller5.html">Taller 5 (Valores propios)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller9.html">Vectores y matrices II</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +146,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -286,37 +286,37 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller5.html" class="sidebar-item-text sidebar-link active">
+  <a href="./taller5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 5 (Valores propios)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller6.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller resumen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller7.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller Operaciones con matrices n x n</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -332,27 +332,24 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introducción-al-código-de-codificación" id="toc-introducción-al-código-de-codificación" class="nav-link active" data-scroll-target="#introducción-al-código-de-codificación">Introducción al Código de Codificación</a></li>
-  <li><a href="#ejercicio-1-codificación-de-la-vida-es-bella" id="toc-ejercicio-1-codificación-de-la-vida-es-bella" class="nav-link" data-scroll-target="#ejercicio-1-codificación-de-la-vida-es-bella">Ejercicio 1: Codificación de La vida es bella</a>
+  <li><a href="#ejercicios-de-producto-cruz-planos-y-rectas" id="toc-ejercicios-de-producto-cruz-planos-y-rectas" class="nav-link active" data-scroll-target="#ejercicios-de-producto-cruz-planos-y-rectas">Ejercicios de Producto Cruz, Planos y Rectas</a>
   <ul class="collapse">
-  <li><a href="#pasos-a-seguir" id="toc-pasos-a-seguir" class="nav-link" data-scroll-target="#pasos-a-seguir">Pasos a seguir</a></li>
+  <li><a href="#sección-1-producto-cruz" id="toc-sección-1-producto-cruz" class="nav-link" data-scroll-target="#sección-1-producto-cruz">Sección 1: Producto Cruz</a></li>
+  <li><a href="#sección-2-planos" id="toc-sección-2-planos" class="nav-link" data-scroll-target="#sección-2-planos">Sección 2: Planos</a></li>
+  <li><a href="#sección-3-rectas" id="toc-sección-3-rectas" class="nav-link" data-scroll-target="#sección-3-rectas">Sección 3: Rectas</a></li>
   </ul></li>
-  <li><a href="#ejercicio-2-descifrado-de-un-mensaje-con-la-matriz-inversa" id="toc-ejercicio-2-descifrado-de-un-mensaje-con-la-matriz-inversa" class="nav-link" data-scroll-target="#ejercicio-2-descifrado-de-un-mensaje-con-la-matriz-inversa">Ejercicio 2: Descifrado de un Mensaje con la Matriz Inversa</a>
-  <ul class="collapse">
-  <li><a href="#pasos-a-seguir-1" id="toc-pasos-a-seguir-1" class="nav-link" data-scroll-target="#pasos-a-seguir-1">Pasos a seguir</a></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#observaciones" id="toc-observaciones" class="nav-link" data-scroll-target="#observaciones">Observaciones</a></li>
-  <li><a href="#ejercicio-3-encuentre-el-mensaje-encriptado" id="toc-ejercicio-3-encuentre-el-mensaje-encriptado" class="nav-link" data-scroll-target="#ejercicio-3-encuentre-el-mensaje-encriptado">Ejercicio 3: Encuentre el mensaje encriptado</a></li>
+  <li><a href="#ejercicios-adicionales-falso-o-verdadero" id="toc-ejercicios-adicionales-falso-o-verdadero" class="nav-link" data-scroll-target="#ejercicios-adicionales-falso-o-verdadero">Ejercicios Adicionales: Falso o Verdadero</a></li>
+  <li><a href="#enunciados" id="toc-enunciados" class="nav-link" data-scroll-target="#enunciados">Enunciados</a></li>
+  <li><a href="#preguntas-de-verdadero-o-falso" id="toc-preguntas-de-verdadero-o-falso" class="nav-link" data-scroll-target="#preguntas-de-verdadero-o-falso">Preguntas de Verdadero o Falso</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller5.html">Taller 5 (Valores propios)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller9.html">Vectores y matrices II</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Ejercicio computacional valores y vectores propios (Matrices 2x2)</h1>
+<h1 class="title">Taller de Álgebra Lineal: Subespacios, Combinaciones Lineales, Independencia y Bases</h1>
 </div>
 
 
@@ -369,155 +366,147 @@ window.Quarto = {
 </header>
 
 
-<p>Para realizar este ejercicio usted puede usar Colab, ya que necesitará realizar muchas operaciones matriciales, como suma de matrices y multiplicación. El resto de la operaciones las puede realizar en papel.</p>
-<section id="introducción-al-código-de-codificación" class="level2">
-<h2 class="anchored" data-anchor-id="introducción-al-código-de-codificación">Introducción al Código de Codificación</h2>
-<p>Para codificar un mensaje, utilizaremos una correspondencia entre letras y números basada en el alfabeto:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Letra</th>
-<th>Código</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>…</td>
-<td>…</td>
-</tr>
-<tr class="odd">
-<td>Z</td>
-<td>26</td>
-</tr>
-<tr class="even">
-<td>Espacio</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Ejemplo:</strong><br>
-La palabra <code>"VIDA"</code> se convierte en:</p>
-<p><span class="math display">\[
-V = 22, \quad I = 9, \quad D = 4, \quad A = 1,
-\]</span></p>
-<p>y se agrupa en vectores de dos en dos:</p>
-<p><span class="math display">\[
-\begin{bmatrix} 22 \\ 9 \end{bmatrix}, \quad \begin{bmatrix} 4 \\ 1 \end{bmatrix}.
-\]</span></p>
-</section>
-<section id="ejercicio-1-codificación-de-la-vida-es-bella" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicio-1-codificación-de-la-vida-es-bella">Ejercicio 1: Codificación de La vida es bella</h2>
-<p>Vamos a codificar la frase <code>"LA VIDA ES BELLA"</code> con la siguiente matriz:</p>
-<p><span class="math display">\[
-A = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}.
-\]</span></p>
-<section id="pasos-a-seguir" class="level3">
-<h3 class="anchored" data-anchor-id="pasos-a-seguir">Pasos a seguir</h3>
-<ol type="a">
-<li><p><strong>Convierte las letras a valores numéricos</strong> siguiendo la tabla anterior.</p></li>
-<li><p><strong>Agrupa los valores en vectores columna de <span class="math inline">\(2 \times 1\)</span></strong>.</p></li>
-<li><p><strong>Multiplica cada vector por la matriz <span class="math inline">\(A\)</span> para obtener el mensaje cifrado</strong>.</p></li>
-</ol>
-</section>
-</section>
-<section id="ejercicio-2-descifrado-de-un-mensaje-con-la-matriz-inversa" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicio-2-descifrado-de-un-mensaje-con-la-matriz-inversa">Ejercicio 2: Descifrado de un Mensaje con la Matriz Inversa</h2>
-<p>Un mensaje secreto fue cifrado con la misma matriz <span class="math inline">\(A\)</span>, y se obtuvo: <span class="math display">\[
-\begin{bmatrix}
-0 &amp; 8 &amp; 18 &amp; 0 &amp; 21 &amp; 5 &amp; 0 &amp; 15 &amp; 18 &amp; 0 &amp; 25 &amp; 4 &amp; 18 &amp; 15 &amp; 0 \\
-25 &amp; 1 &amp; 15 &amp; 1 &amp; 17 &amp; 9 &amp; 14 &amp; 16 &amp; 4 &amp; 1 &amp; 1 &amp; 21 &amp; 1 &amp; 14 &amp; 19
-\end{bmatrix}.
-\]</span></p>
-<section id="pasos-a-seguir-1" class="level3">
-<h3 class="anchored" data-anchor-id="pasos-a-seguir-1">Pasos a seguir</h3>
-<ol type="a">
-<li><p><strong>Encuentra la matriz inversa de <span class="math inline">\(A\)</span></strong>:<br>
+<section id="ejercicios-de-producto-cruz-planos-y-rectas" class="level1">
+<h1>Ejercicios de Producto Cruz, Planos y Rectas</h1>
+<p>A continuación, se presentan 15 ejercicios repartidos en tres secciones: <strong>Producto Cruz</strong>, <strong>Planos</strong> y <strong>Rectas</strong>.</p>
+<section id="sección-1-producto-cruz" class="level2">
+<h2 class="anchored" data-anchor-id="sección-1-producto-cruz">Sección 1: Producto Cruz</h2>
+<ol type="1">
+<li><p>Calcular el producto cruz de los vectores:<br>
 <span class="math display">\[
-A^{-1} = ?
+\mathbf{u} = (1, 2, 3) \quad \text{y} \quad \mathbf{v} = (4, 5, 6).
 \]</span></p></li>
-<li><p><strong>Multiplica cada vector cifrado por <span class="math inline">\(A^{-1}\)</span> para recuperar el mensaje original</strong>.</p></li>
-<li><p><strong>Convierte los números obtenidos en letras</strong> usando la misma codificación del <strong>Ejercicio 1</strong>.</p></li>
+<li><p>Determinar el producto cruz de los vectores:<br>
+<span class="math display">\[
+\mathbf{u} = (2, -3, 1) \quad \text{y} \quad \mathbf{v} = (0, 4, -5).
+\]</span></p></li>
+<li><p>Encuentra el vector resultante del producto cruz de:<br>
+<span class="math display">\[
+\mathbf{u} = (-1, 2, 0) \quad \text{y} \quad \mathbf{v} = (3, -1, 4).
+\]</span></p></li>
+<li><p>Calcular el producto cruz de:<br>
+<span class="math display">\[
+\mathbf{u} = (0, 3, -2) \quad \text{y} \quad \mathbf{v} = (5, 1, 0).
+\]</span><br>
+<em>Verifica que el vector resultante sea perpendicular a ambos vectores dados.</em></p></li>
+<li><p>Sean los vectores $ = (a_1, a_2, a_3)$ y $ = (b_1, b_2, b_3)$. Expresa el vector $ $ en forma de determinante y aplica este método para calcular el producto cruz de:<br>
+<span class="math display">\[
+\mathbf{a} = (3, 0, -1) \quad \text{y} \quad \mathbf{b} = (1, 4, 2).
+\]</span></p></li>
+</ol>
+</section>
+<section id="sección-2-planos" class="level2">
+<h2 class="anchored" data-anchor-id="sección-2-planos">Sección 2: Planos</h2>
+<ol start="6" type="1">
+<li><p>Determinar la ecuación del plano que pasa por los puntos:<br>
+<span class="math display">\[
+A(1, 0, 2),\quad B(2, -1, 3) \quad \text{y} \quad C(0, 2, 1).
+\]</span><br>
+Utiliza el producto cruz para encontrar el vector normal.</p></li>
+<li><p>Encuentra la ecuación del plano dado su vector normal $ = (2, -1, 3)$ y que pasa por el punto <span class="math inline">\(P(1, 4, -2)\)</span>.</p></li>
+<li><p>Hallar la ecuación general del plano que es paralelo al plano<br>
+<span class="math display">\[
+2x - y + z = 5
+\]</span><br>
+y pasa por el punto <span class="math inline">\(P(3, 0, 1)\)</span>.</p></li>
+<li><p>Determinar la ecuación paramétrica de un plano que contenga la recta:<br>
+<span class="math display">\[
+\begin{cases}
+x = 1 + t, \\
+y = 2 - t, \\
+z = 3 + 2t,
+\end{cases}
+\]</span><br>
+y sea perpendicular al vector $ = (0, 1, -1)$.</p></li>
+<li><p>Dados los puntos:<br>
+<span class="math display">\[
+P(0,0,0), \quad Q(1,2,3) \quad \text{y} \quad R(4,0,1),
+\]</span><br>
+encuentra la ecuación del plano que pasa por ellos y discute la orientación del mismo.</p></li>
+</ol>
+</section>
+<section id="sección-3-rectas" class="level2">
+<h2 class="anchored" data-anchor-id="sección-3-rectas">Sección 3: Rectas</h2>
+<ol start="11" type="1">
+<li><p>Determinar la ecuación vectorial de la recta que pasa por el punto <span class="math inline">\(P(2, -1, 3)\)</span> con dirección $ = (1, 4, -2)$.</p></li>
+<li><p>Encontrar la forma simétrica de la recta que tiene como ecuación paramétrica:<br>
+<span class="math display">\[
+\begin{cases}
+x = -1 + 3t, \\
+y = 2 - t, \\
+z = 4 + 2t.
+\end{cases}
+\]</span></p></li>
+<li><p>Dadas las rectas:<br>
+<span class="math display">\[
+r_1: \begin{cases}
+x = 1 + t, \\
+y = -2 + 2t, \\
+z = 3 - t,
+\end{cases} \quad
+r_2: \begin{cases}
+x = 2 - s, \\
+y = 0 + s, \\
+z = 1 + 3s,
+\end{cases}
+\]</span><br>
+determinar si son coplanares y, en caso afirmativo, encontrar su punto de intersección (si existe).</p></li>
+<li><p>Hallar la distancia entre el punto <span class="math inline">\(P(1,2,3)\)</span> y la recta de ecuación:<br>
+<span class="math display">\[
+\mathbf{r}(t) = (0, 1, -1) + t(2, 0, 4).
+\]</span></p></li>
+<li><p>Encuentra la intersección (si existe) entre la recta:<br>
+<span class="math display">\[
+\mathbf{r}_1(t) = (1, 0, 2) + t(3, -1, 1)
+\]</span><br>
+y el plano definido por la ecuación:<br>
+<span class="math display">\[
+4x - 2y + z = 7.
+\]</span></p></li>
 </ol>
 </section>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<p>Los valores propios de la matriz <span class="math inline">\(A\)</span> son <span class="math inline">\(\lambda_1 = 1\)</span> y <span class="math inline">\(\lambda_2 = 1\)</span>. Los vectores propios de la matriz <span class="math inline">\(A\)</span> son las columnas de la matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(A = P \Lambda P^{-1}\)</span>, donde <span class="math inline">\(\Lambda\)</span> es la matriz diagonal de los valores propios. Para la matriz <span class="math inline">\(A\)</span>, los vectores propios son:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-1 \\
-1
-\end{bmatrix}
-\quad \text{y} \quad
-\begin{bmatrix}
-2 \\
-1
-\end{bmatrix}.
-\]</span></p>
+<section id="ejercicios-adicionales-falso-o-verdadero" class="level1">
+<h1>Ejercicios Adicionales: Falso o Verdadero</h1>
+<p>A continuación se presentan 5 enunciados. Indica si cada afirmación es <strong>verdadera</strong> o <strong>falsa</strong> y justifica la respuesta.</p>
+<ol start="16" type="1">
+<li><p>El producto cruz de dos vectores paralelos es un vector nulo.</p></li>
+<li><p>La ecuación general de un plano siempre puede escribirse en la forma <span class="math inline">\(Ax + By + Cz + D = 0\)</span>, donde <span class="math inline">\((A, B, C)\)</span> es un vector normal al plano.</p></li>
+<li><p>Dos rectas en el espacio siempre se cortan, ya que existen en tres dimensiones.</p></li>
+<li><p>El producto cruz es conmutativo, es decir, <span class="math inline">\(\mathbf{u} \times \mathbf{v} = \mathbf{v} \times \mathbf{u}\)</span>.</p></li>
+<li><p>Si una recta es paralela a un plano, entonces la dirección de la recta es ortogonal al vector normal del plano.</p></li>
+</ol>
+<p>======= author: “Tu Nombre” date: “2025-04-11” format: html</p>
+<hr>
 </section>
-<section id="observaciones" class="level2">
-<h2 class="anchored" data-anchor-id="observaciones">Observaciones</h2>
-<p>Note que una matriz cuadrada <span class="math inline">\(A\)</span> de <span class="math inline">\(2 \times 2\)</span> tiene dos valores propios <span class="math inline">\(\lambda_1\)</span> y <span class="math inline">\(\lambda_2\)</span>, y dos vectores propios <span class="math inline">\(v_1\)</span> y <span class="math inline">\(v_2\)</span>. La matriz <span class="math inline">\(A\)</span> se puede descomponer como:</p>
-<p><span class="math display">\[
-A = P \Lambda P^{-1},
-\]</span></p>
-<p>donde <span class="math inline">\(P=[v_1|v_2]\)</span> es la matriz cuyas columnas son los vectores propios de <span class="math inline">\(A\)</span>, y</p>
-<p><span class="math display">\[\Lambda=\begin{bmatrix}\lambda_1&amp;0\\0&amp;\lambda_2\end{bmatrix},\]</span></p>
-<p>es la matriz diagonal de los valores propios de <span class="math inline">\(A\)</span>.</p>
-<p><strong>Por ejemplo</strong>, si <span class="math inline">\(A\)</span> es:</p>
-<p><span class="math display">\[
-A = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0\end{bmatrix},
-\]</span> entonces los valores propios de <span class="math inline">\(A\)</span> son</p>
-<p><span class="math inline">\(\lambda_1 = 1\)</span> asociado al vector propio <span class="math inline">\(v_1 = \begin{bmatrix} 1 \\ 1\end{bmatrix}\)</span> y <span class="math inline">\(\lambda_2 = -1\)</span> asociado al vector propio <span class="math inline">\(v_2 = \begin{bmatrix} 1 \\ -1\end{bmatrix}\)</span>.</p>
-<p>De esta forma, tenemos que la matriz</p>
-<p><span class="math display">\[
-P = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1\end{bmatrix},
-\ \
-\Lambda = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1\end{bmatrix}
-\ \
-\text{y} \ \
-P^{-1} = \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2\end{bmatrix},
-\]</span></p>
-<p><span class="math display">\[
-A = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1\end{bmatrix} \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1\end{bmatrix} \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2\end{bmatrix}.
-\]</span></p>
+<section id="enunciados" class="level1">
+<h1>Enunciados</h1>
+<ol type="1">
+<li><p>Sea (W={(x,y,z)^3 : x-2y+z=0}). Determina si (W) es un subespacio vectorial de (^3) justificando cada propiedad.</p></li>
+<li><p>Considera el conjunto (W={(x,y)^2 : 2x-3y=4}). ¿Es (W) un subespacio vectorial? Explica tu respuesta.</p></li>
+<li><p>Dados (v_1=(1,3,2)) y (v_2=(2,-1,4)) en (^3), establece si el vector (w=(5,2,8)) se puede expresar como combinación lineal de (v_1) y (v_2); de ser así, encuentra los escalares correspondientes.</p></li>
+<li><p>Determina si los vectores (v_1=(1,0,2)), (v_2=(0,1,-1)) y (v_3=(3,2,3)) en (^3) son linealmente independientes, mostrando los pasos del procedimiento.</p></li>
+<li><p>Sea (W={(x,y,z)^3 : x+y+z=0}). Encuentra una base para (W) y determina su dimensión.</p></li>
+<li><p>Considera los vectores (v_1=(1,0,0)), (v_2=(0,1,0)) y (v_3=(0,0,1)) en (^3). Demuestra que el subespacio generado por estos vectores es (^3).</p></li>
+<li><p>Sea (W={(x,y,z)^3 : 2x-y+3z=0}). Verifica que (W) es un subespacio vectorial y determina su dimensión.</p></li>
+<li><p>Dado el conjunto (S={(1,2),(3,6)}) en (^2), decide si los vectores son linealmente independientes y describe el subespacio generado por (S).</p></li>
+<li><p>Considera (v_1=(1,2,1)) y (v_2=(0,1,1)) en (^3). Resuelve el sistema para encontrar los coeficientes que permitan expresar (w=(3,5,4)) como combinación lineal de (v_1) y (v_2).</p></li>
+<li><p>Sea (W_1={v_1,v_2,v_3}) un conjunto de vectores linealmente independientes en (^4) y (W_2={v_1,v_2,v_3,v_4}) donde (v_4) es combinación lineal de (v_1,v_2,v_3). Compara los subespacios generados por (W_1) y (W_2) y justifica si son iguales o no.</p></li>
+</ol>
 </section>
-<section id="ejercicio-3-encuentre-el-mensaje-encriptado" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicio-3-encuentre-el-mensaje-encriptado">Ejercicio 3: Encuentre el mensaje encriptado</h2>
-<p>Un experto en matemáticas observo el siguiente vector el cual tiene un mensaje encriptado, el cual se sabe que fue encriptado con la técnica anterior.</p>
-<p>el encontró que la matriz llave tiene dos valores propios <span class="math display">\[\lambda_1 = 1 \quad \text{y} \quad \lambda_2 = 2,\]</span></p>
-<p>y el valor propio asociado a <span class="math inline">\(\lambda_2\)</span> es</p>
-<p><span class="math display">\[
-v_2 = \begin{bmatrix} 1 \\ 0\end{bmatrix}
-\]</span></p>
-<p>Ademas noto que cuando tenia la la combinación espacio de letras “BA” al convertirlo a vectores y multiplicarlo por la matriz llave, obtenía el mismo vector, es decir tenia la misma combinación de letras.</p>
-<p>Note que si el mensaje encriptado era</p>
-<p><span class="math display">\[
-\begin{bmatrix}
--14&amp;12&amp;-6&amp;3&amp;14&amp;1&amp;-10&amp;21&amp;6&amp;9&amp;28&amp;0&amp;-24&amp;15&amp;-6&amp;15&amp;34&amp;1&amp;-22&amp;15
-\end{bmatrix}
-\]</span></p>
-<p>escribiéndolo en forma de matriz, tenemos <span class="math display">\[
-\begin{bmatrix}
--14 &amp; -6 &amp; 14 &amp; -10 &amp; 6 &amp; 28 &amp; -24 &amp; -6 &amp; 34 &amp; -22 \\
-12 &amp; 3 &amp; 1 &amp; 21 &amp; 9 &amp; 0 &amp; 15 &amp; 15 &amp; 1 &amp; 15
-\end{bmatrix}
-\]</span></p>
-<ol type="a">
-<li><p>Escribe un plan para encontrar el mensaje encriptado.</p></li>
-<li><p>Encuentra el mensaje encriptado.</p></li>
+<section id="preguntas-de-verdadero-o-falso" class="level1">
+<h1>Preguntas de Verdadero o Falso</h1>
+<ol type="1">
+<li><p><strong>VF1:</strong> Todo subespacio vectorial de (^n) debe contener el vector cero.</p></li>
+<li><p><strong>VF2:</strong> Si (W={(x,y,z)^3: x+y+z=2}), entonces (W) es un subespacio vectorial de (^3).</p></li>
+<li><p><strong>VF3:</strong> La combinación lineal de vectores puede producir el vector cero solo si todos los coeficientes son cero.</p></li>
+<li><p><strong>VF4:</strong> Un conjunto de vectores es linealmente dependiente si al menos uno de ellos puede expresarse como combinación lineal de los otros.</p></li>
+<li><p><strong>VF5:</strong> El subespacio generado por un conjunto de vectores siempre es (^n) sin importar los vectores elegidos.</p></li>
+<li><p><strong>VF6:</strong> Si un conjunto de vectores en (^n) tiene más de (n) vectores, necesariamente son linealmente dependientes.</p></li>
+<li><p><strong>VF7:</strong> La dimensión de un subespacio es el número de vectores en cualquier conjunto que lo genere.</p></li>
+<li><p><strong>VF8:</strong> Si dos conjuntos de vectores generan el mismo subespacio, sus bases tienen el mismo número de elementos.</p></li>
+<li><p><strong>VF9:</strong> Toda combinación lineal de vectores es única.</p></li>
+<li><p><strong>VF10:</strong> La eliminación de Gauss es una técnica que puede usarse para resolver sistemas de ecuaciones lineales y determinar la independencia lineal. &gt;&gt;&gt;&gt;&gt;&gt;&gt; 1ab0de8 (algunos cambios del atller 9)</p></li>
 </ol>
 
 

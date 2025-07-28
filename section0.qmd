@@ -1,5 +1,5 @@
 ---
-title: "Plano en $\mathbb{R}^2$"
+title: Plano en $\mathbb{R}^2$
 ---
 
 Los puntos en el plano cartesiano los puntos se pueden representar como pares coordenados $(x,y)$, donde $x$ es la coordenada horizontal y $y$ es la coordenada vertical. En álgebra lineal,  en el plano podemos definir dos elementos importantes:

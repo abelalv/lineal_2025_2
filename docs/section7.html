@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Operaciones con matrices</title>
+<title>Eliminación de Gauss-Jordan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -109,7 +80,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller8.html">Vectores y matrices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Eliminación de Gauss-Jordan</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +117,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -304,19 +275,19 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.html" class="sidebar-item-text sidebar-link active">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -333,9 +304,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller8.html">Vectores y matrices</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Operaciones con matrices</h1>
+<h1 class="title">Eliminación de Gauss-Jordan</h1>
 </div>
 
 
@@ -352,123 +323,6 @@ window.Quarto = {
 </header>
 
 
-<ol type="1">
-<li><p>Resuelva el siguiente sistema de ecuaciones lineales usando la regla de Cramer <span class="math display">\[
-\begin{aligned}
-2x_1 + 3x_2 - x_3  &amp;= 10 \\
--x_1 +  + 2x_3 - 3x_4 &amp;= 5 \\
-  - 2x_2 + x_3  &amp;= 7 \\
-4x_1 + x_2 - 5x_4 &amp;= 12
-\end{aligned}
-\]</span></p></li>
-<li><p>Resuelva el sistema anterior usando eliminación gaussiana</p></li>
-<li><p>Encuentre la matriz escalonada de la matriz</p></li>
-</ol>
-<p><span class="math display">\[
-\begin{bmatrix}
-    2 &amp; 3 &amp; -1 &amp; 0 \\
-    -1 &amp; 0 &amp; 2 &amp; -3 \\
-    0 &amp; -2 &amp; 1 &amp; 0 \\
-    4 &amp; 1 &amp; 0 &amp; -5
-\end{bmatrix}
-\]</span></p>
-<ol start="4" type="1">
-<li>Encuentre la matriz inversa</li>
-</ol>
-<p><span class="math display">\[
-\begin{bmatrix}
-    2 &amp; 3 &amp; -1 &amp; 0 \\
-    -1 &amp; 0 &amp; 2 &amp; -3 \\
-    0 &amp; -2 &amp; 1 &amp; 0 \\
-    4 &amp; 1 &amp; 0 &amp; -5
-\end{bmatrix}
-\]</span></p>
-<ol start="5" type="1">
-<li>Encuentre el valor de <span class="math inline">\(a\)</span> para que la matriz tenga inversa</li>
-</ol>
-<p><span class="math display">\[
-\begin{bmatrix}
-    a^2 &amp; &amp;03 \\
-    5 &amp; a &amp; 2  \\
-    3 &amp; 0 &amp; 1
-\end{bmatrix}
-\]</span></p>
-<ol start="6" type="1">
-<li>Decida si la afirmación es verdadera o falsa y justifique su respuesta</li>
-</ol>
-<ul>
-<li><p><span class="math inline">\(det(AA^T)=det(A)^2\)</span></p></li>
-<li><p><span class="math inline">\(det(-A)=-det(A)\)</span></p></li>
-<li><p>Si <span class="math inline">\(A^T=A^{-1}\)</span>, entonces <span class="math inline">\(det(A)=1\)</span></p></li>
-<li><p>Si <span class="math inline">\(B=PAP^{-1}\)</span>, entonces <span class="math inline">\(det(B)=det(A)\)</span></p></li>
-<li><p><span class="math inline">\(det(A+B)=det(A)+det(B)\)</span></p></li>
-</ul>
-<ol start="7" type="1">
-<li>Sea lso vectores <span class="math display">\[
-\vec{v}=\begin{bmatrix}
-1 \\
-2 \\
-3
-\end{bmatrix},\ \    
-\vec{u}=\begin{bmatrix}
-2 \\
-3 \\
-4
-\end{bmatrix}       
-\]</span></li>
-</ol>
-<p>Calcule</p>
-<ol type="a">
-<li><p><span class="math inline">\(\vec{v}+\vec{u}\)</span></p></li>
-<li><p><span class="math inline">\(\vec{v}-\vec{u}\)</span></p></li>
-<li><p><span class="math inline">\(2\vec{v}\)</span></p></li>
-<li><p><span class="math inline">\(\vec{v}^T\vec{u}\)</span></p></li>
-<li><p><span class="math inline">\(\vec{v}^T\vec{u}^T\)</span></p></li>
-</ol>
-<ol start="8" type="1">
-<li>Que valor de <span class="math inline">\(a\)</span>, para que los vectores sean ortogonales</li>
-</ol>
-<p><span class="math display">\[
-\vec{v}=\begin{bmatrix}
-    1 \\
-    2 \\
-    a
-\end{bmatrix},\ \
-\vec{u}=\begin{bmatrix}
-    2 \\
-    -1 \\
-    4
-\end{bmatrix}
-\]</span></p>
-<ol start="9" type="1">
-<li>Encuentre</li>
-</ol>
-<p><span class="math display">\[
-\vec{v}=\begin{bmatrix}
-    1 \\
-    2 \\
-    3
-\end{bmatrix},\ \
-\vec{u}=\begin{bmatrix}
-    2 \\
-    3 \\
-    4
-\end{bmatrix}
-\]</span></p>
-<ol type="a">
-<li><p><span class="math inline">\(\vec{v}\times\vec{u}\)</span></p></li>
-<li><p><span class="math inline">\(\vec{u}\times\vec{v}\)</span></p></li>
-<li><p>Represente este producto en un <span class="math inline">\(R^3\)</span></p></li>
-</ol>
-<ol start="10" type="1">
-<li>LAs siguientes son verdaderas</li>
-</ol>
-<ul>
-<li><p><span class="math inline">\(||\vec{u}+\vec{v}||^2=||\vec{u}||^2+||\vec{v}||^2+2\vec{u}\cdot\vec{v}\)</span></p></li>
-<li><p><span class="math inline">\(|\vec{a}+\vec{b}|=||\vec{a}||+||\vec{b}||\)</span></p></li>
-<li><p>Si <span class="math inline">\(x,y\in R^n\)</span>, entonces <span class="math inline">\(||x\cdot y||^2=xy^T\)</span></p></li>
-<li><p>Si <span class="math inline">\(\vec{u}=c\vec{v}\)</span> entonces <span class="math inline">\(\vec{u}\times\vec{v}=0\)</span></p></li>
-</ul>
 
 
 

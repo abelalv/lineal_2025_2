@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Taller computacional Vectores en \mathbb{R}^n</title>
+<title>Matrices Solución de sistema de ecuaciones</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -143,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Taller computacional Vectores en <span class="math inline">\(\mathbb{R}^n\)</span></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section4.html">Matrices 2 x 2</a></li><li class="breadcrumb-item"><a href="./section5.html">Solución de sistema de ecuaciones</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,7 +146,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -221,7 +187,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section5.html" class="sidebar-item-text sidebar-link">
+  <a href="./section5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Solución de sistema de ecuaciones</span></a>
   </div>
 </li>
@@ -344,7 +310,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
@@ -366,25 +332,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link active" data-scroll-target="#ejemplo-práctico">Ejemplo práctico</a>
-  <ul class="collapse">
-  <li><a href="#paso-1-tokenización" id="toc-paso-1-tokenización" class="nav-link" data-scroll-target="#paso-1-tokenización">Paso 1: Tokenización</a></li>
-  <li><a href="#paso-2-lematización" id="toc-paso-2-lematización" class="nav-link" data-scroll-target="#paso-2-lematización">Paso 2: Lematización</a></li>
-  <li><a href="#paso-3-eliminación-de-stopwords" id="toc-paso-3-eliminación-de-stopwords" class="nav-link" data-scroll-target="#paso-3-eliminación-de-stopwords">Paso 3: Eliminación de stopwords</a></li>
-  <li><a href="#paso-4-vectorización" id="toc-paso-4-vectorización" class="nav-link" data-scroll-target="#paso-4-vectorización">Paso 4: Vectorización</a></li>
-  <li><a href="#paso-5-normalización" id="toc-paso-5-normalización" class="nav-link" data-scroll-target="#paso-5-normalización">Paso 5: Normalización</a></li>
-  </ul></li>
-  <li><a href="#ejemplo-práctico-en-python" id="toc-ejemplo-práctico-en-python" class="nav-link" data-scroll-target="#ejemplo-práctico-en-python">Ejemplo práctico en Python</a></li>
-  <li><a href="#coseno-entre-vectores" id="toc-coseno-entre-vectores" class="nav-link" data-scroll-target="#coseno-entre-vectores">Coseno entre vectores</a></li>
+  <li><a href="#independencia-en-la-la-columna-de-una-matriz" id="toc-independencia-en-la-la-columna-de-una-matriz" class="nav-link active" data-scroll-target="#independencia-en-la-la-columna-de-una-matriz">Independencia en la la columna de una matriz</a></li>
+  <li><a href="#determinantes" id="toc-determinantes" class="nav-link" data-scroll-target="#determinantes">Determinantes</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section4.html">Matrices 2 x 2</a></li><li class="breadcrumb-item"><a href="./section5.html">Solución de sistema de ecuaciones</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Taller computacional Vectores en <span class="math inline">\(\mathbb{R}^n\)</span></h1>
+<h1 class="title">Matrices Solución de sistema de ecuaciones</h1>
 </div>
 
 
@@ -401,163 +359,148 @@ window.Quarto = {
 </header>
 
 
-<p>Objetivo: Utilizar un ejemplo práctico de procesamiento de texto para visualizar y comprender conceptos fundamentales de álgebra lineal como vectores en <span class="math inline">\(\mathbb{R}^n\)</span>, bases, dimensión e independencia/dependencia lineal.</p>
-<p>Ene l procesamiento de texto, en sus inicios se uso la representación de documentos como una bolsa de palabras, donde cada documento se representaba como un vector en <span class="math inline">\(\mathbb{R}^n\)</span> y cada palabra como una dimensión. En este taller, utilizaremos un conjunto de documentos para ilustrar estos conceptos.</p>
-<p>Para realizar esto a cada documento se le hace un preprocesamiento, que consiste en:</p>
-<ol type="1">
-<li><strong>Tokenización</strong>: Separar el texto en palabras o tokens.</li>
-<li><strong>Lematización</strong>: Reducir las palabras a su forma base o lema.</li>
-<li><strong>Eliminación de stopwords</strong>: Quitar palabras comunes que no aportan significado (como “y”, “el”, “de”).</li>
-<li><strong>Vectorización</strong>: Representar cada documento como un vector en <span class="math inline">\(\mathbb{R}^n\)</span> donde <span class="math inline">\(n\)</span> es el número de palabras únicas en el conjunto de documentos.</li>
-<li><strong>Normalización</strong>: Escalar los vectores para que tengan una longitud de 1 (opcional).</li>
-</ol>
-<section id="ejemplo-práctico" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo práctico</h2>
-<p>Supongamos que nuestro documento es el siguiente:</p>
-<p>“la casa es grande y la casa es azul”</p>
-<section id="paso-1-tokenización" class="level3">
-<h3 class="anchored" data-anchor-id="paso-1-tokenización">Paso 1: Tokenización</h3>
-<p>En la tokenización, separamos el texto en palabras. En este caso, obtenemos:</p>
-<pre><code>["la", "casa", "es", "grande", "y", "la", "casa", "es", "azul"]</code></pre>
-</section>
-<section id="paso-2-lematización" class="level3">
-<h3 class="anchored" data-anchor-id="paso-2-lematización">Paso 2: Lematización</h3>
-<p>La lematización consiste en reducir las palabras a su forma base. En este caso, podemos obtener:</p>
-<pre><code>["la", "casa", "ser", "grande", "y", "la", "casa", "ser", "azul"]</code></pre>
-</section>
-<section id="paso-3-eliminación-de-stopwords" class="level3">
-<h3 class="anchored" data-anchor-id="paso-3-eliminación-de-stopwords">Paso 3: Eliminación de stopwords</h3>
-<p>En este paso, eliminamos las palabras que no aportan significado. En este caso, eliminamos “la”, “y” y “es”. Obtenemos:</p>
-<pre><code>["casa", "grande", "casa", "azul"]</code></pre>
-</section>
-<section id="paso-4-vectorización" class="level3">
-<h3 class="anchored" data-anchor-id="paso-4-vectorización">Paso 4: Vectorización</h3>
-<p>Ahora, representamos cada documento como un vector en <span class="math inline">\(\mathbb{R}^n\)</span>. Para esto, creamos un vocabulario con las palabras únicas del documento. En este caso, el vocabulario es:</p>
-<pre><code>["casa", "grande", "azul"]</code></pre>
-<p>Ahora, representamos el documento como un vector en <span class="math inline">\(\mathbb{R}^3\)</span> (ya que tenemos 3 palabras únicas):</p>
-<pre><code>[2, 1, 1]</code></pre>
-</section>
-<section id="paso-5-normalización" class="level3">
-<h3 class="anchored" data-anchor-id="paso-5-normalización">Paso 5: Normalización</h3>
-<p>Finalmente, normalizamos el vector para que tenga una longitud de 1. La longitud del vector es: <span class="math display">\[
-\sqrt{2^2 + 1^2 + 1^2} = \sqrt{4 + 1 + 1} = \sqrt{6}
-\]</span> Por lo tanto, el vector normalizado es: <span class="math display">\[
-\left[\frac{2}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}\right]
+<p>Queremos encontrar dos números tales que sumados sean 45 y restados sean 21, para resolver este problema deberíamos plantear las incógnitas de la siguiente forma:</p>
+<p><span class="math inline">\(X:=\)</span> número mayor</p>
+<p><span class="math inline">\(Y:=\)</span> número menor</p>
+<p>así debemos plantear el sistema de ecuaciones:</p>
+<p><span class="math display">\[X+Y=45\]</span> <span class="math display">\[X-Y=21\]</span></p>
+<p>Este sistema lo podemos resolver de la usando el método de sustitución, para ello despejamos <span class="math inline">\(X\)</span> de la segunda ecuación:</p>
+<p><span class="math display">\[X=21+Y\]</span></p>
+<p>y sustituimos en la primera ecuación:</p>
+<p><span class="math display">\[21+Y+Y=45\]</span></p>
+<p>Ahora despejamos <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[2Y=24\]</span></p>
+<p><span class="math display">\[Y=12\]</span></p>
+<p>Sustituimos el valor de <span class="math inline">\(Y\)</span> en la ecuación <span class="math inline">\(X=21+Y\)</span>:</p>
+<p><span class="math display">\[X=21+12\]</span></p>
+<p><span class="math display">\[X=33\]</span></p>
+<p>Por lo tanto los números son 33 y 12.</p>
+<p>Aunque, este es un camino para resolver el problema, también podemos resolverlo de forma matricial, para ello planteamos el sistema de ecuaciones de la siguiente forma:</p>
+<p><span class="math display">\[\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1 \\
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Y \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+45 \\
+21 \\
+\end{bmatrix}
 \]</span></p>
-</section>
-</section>
-<section id="ejemplo-práctico-en-python" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-práctico-en-python">Ejemplo práctico en Python</h2>
-<div id="140fa1fa" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para realizar este este ejercicio usaremos algunas librerías de Python</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que nos ayudarán a realizar la manipulación de datos y la visualización</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> RegexpTokenizer</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="c4ba3766" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Textos del ejemplo </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El perro corre"</span>,                        <span class="co"># Texto 1</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El perro corre en el parque"</span>,           <span class="co"># Texto 2</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El gato duerme en la casa tranquila"</span>,  <span class="co"># Texto 3</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El gato duerme en la casa"</span>,             <span class="co"># Texto 4</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Los estudiantes estudian álgebra lineal"</span> <span class="co"># Texto 5</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="e4e6084e" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocesamiento</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> RegexpTokenizer(<span class="vs">r'\w+'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar las Stop words</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># En este caso, las stop words son palabras comunes que no aportan mucho significado</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> {<span class="st">"el"</span>, <span class="st">"la"</span>, <span class="st">"los"</span>, <span class="st">"las"</span>, <span class="st">"en"</span>, <span class="st">"y"</span>, <span class="st">"de"</span>, <span class="st">"a"</span>, <span class="st">"es"</span>, <span class="st">"una"</span>, <span class="st">"un"</span>, <span class="st">"que"</span>}</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenizar y eliminar stop words</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>processed <span class="op">=</span> [</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    [t <span class="cf">for</span> t <span class="kw">in</span> tokenizer.tokenize(txt.lower()) <span class="cf">if</span> t <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> txt <span class="kw">in</span> texts</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir vocabulario</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>vocab <span class="op">=</span> <span class="bu">sorted</span>({word <span class="cf">for</span> tokens <span class="kw">in</span> processed <span class="cf">for</span> word <span class="kw">in</span> tokens})</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir matriz término-documento (filas=vocab, columnas=textos)</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>term_doc <span class="op">=</span> np.array([[tokens.count(w) <span class="cf">for</span> tokens <span class="kw">in</span> processed] <span class="cf">for</span> w <span class="kw">in</span> vocab])</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="0b5f2950" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vocab </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>['casa',
- 'corre',
- 'duerme',
- 'estudian',
- 'estudiantes',
- 'gato',
- 'hay',
- 'lineal',
- 'parque',
- 'perro',
- 'tranquila',
- 'álgebra']</code></pre>
-</div>
-</div>
-<div id="38628c26" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>term_doc <span class="co"># Matriz término-documento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>array([[0, 0, 1, 1, 0, 1],
-       [1, 1, 0, 0, 0, 0],
-       [0, 0, 1, 1, 0, 0],
-       [0, 0, 0, 0, 1, 0],
-       [0, 0, 0, 0, 1, 0],
-       [0, 0, 1, 1, 0, 1],
-       [0, 0, 0, 0, 0, 1],
-       [0, 0, 0, 0, 1, 0],
-       [0, 1, 0, 0, 0, 0],
-       [1, 1, 0, 0, 0, 1],
-       [0, 0, 1, 0, 0, 0],
-       [0, 0, 0, 0, 1, 0]])</code></pre>
-</div>
-</div>
-<p><strong>Nots</strong> Recuerda que una matriz <span class="math display">\[A=\begin{bmatrix}
-1 &amp; 2 &amp; 3 \\
-4 &amp; 5 &amp; 6 \\
-7 &amp; 8 &amp; 9
-\end{bmatrix}\]</span></p>
-<p>se puede representar en Python como un array de numpy</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>y si queremos acceder a la columna <span class="math inline">\(2\)</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A[:, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>y si queremos acceder a la fila <span class="math inline">\(2\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note que aquí la primera columna de la matriz indica indica la frecuencia de la palabra que aparece en el texto 1, la segunda columna la frecuencia de la palabra que aparece en el texto 2 y así sucesivamente.</p>
-<p><strong>Ejercicio 1</strong>: Las columnas de esta matriz son linealmente independientes. ¿Por qué? ¿Qué significa esto en el contexto de la representación de documentos como vectores en <span class="math inline">\(\mathbb{R}^n\)</span>? ¿Cual es la dimensión del espacio generado por las columnas de la matriz?</p>
-<p>En algebra lineal computacional se acostumbra a trabajar con vectores normalizados esto es porque se busca que la longitud de los vectores sea 1. Lo cual hace que se disminuya los errores de redondeo y se pueda trabajar con una mayor precisión.</p>
-<p><strong>Ejercicio 2</strong>: Normalice los vectores de la matriz anterior y genere una nueva matriz con los vectores normalizados. Recuerde que la normalización de un vector <span class="math inline">\(v\)</span> se hace dividiendo cada componente del vector por la longitud del vector. La longitud de un vector <span class="math inline">\(v\)</span> en <span class="math inline">\(\mathbb{R}^n\)</span> en ‘python’ se puede calcular como:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>longitud <span class="op">=</span> np.linalg.norm(v)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>v_normalizado <span class="op">=</span> v <span class="op">/</span> longitud</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v_normalizado)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="coseno-entre-vectores" class="level2">
-<h2 class="anchored" data-anchor-id="coseno-entre-vectores">Coseno entre vectores</h2>
-<p>El coseno entre dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> en <span class="math inline">\(\mathbb{R}^n\)</span> se puede calcular utilizando el producto punto y la longitud de los vectores. La fórmula es:</p>
-<p><span class="math display">\[
-\cos(\theta) = \frac{u \cdot v}{||u|| \cdot ||v||}
+<p>De esta forma podemos definir la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[A=\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1 \\
+\end{bmatrix}
+\text{ y }
+B=\begin{bmatrix}
+45 \\
+21 \\
+\end{bmatrix}
 \]</span></p>
-<p>Donde <span class="math inline">\(u \cdot v\)</span> es el producto punto de los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, y <span class="math inline">\(||u||\)</span> y <span class="math inline">\(||v||\)</span> son las longitudes de los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, respectivamente. El ángulo <span class="math inline">\(\theta\)</span> se puede obtener utilizando la función <code>np.arccos</code> de NumPy, que devuelve el ángulo en radianes. Para convertirlo a grados, se puede usar la función <code>np.degrees</code>.</p>
-<p><strong>Ejercicio 3</strong>: Calcule el coseno entre cada uno de los vectores del ejercicio 2. Lea atentamente las frases y el resultado que obtiene. ¿Qué relación existe entre el coseno de los vectores y el significado de cada uno de los documentos? <strong>Nota</strong> Recuerde que el valor del coseno entre dos vectores es un número entre -1 y 1. Un valor de 1 indica que los vectores son paralelos y apuntan en la misma dirección, un valor de -1 indica que son paralelos pero apuntan en direcciones opuestas, y un valor de 0 indica que son ortogonales (perpendiculares) entre sí.</p>
-<p><strong>Ejercicio 4</strong> ¿Qué conjunto forma la base de este espacio vectorial de textos? Si añadiéramos una nueva frase como “La inteligencia artificial aprende rápido”, ¿cómo cambiaría la base y la dimensión del espacio vectorial?</p>
-<p><strong>Ejercicio 5</strong> Inventa una frase que pueda ser producto de la combinacion lineal unicamente de la tercera y cuarta columna de la matriz generada en el ejercicio 2.</p>
-<p>Aunque en la actualidad esta técnica de representación de documentos ha sido reemplazada por técnicas más avanzadas como TF-IDF y Word Embeddings, sigue siendo una buena forma de entender los conceptos fundamentales de álgebra lineal y su aplicación en el procesamiento de texto. ## Referencias - Albright, S. C., Winston, W. L., &amp; Zapp, A. (2011). Data analysis and decision making (4th ed.). Cengage Learning. - Bishop, C. M. (2006). Pattern recognition and machine learning. Springer. - Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). Deep learning. MIT Press.</p>
+<p>Para encontrar la solución del sistema de ecuaciones <span class="math inline">\(AX=B\)</span> debemos encontrar la matriz <span class="math inline">\(X\)</span> que cumpla con la ecuación anterior, para ello multiplicamos ambos lados de la ecuación por la inversa de la matriz <span class="math inline">\(A\)</span>, donde la matriz inversa de <span class="math inline">\(A\)</span> es:</p>
+<p><span class="math display">\[A^{-1}=\begin{bmatrix}
+\frac{1}{2} &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; -\frac{1}{2} \\
+\end{bmatrix}
+\]</span> <strong>Comprueba que es la inversa de la matriz <span class="math inline">\(A\)</span></strong></p>
+<p>De esta forma tenemos que el sistema se puede escribir como: <span class="math display">\[\begin{bmatrix}
+\frac{1}{2} &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; -\frac{1}{2} \\
+\end{bmatrix}\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -1 \\
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Y \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{2} &amp; \frac{1}{2} \\
+\frac{1}{2} &amp; -\frac{1}{2} \\
+\end{bmatrix}\begin{bmatrix}
+45 \\
+21 \\
+\end{bmatrix}
+\]</span></p>
+<p>Así obtenemos que:</p>
+<p><span class="math display">\[\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Y \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+33 \\
+12 \\
+\end{bmatrix}
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[\begin{bmatrix}
+X \\
+Y \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+33 \\
+12 \\
+\end{bmatrix}
+\]</span></p>
+<p>Por lo tanto los números son 33 y 12, como lo habíamos encontrado anteriormente.</p>
+<section id="independencia-en-la-la-columna-de-una-matriz" class="level2">
+<h2 class="anchored" data-anchor-id="independencia-en-la-la-columna-de-una-matriz">Independencia en la la columna de una matriz</h2>
+<p>La matriz <span class="math inline">\(A=\begin{bmatrix}a_{11} &amp; a_{12}\\a_{21} &amp; a_{22}\end{bmatrix}\)</span>, al multiplicar por el vector columna <span class="math inline">\(\begin{bmatrix}\alpha_1 \\ \alpha_2\end{bmatrix}\)</span>, obtenemos</p>
+<p><span class="math display">\[\begin{bmatrix}a_{11} &amp; a_{12}\\a_{21} &amp; a_{22}\end{bmatrix}\begin{bmatrix}\alpha_1 \\ \alpha_2\end{bmatrix}=\begin{bmatrix}a_{11}\alpha_1+a_{12}\alpha_2\\a_{21}\alpha_1+a_{22}\alpha_2\end{bmatrix},\]</span></p>
+<p>agrupando términos tenemos:</p>
+<p><span class="math display">\[A\begin{bmatrix}\alpha_1 \\ \alpha_2\end{bmatrix}=\alpha_1\begin{bmatrix}a_{11}\\a_{21}\end{bmatrix}+\alpha_2\begin{bmatrix}a_{12}\\a_{22}\end{bmatrix}\]</span></p>
+<p>De esta forma podemos ver que esta multiplicación es una combinación lineal de la s columnas de la matriz <span class="math inline">\(A\)</span>.</p>
+<p>Vamos a analizar que sucede si la matriz <span class="math inline">\(A\)</span> tiene columnas linealmente dependientes, para estudiar esto vamos a considerar el siguiente ejemplo</p>
+<p><span class="math display">\[A=\begin{bmatrix}1 &amp; 2\\2 &amp; 4\end{bmatrix}\]</span></p>
+<p><strong>Note</strong> que la segunda columna es el doble de la primera columna, por lo tanto las columnas de la matriz <span class="math inline">\(A\)</span> son linealmente dependientes.</p>
+<p>Ahora si vamos a calcular la inversa de la matriz <span class="math inline">\(A\)</span>, con la formula que vimos anteriormente, obtenemos:</p>
+<p><span class="math display">\[A^{-1}=\frac{1}{1\cdot 4-2\cdot 2}\begin{bmatrix}4 &amp; -2\\-2 &amp; 1\end{bmatrix}=\frac{1}{0}\begin{bmatrix}4 &amp; -2\\-2 &amp; 1\end{bmatrix}\]</span></p>
+<p>Podemos ver que la inversa no existe. Ahora vamos a explorar que sucede si la matriz <span class="math inline">\(A\)</span> tiene columnas linealmente independientes, para ello consideremos la matriz <span class="math inline">\(A=\begin{bmatrix}1 &amp; 2\\3 &amp; 4\end{bmatrix}\)</span>, en este caso las columnas de la matriz <span class="math inline">\(A\)</span> son linealmente independientes.</p>
+<p>Ahora vamos a calcular la inversa de la matriz <span class="math inline">\(A\)</span>, con la formula que vimos anteriormente, obtenemos:</p>
+<p><span class="math display">\[A^{-1}=\frac{1}{1\cdot 4-2\cdot 3}\begin{bmatrix}4 &amp; -2\\-3 &amp; 1\end{bmatrix}=\frac{1}{-2}\begin{bmatrix}4 &amp; -2\\-3 &amp; 1\end{bmatrix}=\begin{bmatrix}-2 &amp; 1\\1.5 &amp; -0.5\end{bmatrix}\]</span></p>
+<p>Por lo tanto la inversa de la matriz <span class="math inline">\(A\)</span> existe.</p>
+<p>Esto nos lleva al siguiente resultado:</p>
+<p><strong>Proposición</strong> Si la matriz <span class="math inline">\(A\)</span> tiene columnas linealmente independientes, entonces la matriz <span class="math inline">\(A\)</span> tiene inversa.</p>
+<p><strong>Proposición</strong> Si la matriz <span class="math inline">\(A\)</span> de <span class="math inline">\(2\times 2\)</span> tiene columnas linealmente independientes, el sistema <span class="math inline">\(Ax=b\)</span> una única solución. <strong>¿Cómo podemos justificar este resultado</strong>?</p>
+<p>Para saber si una matriz tiene inversa vamos a introducir el siguiente concepto.</p>
+</section>
+<section id="determinantes" class="level2">
+<h2 class="anchored" data-anchor-id="determinantes">Determinantes</h2>
+<p>El determinante de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> se denota por <span class="math inline">\(|A|\)</span> y se define como:</p>
+<p><span class="math display">\[|A|=a_{11}a_{22}-a_{12}a_{21}\]</span></p>
+<p>Para la matriz <span class="math inline">\(A=\begin{bmatrix}1 &amp; 2\\2 &amp; 4\end{bmatrix}\)</span>, el determinante de la matriz <span class="math inline">\(A\)</span> es:</p>
+<p><span class="math display">\[|A|=1\cdot 4-2\cdot 2=0\]</span></p>
+<p><strong>Note</strong> que el determinante de una matriz cuadrada es igual a cero si las columnas de la matriz son linealmente dependientes.</p>
+<p>La interpretación geométrica del determinante de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> es que el determinante de la matriz <span class="math inline">\(A\)</span> es igual al área del paralelogramo que se forma con los vectores columna de la matriz <span class="math inline">\(A\)</span>.</p>
+<p><strong>Ejemplo</strong> Veamos la interpretación geométrica del determinante de la matriz <span class="math inline">\(A=\begin{bmatrix}1/2 &amp; 1/2\\1 &amp; 0\end{bmatrix}\)</span> note que el determinante de la matriz <span class="math inline">\(A\)</span> es:</p>
+<p><span class="math display">\[|A|=1/2\cdot 0-1/2\cdot 1=1/2\]</span> gráficamente podemos ver que el área del paralelogramo es igual a 1/2.</p>
+<div id="5d9b7ee7" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section5_files/figure-html/cell-2-output-1.png" width="518" height="381" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note que con esta definición podemos modificar la formula de la inversa de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> como:</p>
+<p><span class="math display">\[A^{-1}=\frac{1}{|A|}\begin{bmatrix}a_{22} &amp; -a_{12}\\-a_{21} &amp; a_{11}\end{bmatrix}\]</span></p>
+<p>y podemos obtener la siguiente proposición:</p>
+<p><strong>Proposición</strong> Si el determinante de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> es diferente de cero, entonces la matriz <span class="math inline">\(A\)</span> tiene inversa.</p>
+<p><strong>Proposición</strong> Si el determinante de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> es diferente de cero, entonces el sistema <span class="math inline">\(Ax=b\)</span> tiene una única solución.</p>
+<p><strong>Proposición</strong> Si el determinante de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> es diferente a cero, entonces <span class="math inline">\(A\)</span> tiene columnas linealmente independientes.</p>
+<p><strong>Proposición</strong> Si el determinante de una matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(2\times 2\)</span> es diferente a cero, entonces <span class="math inline">\(A\)</span> tiene filas linealmente independientes.</p>
 
 
 </section>

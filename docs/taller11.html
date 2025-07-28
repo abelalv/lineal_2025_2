@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Subespacion en R^n</title>
+<title>Taller computacional Vectores en \mathbb{R}^n</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -109,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Subespacion en <span class="math inline">\(R^n\)</span></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Taller computacional Vectores en <span class="math inline">\(\mathbb{R}^n\)</span></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +180,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -262,61 +296,61 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller1.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller2.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller3.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 3 (matrices)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller4.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 4 (Valores propios)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller5.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 5 (Valores propios)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller6.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller resumen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller7.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller Operaciones con matrices n x n</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -332,18 +366,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#combinaciones-lineales" id="toc-combinaciones-lineales" class="nav-link active" data-scroll-target="#combinaciones-lineales">Combinaciones lineales</a>
+  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link active" data-scroll-target="#ejemplo-práctico">Ejemplo práctico</a>
   <ul class="collapse">
-  <li><a href="#subespacios-generados-por-un-conjunto-de-vectores" id="toc-subespacios-generados-por-un-conjunto-de-vectores" class="nav-link" data-scroll-target="#subespacios-generados-por-un-conjunto-de-vectores">Subespacios generados por un conjunto de vectores</a></li>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
-  <li><a href="#ejemplo-1" id="toc-ejemplo-1" class="nav-link" data-scroll-target="#ejemplo-1">Ejemplo</a></li>
-  <li><a href="#ejemplo-2" id="toc-ejemplo-2" class="nav-link" data-scroll-target="#ejemplo-2">Ejemplo</a></li>
-  <li><a href="#dimensión-de-un-subespacio" id="toc-dimensión-de-un-subespacio" class="nav-link" data-scroll-target="#dimensión-de-un-subespacio">Dimensión de un subespacio</a></li>
-  <li><a href="#ejemplo-3" id="toc-ejemplo-3" class="nav-link" data-scroll-target="#ejemplo-3">Ejemplo</a></li>
-  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">E</a></li>
-  <li><a href="#base" id="toc-base" class="nav-link" data-scroll-target="#base">Base</a></li>
-  <li><a href="#ejemplo-4" id="toc-ejemplo-4" class="nav-link" data-scroll-target="#ejemplo-4">Ejemplo</a></li>
+  <li><a href="#paso-1-tokenización" id="toc-paso-1-tokenización" class="nav-link" data-scroll-target="#paso-1-tokenización">Paso 1: Tokenización</a></li>
+  <li><a href="#paso-2-lematización" id="toc-paso-2-lematización" class="nav-link" data-scroll-target="#paso-2-lematización">Paso 2: Lematización</a></li>
+  <li><a href="#paso-3-eliminación-de-stopwords" id="toc-paso-3-eliminación-de-stopwords" class="nav-link" data-scroll-target="#paso-3-eliminación-de-stopwords">Paso 3: Eliminación de stopwords</a></li>
+  <li><a href="#paso-4-vectorización" id="toc-paso-4-vectorización" class="nav-link" data-scroll-target="#paso-4-vectorización">Paso 4: Vectorización</a></li>
+  <li><a href="#paso-5-normalización" id="toc-paso-5-normalización" class="nav-link" data-scroll-target="#paso-5-normalización">Paso 5: Normalización</a></li>
   </ul></li>
+  <li><a href="#ejemplo-práctico-en-python" id="toc-ejemplo-práctico-en-python" class="nav-link" data-scroll-target="#ejemplo-práctico-en-python">Ejemplo práctico en Python</a></li>
+  <li><a href="#coseno-entre-vectores" id="toc-coseno-entre-vectores" class="nav-link" data-scroll-target="#coseno-entre-vectores">Coseno entre vectores</a></li>
   </ul>
 </nav>
     </div>
@@ -352,7 +384,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Subespacion en <span class="math inline">\(R^n\)</span></h1>
+<h1 class="title">Taller computacional Vectores en <span class="math inline">\(\mathbb{R}^n\)</span></h1>
 </div>
 
 
@@ -369,135 +401,165 @@ window.Quarto = {
 </header>
 
 
-<p>Un subespacio vectorial en <span class="math inline">\(R^n\)</span> es un subconjunto <span class="math inline">\(W\)</span> de <span class="math inline">\(R^n\)</span> que cumple las siguientes propiedades:</p>
-<p>1ote que <span class="math inline">\(0\in W\)</span>, ¿Por qué?</p>
-<p><strong>Ejemplo</strong>: Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=0\}\)</span>. ¿Es <span class="math inline">\(W\)</span> un subespacio vectorial de <span class="math inline">\(R^3\)</span>? ¿Por qué?</p>
-<p><strong>Ejemplo</strong>: Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=2\}\)</span>. ¿Es <span class="math inline">\(W\)</span> un subespacio vectorial de <span class="math inline">\(R^3\)</span>? ¿Por qué?</p>
-<section id="combinaciones-lineales" class="level1">
-<h1>Combinaciones lineales</h1>
-<p>Una combinación lineal de los vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es un vector de la forma:</p>
+<p>Objetivo: Utilizar un ejemplo práctico de procesamiento de texto para visualizar y comprender conceptos fundamentales de álgebra lineal como vectores en <span class="math inline">\(\mathbb{R}^n\)</span>, bases, dimensión e independencia/dependencia lineal.</p>
+<p>Ene l procesamiento de texto, en sus inicios se uso la representación de documentos como una bolsa de palabras, donde cada documento se representaba como un vector en <span class="math inline">\(\mathbb{R}^n\)</span> y cada palabra como una dimensión. En este taller, utilizaremos un conjunto de documentos para ilustrar estos conceptos.</p>
+<p>Para realizar esto a cada documento se le hace un preprocesamiento, que consiste en:</p>
+<ol type="1">
+<li><strong>Tokenización</strong>: Separar el texto en palabras o tokens.</li>
+<li><strong>Lematización</strong>: Reducir las palabras a su forma base o lema.</li>
+<li><strong>Eliminación de stopwords</strong>: Quitar palabras comunes que no aportan significado (como “y”, “el”, “de”).</li>
+<li><strong>Vectorización</strong>: Representar cada documento como un vector en <span class="math inline">\(\mathbb{R}^n\)</span> donde <span class="math inline">\(n\)</span> es el número de palabras únicas en el conjunto de documentos.</li>
+<li><strong>Normalización</strong>: Escalar los vectores para que tengan una longitud de 1 (opcional).</li>
+</ol>
+<section id="ejemplo-práctico" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo práctico</h2>
+<p>Supongamos que nuestro documento es el siguiente:</p>
+<p>“la casa es grande y la casa es azul”</p>
+<section id="paso-1-tokenización" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-tokenización">Paso 1: Tokenización</h3>
+<p>En la tokenización, separamos el texto en palabras. En este caso, obtenemos:</p>
+<pre><code>["la", "casa", "es", "grande", "y", "la", "casa", "es", "azul"]</code></pre>
+</section>
+<section id="paso-2-lematización" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-lematización">Paso 2: Lematización</h3>
+<p>La lematización consiste en reducir las palabras a su forma base. En este caso, podemos obtener:</p>
+<pre><code>["la", "casa", "ser", "grande", "y", "la", "casa", "ser", "azul"]</code></pre>
+</section>
+<section id="paso-3-eliminación-de-stopwords" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-eliminación-de-stopwords">Paso 3: Eliminación de stopwords</h3>
+<p>En este paso, eliminamos las palabras que no aportan significado. En este caso, eliminamos “la”, “y” y “es”. Obtenemos:</p>
+<pre><code>["casa", "grande", "casa", "azul"]</code></pre>
+</section>
+<section id="paso-4-vectorización" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4-vectorización">Paso 4: Vectorización</h3>
+<p>Ahora, representamos cada documento como un vector en <span class="math inline">\(\mathbb{R}^n\)</span>. Para esto, creamos un vocabulario con las palabras únicas del documento. En este caso, el vocabulario es:</p>
+<pre><code>["casa", "grande", "azul"]</code></pre>
+<p>Ahora, representamos el documento como un vector en <span class="math inline">\(\mathbb{R}^3\)</span> (ya que tenemos 3 palabras únicas):</p>
+<pre><code>[2, 1, 1]</code></pre>
+</section>
+<section id="paso-5-normalización" class="level3">
+<h3 class="anchored" data-anchor-id="paso-5-normalización">Paso 5: Normalización</h3>
+<p>Finalmente, normalizamos el vector para que tenga una longitud de 1. La longitud del vector es: <span class="math display">\[
+\sqrt{2^2 + 1^2 + 1^2} = \sqrt{4 + 1 + 1} = \sqrt{6}
+\]</span> Por lo tanto, el vector normalizado es: <span class="math display">\[
+\left[\frac{2}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}\right]
+\]</span></p>
+</section>
+</section>
+<section id="ejemplo-práctico-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-práctico-en-python">Ejemplo práctico en Python</h2>
+<div id="140fa1fa" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para realizar este este ejercicio usaremos algunas librerías de Python</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que nos ayudarán a realizar la manipulación de datos y la visualización</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> RegexpTokenizer</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c4ba3766" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Textos del ejemplo </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El perro corre"</span>,                        <span class="co"># Texto 1</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El perro corre en el parque"</span>,           <span class="co"># Texto 2</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El gato duerme en la casa tranquila"</span>,  <span class="co"># Texto 3</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El gato duerme en la casa"</span>,             <span class="co"># Texto 4</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Los estudiantes estudian álgebra lineal"</span> <span class="co"># Texto 5</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e4e6084e" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocesamiento</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> RegexpTokenizer(<span class="vs">r'\w+'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar las Stop words</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># En este caso, las stop words son palabras comunes que no aportan mucho significado</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> {<span class="st">"el"</span>, <span class="st">"la"</span>, <span class="st">"los"</span>, <span class="st">"las"</span>, <span class="st">"en"</span>, <span class="st">"y"</span>, <span class="st">"de"</span>, <span class="st">"a"</span>, <span class="st">"es"</span>, <span class="st">"una"</span>, <span class="st">"un"</span>, <span class="st">"que"</span>}</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenizar y eliminar stop words</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>processed <span class="op">=</span> [</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    [t <span class="cf">for</span> t <span class="kw">in</span> tokenizer.tokenize(txt.lower()) <span class="cf">if</span> t <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> txt <span class="kw">in</span> texts</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir vocabulario</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>vocab <span class="op">=</span> <span class="bu">sorted</span>({word <span class="cf">for</span> tokens <span class="kw">in</span> processed <span class="cf">for</span> word <span class="kw">in</span> tokens})</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir matriz término-documento (filas=vocab, columnas=textos)</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>term_doc <span class="op">=</span> np.array([[tokens.count(w) <span class="cf">for</span> tokens <span class="kw">in</span> processed] <span class="cf">for</span> w <span class="kw">in</span> vocab])</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="0b5f2950" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vocab </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>['casa',
+ 'corre',
+ 'duerme',
+ 'estudian',
+ 'estudiantes',
+ 'gato',
+ 'hay',
+ 'lineal',
+ 'parque',
+ 'perro',
+ 'tranquila',
+ 'álgebra']</code></pre>
+</div>
+</div>
+<div id="38628c26" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>term_doc <span class="co"># Matriz término-documento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>array([[0, 0, 1, 1, 0, 1],
+       [1, 1, 0, 0, 0, 0],
+       [0, 0, 1, 1, 0, 0],
+       [0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 1, 0],
+       [0, 0, 1, 1, 0, 1],
+       [0, 0, 0, 0, 0, 1],
+       [0, 0, 0, 0, 1, 0],
+       [0, 1, 0, 0, 0, 0],
+       [1, 1, 0, 0, 0, 1],
+       [0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0]])</code></pre>
+</div>
+</div>
+<p><strong>Nots</strong> Recuerda que una matriz <span class="math display">\[A=\begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}\]</span></p>
+<p>se puede representar en Python como un array de numpy</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>y si queremos acceder a la columna <span class="math inline">\(2\)</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A[:, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>y si queremos acceder a la fila <span class="math inline">\(2\)</span></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note que aquí la primera columna de la matriz indica indica la frecuencia de la palabra que aparece en el texto 1, la segunda columna la frecuencia de la palabra que aparece en el texto 2 y así sucesivamente.</p>
+<p><strong>Ejercicio 1</strong>: Las columnas de esta matriz son linealmente independientes. ¿Por qué? ¿Qué significa esto en el contexto de la representación de documentos como vectores en <span class="math inline">\(\mathbb{R}^n\)</span>? ¿Cual es la dimensión del espacio generado por las columnas de la matriz?</p>
+<p>En algebra lineal computacional se acostumbra a trabajar con vectores normalizados esto es porque se busca que la longitud de los vectores sea 1. Lo cual hace que se disminuya los errores de redondeo y se pueda trabajar con una mayor precisión.</p>
+<p><strong>Ejercicio 2</strong>: Normalice los vectores de la matriz anterior y genere una nueva matriz con los vectores normalizados. Recuerde que la normalización de un vector <span class="math inline">\(v\)</span> se hace dividiendo cada componente del vector por la longitud del vector. La longitud de un vector <span class="math inline">\(v\)</span> en <span class="math inline">\(\mathbb{R}^n\)</span> en ‘python’ se puede calcular como:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>longitud <span class="op">=</span> np.linalg.norm(v)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>v_normalizado <span class="op">=</span> v <span class="op">/</span> longitud</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v_normalizado)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="coseno-entre-vectores" class="level2">
+<h2 class="anchored" data-anchor-id="coseno-entre-vectores">Coseno entre vectores</h2>
+<p>El coseno entre dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> en <span class="math inline">\(\mathbb{R}^n\)</span> se puede calcular utilizando el producto punto y la longitud de los vectores. La fórmula es:</p>
 <p><span class="math display">\[
-\sum_{i=1}^k a_i v_i = a_1 v_1 + a_2 v_2 + \ldots + a_k v_k
+\cos(\theta) = \frac{u \cdot v}{||u|| \cdot ||v||}
 \]</span></p>
-<p>donde <span class="math inline">\(a_1,a_2,\ldots,a_k\)</span> son escalares.</p>
-<p><strong>Ejemplo</strong></p>
-<p>Sea <span class="math inline">\(v_1=(1,2,3)\)</span> y <span class="math inline">\(v_2=(4,5,6)\)</span>. El vector <span class="math inline">\(w=(7,8,9)\)</span> es combinación lineal de <span class="math inline">\(\{v_1,v_2\}\)</span>.</p>
-<p>Para resolver esto podemos escribir el sistema de ecuaciones:</p>
-<p><span class="math display">\[
-a_1\begin{bmatrix}
-1\\2\\3\end{bmatrix} + a_2\begin{bmatrix}4\\5\\6\end{bmatrix} = \begin{bmatrix}7\\8\\9\end{bmatrix}
-\]</span></p>
-<p>¿Como podemos resolver este sistema de ecuaciones?</p>
-<ul>
-<li>Encontremos la matriz aumentada del sistema de ecuaciones y escribamos el sistema de ecuaciones asociado:</li>
-</ul>
-<p><span class="math display">\[
-\begin{bmatrix}
-1 &amp; 4 \\
-2 &amp; 5 \\
-3 &amp; 6
-\end{bmatrix}
-\begin{bmatrix}
-a_1\\
-a_2\\
-\end{bmatrix}
-=
-\begin{bmatrix}
-7\\
-8\\
-9
-\end{bmatrix}
-\]</span></p>
-<p>de esta forma podemos escribir el sistema de ecuaciones como:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-1 &amp; 4 &amp; | &amp;7 \\
-2 &amp; 5 &amp; | &amp;8 \\
-3 &amp; 6 &amp; | &amp;9
-\end{bmatrix}
-\]</span></p>
-<p>Ahora escalonemos la matriz aumentada: <span class="math display">\[
-\begin{bmatrix}
-1 &amp; 4 &amp; | &amp;7 \\
-0 &amp; -3 &amp; | &amp;-6 \\
-0 &amp; 0 &amp; | &amp;0
-\end{bmatrix}
-\]</span></p>
-<p>de esta forma podemos encontrar la solución del sistema de ecuaciones: <span class="math display">\[
-a_1= -1\ \ a_2=2
-\]</span></p>
-<p><strong>Independencia lineal</strong></p>
-<p>Un conjunto de vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es linealmente independiente si la única combinación lineal que da cero es la trivial, es decir: <span class="math display">\[
-a_1 v_1 + a_2 v_2 + \ldots + a_k v_k = 0 \implies a_1=a_2=\ldots=a_k=0
-\]</span></p>
-<p>Un conjunto de vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es linealmente dependiente si existe una combinación lineal no trivial que da cero, es decir: <span class="math display">\[
-a_1 v_1 + a_2 v_2 + \ldots + a_k v_k = 0 \implies a_1,a_2,\ldots,a_k \text{ no todos son cero}
-\]</span></p>
-<p><strong>Ejemplo</strong></p>
-<p>Sea <span class="math inline">\(v_1=(1,0,1)\)</span>, v_2=(0,1,1)$ y <span class="math inline">\(v_3=(1,1,0)\)</span>. ¿Son linealmente independientes o dependientes?</p>
-<p>Para resolver esto podemos escribir el sistema de ecuaciones:</p>
-<p><span class="math display">\[
-a_1\begin{bmatrix}
-1\\0\\1\end{bmatrix} + a_2\begin{bmatrix}0\\1\\1\end{bmatrix} + a_3\begin{bmatrix}1\\1\\0\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}
-\]</span> ¿Como podemos resolver este sistema de ecuaciones?</p>
-<ul>
-<li>Encontremos la matriz aumentada del sistema de ecuaciones y escribamos el sistema de ecuaciones asociado: <span class="math display">\[
-\begin{bmatrix}
-1 &amp; 0 &amp; 1 \\
-0 &amp; 1 &amp; 1 \\
-1 &amp; 1 &amp; 0
-\end{bmatrix}
-\begin{bmatrix}
-a_1\\
-a_2\\
-a_3\\
-\end{bmatrix}
-=
-\begin{bmatrix}
-0\\
-0\\
-0
-\end{bmatrix}
-\]</span></li>
-</ul>
-<p>Note que si podemos escalonar la matriz podemos decir que los vectores son linealmente independientes. Si no podemos escalonar la matriz entonces los vectores son linealmente dependientes.</p>
-<section id="subespacios-generados-por-un-conjunto-de-vectores" class="level2">
-<h2 class="anchored" data-anchor-id="subespacios-generados-por-un-conjunto-de-vectores">Subespacios generados por un conjunto de vectores</h2>
-<p>Un subespacio generado por un conjunto de vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span> es el conjunto de todas las combinaciones lineales de los vectores <span class="math inline">\(v_1,v_2,\ldots,v_k\)</span>.</p>
-</section>
-<section id="ejemplo" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo">Ejemplo</h2>
-<p>Sea <span class="math inline">\(v_1=(1,0,0)\)</span> y <span class="math inline">\(v_2=(0,1,0)\)</span>. El subespacio generado por <span class="math inline">\(\{v_1,v_2\}\)</span> es el plano que pasa por el origen y es paralelo al plano <span class="math inline">\(xy\)</span>.</p>
-</section>
-<section id="ejemplo-1" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-1">Ejemplo</h2>
-<p>Sea el conjunto de vectores linealmente idependientes <span class="math inline">\(W_1=\{v_1,V_2,v_3\}\)</span> en <span class="math inline">\(R^4\)</span> y <span class="math inline">\(W_2=\{v_1,V_2,v\_3,v_4}\)</span> donde <span class="math inline">\(v_4\)</span> es una combinación lineal de <span class="math inline">\(v_1,v_2,v_3\)</span>. ¿Los subespacios generados por <span class="math inline">\(W_1\)</span> y <span class="math inline">\(W_2\)</span> son iguales? ¿Por qué?</p>
-</section>
-<section id="ejemplo-2" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-2">Ejemplo</h2>
-<p>El vector <span class="math inline">\(w=(1,0,0,-1)\)</span> se encuentra en el subespacio generado por <span class="math inline">\(V_1=(1,0,1,1),v_2=(1,0,0,0)\)</span> y <span class="math inline">\(v_3=(0,1,0,0)\)</span>. ¿Por qué?</p>
-</section>
-<section id="dimensión-de-un-subespacio" class="level2">
-<h2 class="anchored" data-anchor-id="dimensión-de-un-subespacio">Dimensión de un subespacio</h2>
-<p>La dimensión de un subespacio <span class="math inline">\(W\)</span> es el número de vectores linealmente independientes que genera un subespacio <span class="math inline">\(W\)</span>.</p>
-</section>
-<section id="ejemplo-3" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-3">Ejemplo</h2>
-<p>Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=0\}\)</span>. ¿Cuál es la dimensión de <span class="math inline">\(W\)</span>? ¿Cuál es una base de <span class="math inline">\(W\)</span>?</p>
-</section>
-<section id="e" class="level2">
-<h2 class="anchored" data-anchor-id="e">E</h2>
-</section>
-<section id="base" class="level2">
-<h2 class="anchored" data-anchor-id="base">Base</h2>
-<p>Una base de un subespacio <span class="math inline">\(W\)</span> es un conjunto de vectores linealmente independientes que generan el subespacio <span class="math inline">\(W\)</span>. La dimensión de un subespacio <span class="math inline">\(W\)</span> es el número de vectores en una base de <span class="math inline">\(W\)</span>.</p>
-</section>
-<section id="ejemplo-4" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-4">Ejemplo</h2>
-<p>Sea <span class="math inline">\(W=\{(x,y,z)\in R^3: x+y+z=0\}\)</span>. ¿Cuál es la dimensión de <span class="math inline">\(W\)</span>? ¿Cuál es una base de <span class="math inline">\(W\)</span>?</p>
+<p>Donde <span class="math inline">\(u \cdot v\)</span> es el producto punto de los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, y <span class="math inline">\(||u||\)</span> y <span class="math inline">\(||v||\)</span> son las longitudes de los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, respectivamente. El ángulo <span class="math inline">\(\theta\)</span> se puede obtener utilizando la función <code>np.arccos</code> de NumPy, que devuelve el ángulo en radianes. Para convertirlo a grados, se puede usar la función <code>np.degrees</code>.</p>
+<p><strong>Ejercicio 3</strong>: Calcule el coseno entre cada uno de los vectores del ejercicio 2. Lea atentamente las frases y el resultado que obtiene. ¿Qué relación existe entre el coseno de los vectores y el significado de cada uno de los documentos? <strong>Nota</strong> Recuerde que el valor del coseno entre dos vectores es un número entre -1 y 1. Un valor de 1 indica que los vectores son paralelos y apuntan en la misma dirección, un valor de -1 indica que son paralelos pero apuntan en direcciones opuestas, y un valor de 0 indica que son ortogonales (perpendiculares) entre sí.</p>
+<p><strong>Ejercicio 4</strong> ¿Qué conjunto forma la base de este espacio vectorial de textos? Si añadiéramos una nueva frase como “La inteligencia artificial aprende rápido”, ¿cómo cambiaría la base y la dimensión del espacio vectorial?</p>
+<p><strong>Ejercicio 5</strong> Inventa una frase que pueda ser producto de la combinacion lineal unicamente de la tercera y cuarta columna de la matriz generada en el ejercicio 2.</p>
+<p>Aunque en la actualidad esta técnica de representación de documentos ha sido reemplazada por técnicas más avanzadas como TF-IDF y Word Embeddings, sigue siendo una buena forma de entender los conceptos fundamentales de álgebra lineal y su aplicación en el procesamiento de texto. ## Referencias - Albright, S. C., Winston, W. L., &amp; Zapp, A. (2011). Data analysis and decision making (4th ed.). Cengage Learning. - Bishop, C. M. (2006). Pattern recognition and machine learning. Springer. - Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). Deep learning. MIT Press.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

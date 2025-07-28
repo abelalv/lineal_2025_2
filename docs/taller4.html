@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Operaciones en \mathbb{R}^2</title>
+<title>Ejercicios de Autovalores y Autovectores (Matrices 2x2)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"fig-width":7,"output":"true","read-only":"false","out-height":"","label":"","dpi":72,"fig-height":5,"comment":"","results":"markup","fig-cap":"","message":"true","warning":"true","classes":"","context":"interactive","out-width":"700px","autorun":""},"id":1,"code":"import numpy as np\nu = np.array([3, -6])\nv = np.array([-1, 4])\nprint(\"Vector u:\", u)\nprint(\"Vector v:\", v)\nprint(\"Suma de vectores u + v:\", u + v)\nprint(\"Vector u multiplicado por 2:\", 2 * u)\nprint(\"Norma del vector u:\", np.linalg.norm(u))\nprint(\"Proyección de u sobre v:\", np.dot(u, v) / np.dot(v, v) * v)"}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Definir la matriz de coordenadas de la casa\nH = np.array([[0, 4, 4, 2, 0, 0], \n              [0, 0, 3, 5, 3, 0]])  # Se repite el primer punto para cerrar la casa\n\n# Matriz de Rotación\nT = np.array([[2, 1], \n              [1,2]])\n\n# Aplicar la transformación\nH_transformed = T @ H  # Multiplicación de matrices\n\n# Graficar la casa original y la transformada\nplt.figure(figsize=(6,6))\nplt.plot(H[0], H[1], 'bo-', label=\"Casa Original\")  # Dibujo original\nplt.plot(H_transformed[0], H_transformed[1], 'ro-', label=\"Casa Transformada\")  # Transformada\n\n# Configuración de la gráfica\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.xlim(-1, 20)\nplt.ylim(-1, 20)\nplt.grid(True, linestyle=\"--\", linewidth=0.5)\nplt.gca().set_aspect('equal', adjustable='box')  # Establecer la grilla 1 en 1\nplt.gca().set_xticks(np.arange(-1, 20, 1))  # Espaciado de 1 en 1 en el eje x\nplt.gca().set_yticks(np.arange(-1, 20, 1))  # Espaciado de 1 en 1 en el eje y\nplt.legend()\nplt.title(\"Transformación de la Casa \")\nplt.show()","options":{"fig-height":5,"results":"markup","fig-width":7,"autorun":"","out-height":"","warning":"true","read-only":"false","label":"","context":"interactive","output":"true","fig-cap":"","classes":"","dpi":72,"message":"true","out-width":"700px","comment":""}}];
 
 
 </script>
@@ -461,7 +461,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section0.html">Plano</a></li><li class="breadcrumb-item"><a href="./section1.html">Sección 1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller4.html">Taller 4 (Valores propios)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -504,7 +504,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./section1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sección 1</span></a>
   </div>
 </li>
@@ -632,7 +632,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller4.html" class="sidebar-item-text sidebar-link">
+  <a href="./taller4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Taller 4 (Valores propios)</span></a>
   </div>
 </li>
@@ -684,35 +684,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#clase-de-álgebra-lineal-operaciones-en-mathbbr2" id="toc-clase-de-álgebra-lineal-operaciones-en-mathbbr2" class="nav-link active" data-scroll-target="#clase-de-álgebra-lineal-operaciones-en-mathbbr2">Clase de Álgebra Lineal: Operaciones en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
-  <li><a href="#vectores-en-mathbbr2" id="toc-vectores-en-mathbbr2" class="nav-link" data-scroll-target="#vectores-en-mathbbr2">Vectores en <span class="math inline">\(\mathbb{R}^2\)</span></a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a>
   <ul class="collapse">
-  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
-  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación Geométrica</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   </ul></li>
-  <li><a href="#suma-de-vectores" id="toc-suma-de-vectores" class="nav-link" data-scroll-target="#suma-de-vectores">Suma de Vectores</a>
-  <ul class="collapse">
-  <li><a href="#definición-de-la-suma" id="toc-definición-de-la-suma" class="nav-link" data-scroll-target="#definición-de-la-suma">Definición de la Suma</a></li>
-  <li><a href="#interpretación-geométrica-1" id="toc-interpretación-geométrica-1" class="nav-link" data-scroll-target="#interpretación-geométrica-1">Interpretación Geométrica</a></li>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
-  <li><a href="#multiplicación-por-un-escalar" id="toc-multiplicación-por-un-escalar" class="nav-link" data-scroll-target="#multiplicación-por-un-escalar">Multiplicación por un Escalar</a></li>
-  <li><a href="#definición-1" id="toc-definición-1" class="nav-link" data-scroll-target="#definición-1">Definición</a></li>
-  <li><a href="#interpretación-geométrica-2" id="toc-interpretación-geométrica-2" class="nav-link" data-scroll-target="#interpretación-geométrica-2">Interpretación Geométrica</a></li>
-  <li><a href="#ejemplo-1" id="toc-ejemplo-1" class="nav-link" data-scroll-target="#ejemplo-1">Ejemplo</a></li>
-  </ul></li>
-  <li><a href="#propiedades-de-la-suma-y-la-multiplicación-por-escalar-en-mathbbr2" id="toc-propiedades-de-la-suma-y-la-multiplicación-por-escalar-en-mathbbr2" class="nav-link" data-scroll-target="#propiedades-de-la-suma-y-la-multiplicación-por-escalar-en-mathbbr2">Propiedades de la Suma y la Multiplicación por Escalar en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
-  <li><a href="#normas-de-un-vector" id="toc-normas-de-un-vector" class="nav-link" data-scroll-target="#normas-de-un-vector">Normas de un Vector</a>
-  <ul class="collapse">
-  <li><a href="#norma-euclidiana-cdot_2-llamada-norma-l_2" id="toc-norma-euclidiana-cdot_2-llamada-norma-l_2" class="nav-link" data-scroll-target="#norma-euclidiana-cdot_2-llamada-norma-l_2">Norma Euclidiana (<span class="math inline">\(\|\cdot\|_2\)</span>), llamada norma <span class="math inline">\(L_2\)</span></a></li>
-  <li><a href="#otras-normas-opcional" id="toc-otras-normas-opcional" class="nav-link" data-scroll-target="#otras-normas-opcional">Otras Normas (opcional)</a></li>
-  <li><a href="#propiedades-de-la-norma" id="toc-propiedades-de-la-norma" class="nav-link" data-scroll-target="#propiedades-de-la-norma">Propiedades de la Norma</a></li>
-  </ul></li>
-  <li><a href="#proyección-de-un-vector-en-mathbbr2" id="toc-proyección-de-un-vector-en-mathbbr2" class="nav-link" data-scroll-target="#proyección-de-un-vector-en-mathbbr2">Proyección de un Vector en <span class="math inline">\(\mathbb{R}^2\)</span></a>
-  <ul class="collapse">
-  <li><a href="#definición-2" id="toc-definición-2" class="nav-link" data-scroll-target="#definición-2">5.1 Definición</a></li>
-  <li><a href="#ejemplo-2" id="toc-ejemplo-2" class="nav-link" data-scroll-target="#ejemplo-2">5.2 Ejemplo</a></li>
-  </ul></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">6. Resumen</a></li>
   </ul>
 </nav>
     </div>
@@ -729,9 +704,9 @@ window.Quarto = {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section0.html">Plano</a></li><li class="breadcrumb-item"><a href="./section1.html">Sección 1</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller4.html">Taller 4 (Valores propios)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Operaciones en <span class="math inline">\(\mathbb{R}^2\)</span></h1>
+<h1 class="title">Ejercicios de Autovalores y Autovectores (Matrices 2x2)</h1>
 </div>
 
 
@@ -748,242 +723,78 @@ window.Quarto = {
 </header>
 
 
-<section id="clase-de-álgebra-lineal-operaciones-en-mathbbr2" class="level2">
-<h2 class="anchored" data-anchor-id="clase-de-álgebra-lineal-operaciones-en-mathbbr2">Clase de Álgebra Lineal: Operaciones en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
-<p>En esta clase, vamos a repasar los conceptos fundamentales de los vectores en <span class="math inline">\(\mathbb{R}^2\)</span>, la suma de vectores, la multiplicación por escalar, las normas y la proyección de un vector sobre otro.</p>
-<hr>
-</section>
-<section id="vectores-en-mathbbr2" class="level2">
-<h2 class="anchored" data-anchor-id="vectores-en-mathbbr2">Vectores en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
-<section id="definición" class="level3">
-<h3 class="anchored" data-anchor-id="definición">Definición</h3>
-<ul>
-<li>Un <strong>vector</strong> en <span class="math inline">\(\mathbb{R}^2\)</span> es un par ordenado de números reales.</li>
-<li>Podemos denotarlo como <span class="math inline">\(\mathbf{v}=(v_1,v_2)\)</span> o como columna: <span class="math display">\[
-\mathbf{v}=\begin{pmatrix}v_1\\v_2\end{pmatrix}
-\]</span> donde <span class="math inline">\(v_1,v_2\in\mathbb{R}\)</span>.</li>
-</ul>
-</section>
-<section id="interpretación-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h3>
-<ul>
-<li>Cada vector en <span class="math inline">\(\mathbb{R}^2\)</span> puede representarse como un <strong>segmento dirigido</strong> en el plano cartesiano, con origen en <span class="math inline">\((0,0)\)</span> y extremo en <span class="math inline">\((v_1,v_2)\)</span>.</li>
-<li>Su <strong>longitud</strong> (o magnitud) y <strong>dirección</strong> permiten describir el vector de forma geométrica.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="suma-de-vectores" class="level2">
-<h2 class="anchored" data-anchor-id="suma-de-vectores">Suma de Vectores</h2>
-<section id="definición-de-la-suma" class="level3">
-<h3 class="anchored" data-anchor-id="definición-de-la-suma">Definición de la Suma</h3>
-<p>Dadas dos vectores <span class="math inline">\(\mathbf{u}=(u_1,u_2)\)</span> y <span class="math inline">\(\mathbf{v}=(v_1,v_2)\)</span> en <span class="math inline">\(\mathbb{R}^2\)</span>, su <strong>suma</strong> se define como: <span class="math display">\[
-\mathbf{u}+\mathbf{v}=(u_1+v_1,u_2+v_2)
-\]</span></p>
-</section>
-<section id="interpretación-geométrica-1" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica-1">Interpretación Geométrica</h3>
-<ul>
-<li>Para sumar los vectores <span class="math inline">\(\mathbf{u}\)</span> y <span class="math inline">\(\mathbf{v}\)</span> en el plano, se utiliza la <strong>regla del paralelogramo</strong> o el <strong>método cabeza-cola</strong>:
-<ol type="1">
-<li>Trasladar (sin rotar) el vector <span class="math inline">\(\mathbf{v}\)</span> de modo que su cola coincida con la cabeza de <span class="math inline">\(\mathbf{u}\)</span>.</li>
-<li>El vector resultante va desde la cola de <span class="math inline">\(\mathbf{u}\)</span> hasta la cabeza de <span class="math inline">\(\mathbf{v}\)</span>.</li>
-</ol></li>
-</ul>
-</section>
-<section id="ejemplo" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
-<p>Supongamos: <span class="math display">\[
-\mathbf{u}=(2,3),\mathbf{v}=(-1,5).
-\]</span> Entonces: <span class="math display">\[
-\mathbf{u}+\mathbf{v}=(2+(-1),3+5)=(1,8).
-\]</span></p>
-<hr>
-</section>
-<section id="multiplicación-por-un-escalar" class="level3">
-<h3 class="anchored" data-anchor-id="multiplicación-por-un-escalar">Multiplicación por un Escalar</h3>
-</section>
-<section id="definición-1" class="level3">
-<h3 class="anchored" data-anchor-id="definición-1">Definición</h3>
-<p>Dado un vector <span class="math inline">\(\mathbf{v}=(v_1,v_2)\)</span> y un número real <span class="math inline">\(\alpha\in\mathbb{R}\)</span> (llamado <strong>escalar</strong>), la <strong>multiplicación por escalar</strong> se define como: <span class="math display">\[
-\alpha\mathbf{v}=(\alpha v_1,\alpha v_2)
-\]</span></p>
-</section>
-<section id="interpretación-geométrica-2" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica-2">Interpretación Geométrica</h3>
-<ul>
-<li>Multiplicar un vector por un escalar <strong>estira</strong> o <strong>encoge</strong> al vector (cambiando su magnitud) y, si <span class="math inline">\(\alpha&lt;0\)</span>, también <strong>invierte</strong> su dirección.</li>
-</ul>
-</section>
-<section id="ejemplo-1" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-1">Ejemplo</h3>
-<p>Sea <span class="math inline">\(\mathbf{v}=(2,-1)\)</span> y <span class="math inline">\(\alpha=3\)</span>. Entonces: <span class="math display">\[
-3\mathbf{v}=3\cdot(2,-1)=(6,-3).
-\]</span></p>
-<hr>
-</section>
-</section>
-<section id="propiedades-de-la-suma-y-la-multiplicación-por-escalar-en-mathbbr2" class="level2">
-<h2 class="anchored" data-anchor-id="propiedades-de-la-suma-y-la-multiplicación-por-escalar-en-mathbbr2">Propiedades de la Suma y la Multiplicación por Escalar en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
-<p>Las operaciones de suma de vectores y multiplicación por escalar en <span class="math inline">\(\mathbb{R}^2\)</span> cumplen con las siguientes propiedades:</p>
-<ol type="1">
-<li><strong>Conmutatividad de la Suma</strong>: <span class="math display">\[
-\mathbf{u}+\mathbf{v}=\mathbf{v}+\mathbf{u}.
-\]</span></li>
-<li><strong>Asociatividad de la Suma</strong>: <span class="math display">\[
-(\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w}).
-\]</span></li>
-<li><strong>Elemento Neutro de la Suma</strong>: <span class="math display">\[
-\mathbf{v}+\mathbf{0}=\mathbf{v},
-\]</span> donde <span class="math inline">\(\mathbf{0}=(0,0)\)</span> es el <strong>vector nulo</strong>.</li>
-<li><strong>Inverso Aditivo</strong>: <span class="math display">\[
-\mathbf{v}+(-\mathbf{v})=\mathbf{0}.
-\]</span></li>
-<li><strong>Distributividad de la Multiplicación por Escalar</strong>: <span class="math display">\[
-\alpha(\mathbf{u}+\mathbf{v})=\alpha\mathbf{u}+\alpha\mathbf{v}.
-\]</span></li>
-<li><strong>Asociatividad de la Multiplicación por Escalar</strong>: <span class="math display">\[
-\alpha(\beta\mathbf{v})=(\alpha\beta)\mathbf{v}.
-\]</span></li>
-<li><strong>Identidad de la Multiplicación por Escalar</strong>: <span class="math display">\[
-1\mathbf{v}=\mathbf{v}.
-\]</span></li>
+<section id="introducción" class="level1">
+<h1>Introducción</h1>
+<section id="ejercicios" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
+<p>Dada la matriz, encontrar los valores propios y vectores propios. 1. <span class="math inline">\(A = \begin{bmatrix} 4 &amp; 2 \\ 1 &amp; 3 \end{bmatrix}\)</span></p>
+<ol start="2" type="1">
+<li><p><span class="math inline">\(B = \begin{bmatrix} 5 &amp; -2 \\ 2 &amp; 1 \end{bmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(E = \begin{bmatrix} 6 &amp; 2 \\ 2 &amp; 3 \end{bmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(G = \begin{bmatrix} -1 &amp; -2 \\ 2 &amp; -3 \end{bmatrix}\)</span></p></li>
+<li><p>Determina para que valor <span class="math inline">\(\alpha\)</span> la matriz <span class="math inline">\(H = \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; \alpha \end{bmatrix}\)</span> tiene un solo valor propio.</p></li>
+<li><p>Un modelo lineal de evolución poblacional para dos especies está dado por la matriz:</p></li>
 </ol>
-<hr>
-</section>
-<section id="normas-de-un-vector" class="level2">
-<h2 class="anchored" data-anchor-id="normas-de-un-vector">Normas de un Vector</h2>
-<p>La <strong>norma</strong> de un vector se refiere a la “longitud” o “magnitud” de dicho vector. Existen varias normas, pero la más común en <span class="math inline">\(\mathbb{R}^2\)</span> es la norma Euclidiana.</p>
-<section id="norma-euclidiana-cdot_2-llamada-norma-l_2" class="level3">
-<h3 class="anchored" data-anchor-id="norma-euclidiana-cdot_2-llamada-norma-l_2">Norma Euclidiana (<span class="math inline">\(\|\cdot\|_2\)</span>), llamada norma <span class="math inline">\(L_2\)</span></h3>
-<p>Para un vector <span class="math inline">\(\mathbf{v}=(v_1,v_2)\)</span>, la norma euclidiana se define como: <span class="math display">\[
-\|\mathbf{v}\|_2=\sqrt{v_1^2+v_2^2}.
-\]</span> - Ejemplo: Si <span class="math inline">\(\mathbf{v}=(3,4)\)</span>, <span class="math display">\[
-  \|\mathbf{v}\|_2=\sqrt{3^2+4^2}=\sqrt{9+16}=\sqrt{25}=5.
-  \]</span></p>
-</section>
-<section id="otras-normas-opcional" class="level3">
-<h3 class="anchored" data-anchor-id="otras-normas-opcional">Otras Normas (opcional)</h3>
-<ul>
-<li><strong>Norma 1</strong>: <span class="math inline">\(\|\mathbf{v}\|_1=|v_1|+|v_2|\)</span>.</li>
-<li><strong>Norma Infinito</strong>: <span class="math inline">\(\|\mathbf{v}\|_\infty=\max(|v_1|,|v_2|)\)</span>.</li>
-</ul>
-<p>Para la mayor parte de los casos en geometría básica y proyecciones, la <strong>norma euclidiana</strong> es la más utilizada.</p>
-<p>De esta forma podemos visualizar las diferencias entre las normas de un vector en <span class="math inline">\(\mathbb{R}^2\)</span>. Para ello veremos como se puede interpretar una circunferencia en cada una de las normas.</p>
-<div id="205b9ba1" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="section1_files/figure-html/cell-2-output-1.png" width="832" height="672" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Ejercicio
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>¿Cómo se debería dibujar la circunferencia en el caso de la norma infinito?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="propiedades-de-la-norma" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-de-la-norma">Propiedades de la Norma</h3>
-<p>La norma euclidiana en <span class="math inline">\(\mathbb{R}^2\)</span> cumple con las siguientes propiedades:</p>
-<ol type="1">
-<li><strong>Positividad</strong>: <span class="math display">\[
-\|\mathbf{v}\|_2\geq 0,\quad\text{y}\quad\|\mathbf{v}\|_2=0\text{ si y solo si }\mathbf{v}=\mathbf{0}.
-\]</span></li>
-<li><strong>Homogeneidad</strong>: <span class="math display">\[
-\|\alpha\mathbf{v}\|_2=|\alpha|\|\mathbf{v}\|_2.
-\]</span></li>
-<li><strong>Desigualdad Triangular</strong>: <span class="math display">\[
-\|\mathbf{u}+\mathbf{v}\|_2\leq\|\mathbf{u}\|_2+\|\mathbf{v}\|_2.
-\]</span></li>
+<p><span class="math display">\[
+\begin{bmatrix}y_{n+1}\\ x_{n+1}\end{bmatrix}= \begin{bmatrix} 0.8 &amp; 0.3 \\ 0.2 &amp; 0.7 \end{bmatrix}\begin{bmatrix}y_{n}\\ x_{n}\end{bmatrix}
+\]</span></p>
+<p>El sistema anterior, la matriz de transición describe cómo las poblaciones de dos especies (denotadas como <span class="math inline">\(y\)</span> y <span class="math inline">\(x\)</span>) evolucionan de un tiempo <span class="math inline">\(n\)</span> al siguiente tiempo <span class="math inline">\(n+1\)</span>. Los elementos de la matriz representan las tasas de crecimiento y las interacciones entre las dos especies. Si la población inicial es <span class="math inline">\(y_0= 0.2\)</span> y <span class="math inline">\(x_0=0.8\)</span>, (Usa un computador para realizar rápidamente los cálculos)</p>
+<ol type="a">
+<li><p>¿cuál será la población en tiempo n=10. Halla los valores propios y vectores propios para analizar el comportamiento del sistema.</p></li>
+<li><p>Como podemos interpretar los valores propios en este contexto.</p></li>
 </ol>
-</section>
-</section>
-<section id="proyección-de-un-vector-en-mathbbr2" class="level2">
-<h2 class="anchored" data-anchor-id="proyección-de-un-vector-en-mathbbr2">Proyección de un Vector en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
-<p>La <strong>proyección</strong> de un vector <span class="math inline">\(\mathbf{u}\)</span> sobre otro vector <span class="math inline">\(\mathbf{v}\)</span> (asumiendo <span class="math inline">\(\mathbf{v}\neq\mathbf{0}\)</span>) es el vector en la dirección de <span class="math inline">\(\mathbf{v}\)</span> que representa la parte de <span class="math inline">\(\mathbf{u}\)</span> en esa dirección.</p>
-<section id="definición-2" class="level3">
-<h3 class="anchored" data-anchor-id="definición-2">5.1 Definición</h3>
-<p>La proyección de <span class="math inline">\(\mathbf{u}\)</span> sobre <span class="math inline">\(\mathbf{v}\)</span>, denotada como <span class="math inline">\(\text{proj}_{\mathbf{v}}(\mathbf{u})\)</span>, se define como: <span class="math display">\[
-\text{proj}_{\mathbf{v}}(\mathbf{u})=\left(\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\right)\mathbf{v}.
-\]</span> - <span class="math inline">\(\mathbf{u}\cdot\mathbf{v}\)</span> es el <strong>producto punto</strong>: <span class="math display">\[
-  \mathbf{u}\cdot\mathbf{v}=u_1v_1+u_2v_2.
-  \]</span> - <span class="math inline">\(\mathbf{v}\cdot\mathbf{v}=\|\mathbf{v}\|_2^2=v_1^2+v_2^2\)</span>.</p>
-</section>
-<section id="ejemplo-2" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-2">5.2 Ejemplo</h3>
-<p>Sean: <span class="math display">\[
-\mathbf{u}=(2,1),\mathbf{v}=(3,0).
-\]</span> 1. Calcular el producto punto <span class="math inline">\(\mathbf{u}\cdot\mathbf{v}\)</span>: <span class="math display">\[
-   \mathbf{u}\cdot\mathbf{v}=(2)(3)+(1)(0)=6.
-   \]</span> 2. Calcular <span class="math inline">\(\mathbf{v}\cdot\mathbf{v}\)</span>: <span class="math display">\[
-   \mathbf{v}\cdot\mathbf{v}=(3)(3)+(0)(0)=9.
-   \]</span> 3. Hallar la proyección: <span class="math display">\[
-   \text{proj}_{\mathbf{v}}(\mathbf{u})=\left(\frac{6}{9}\right)(3,0)=\left(\frac{2}{3}\right)(3,0)=(2,0).
-   \]</span></p>
-<p>Geométricamente, <span class="math inline">\(\mathbf{u}\)</span> se proyecta sobre <span class="math inline">\(\mathbf{v}\)</span> y el vector resultante es <strong>paralelo</strong> a <span class="math inline">\(\mathbf{v}\)</span>.</p>
-<hr>
-</section>
-</section>
-<section id="resumen" class="level2">
-<h2 class="anchored" data-anchor-id="resumen">6. Resumen</h2>
-<ol type="1">
-<li><strong>Vectores en <span class="math inline">\(\mathbb{R}^2\)</span>:</strong> Se representan como pares ordenados <span class="math inline">\((v_1,v_2)\)</span>.</li>
-<li><strong>Suma de Vectores:</strong> Suma componente a componente.</li>
-<li><strong>Multiplicación por Escalar:</strong> Escala la magnitud del vector y puede invertir su dirección (si el escalar es negativo).</li>
-<li><strong>Normas:</strong> Principalmente la norma euclidiana <span class="math inline">\(\sqrt{v_1^2+v_2^2}\)</span> para medir la “longitud” del vector.</li>
-<li><strong>Proyección:</strong> <span class="math inline">\(\text{proj}_{\mathbf{v}}(\mathbf{u})\)</span> calcula la componente de <span class="math inline">\(\mathbf{u}\)</span> en la dirección de <span class="math inline">\(\mathbf{v}\)</span>.</li>
+<ol start="7" type="1">
+<li>En el siguiente plano se dibuja una casa.</li>
 </ol>
-<p>Con estos conceptos, ya tienes las bases para entender y trabajar con operaciones vectoriales fundamentales en <span class="math inline">\(\mathbb{R}^2\)</span>. ¡Sigue practicando con ejemplos para reforzar tu comprensión!</p>
-<div id="d528cedb" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>Vector u: [3 2]
-Vector v: [1 4]
-Suma de vectores u + v: [4 6]
-Vector u multiplicado por 2: [6 4]
-Norma del vector u: 3.605551275463989
-Proyección de u sobre v: [0.64705882 2.58823529]</code></pre>
-</div>
+<p>Los puntos se encuentran en las coordenadas:</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|c|c|} \hline
+\text{Punto} &amp; A &amp; B &amp; C &amp; D &amp; E &amp; A \\ \hline
+x &amp; 0 &amp; 4 &amp; 4 &amp; 2 &amp; 0 &amp; 0 \\ \hline
+y &amp; 0 &amp; 0 &amp; 3 &amp; 5 &amp; 3 &amp; 0 \\ \hline
+\end{array}\]</span></p>
+<p>Multiplica a cada uno de los puntos por la matriz</p>
+<p><span class="math display">\[A= \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\]</span></p>
+<p>y dibuja la nueva casa.</p>
+<div id="655b729f" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="section1_files/figure-html/cell-3-output-2.png" width="698" height="671" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="section1_files/figure-html/cell-3-output-3.png" width="698" height="672" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="section1_files/figure-html/cell-3-output-4.png" width="698" height="672" class="figure-img"></p>
+<p><img src="taller4_files/figure-html/cell-2-output-1.png" width="491" height="489" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Para realizar las anteriores operaciones con vectores en <span class="math inline">\(\mathbb{R}^2\)</span>, podemos utilizar la librería NumPy en Python. A continuación, se muestra un ejemplo de código que realiza la suma de vectores, la multiplicación por escalar, el cálculo de la norma de un vector y la proyección de un vector sobre otro en <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
+<ol type="a">
+<li><p>Como podemos interpretar la transformación de la casa en este contexto.</p></li>
+<li><p>Encuentra los valores propios y vectores propios de la matriz de rotación y analiza su comportamiento.</p></li>
+<li><p>¿Qué pasa si la matriz de rotación es <span class="math inline">\(A= \begin{bmatrix} 1 &amp; 0 \\ -1 &amp; 0 \end{bmatrix}\)</span>? ¿Qué sucede con la casa? ¿Cuales son los valores propios y vectores propios de la matriz? ¿Qué interpretación podemos dar a los valores propios en este contexto?</p></li>
+<li><p>Crea la matriz en python de la forma</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>import numpy as np H = np.array([[0, 4, 4, 2, 0, 0], [0, 0, 3, 5, 3, 0]])</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>A= np.array([[2, 1], [1, 2]])</p>
+</blockquote>
+<p>para aplicar la transformación</p>
+<blockquote class="blockquote">
+<p>H_transformed = A @ H</p>
+</blockquote>
+<p>Para dibujar la nueva casa.</p>
+<blockquote class="blockquote">
+<p>import matplotlib.pyplot as plt</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>plt.plot(H[0], H[1], ‘bo-’, label=“Casa Original”) # Dibujo original</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>plt.plot(H_transformed[0], H_transformed[1], ‘ro-’, label=“Casa Transformada”) # Transformada</p>
+</blockquote>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

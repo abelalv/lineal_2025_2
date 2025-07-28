@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Determinantes</title>
+<title>Autovalores y autovectores</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -228,7 +262,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"warning":"true","output":"true","fig-height":5,"out-height":"","read-only":"false","results":"markup","fig-cap":"","out-width":"700px","label":"","context":"interactive","classes":"","dpi":72,"comment":"","message":"true","autorun":"","fig-width":7},"code":"import numpy as np\nA=np.array([[1,2,3],[0,1,4],[5,6,0]])\ndet_A = np.linalg.det(A)\nprint(\"El determinante de A es\",det_A)"}];
+globalThis.qpyodideCellDetails = [{"code":"import numpy as np\n\nA = np.array([[3, 2, 3], [2, 3, 3], [3, 3, 4]])\nb = np.array([1, 2, 3])\n\nx = np.linalg.solve(A, b)\nprint(x)","options":{"message":"true","warning":"true","read-only":"false","fig-height":5,"out-height":"","results":"markup","output":"true","comment":"","classes":"","autorun":"","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","label":"","dpi":72},"id":1},{"code":"import numpy as np\n\nA = np.array([[1, 2, 3], [0, 1, 4], [5, 6, 0]])\nA_inv = np.linalg.inv(A)\nprint(A_inv)","options":{"message":"true","warning":"true","read-only":"false","fig-height":5,"out-height":"","results":"markup","output":"true","comment":"","classes":"","autorun":"","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","label":"","dpi":72},"id":2},{"code":"import numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.linalg import lu\n\nA=np.array([[1,2,3],[0,1,4],[1,2,5]])\n\nplt.spy(A)\nplt.title(\"Diagrama de la matriz\")\nplt.xlabel(\"Columnas\")\nplt.ylabel(\"Filas\")\nplt.show()\n\n_, _, U = lu(A)\n\nplt.spy(U)\nplt.title(\"Diagrama de la matriz\")\nplt.xlabel(\"Columnas\")\nplt.ylabel(\"Filas\")\nplt.show()","options":{"message":"true","warning":"true","read-only":"false","fig-height":5,"out-height":"","results":"markup","output":"true","comment":"","classes":"","autorun":"","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","label":"","dpi":72},"id":3}];
 
 
 </script>
@@ -461,7 +495,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section10.html">Matrices N x N</a></li><li class="breadcrumb-item"><a href="./section11.html">Determinantes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section10.html">Matrices N x N</a></li><li class="breadcrumb-item"><a href="./section10.html">Matrices</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -498,7 +532,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -568,13 +602,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section10.html" class="sidebar-item-text sidebar-link">
+  <a href="./section10.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section11.html" class="sidebar-item-text sidebar-link active">
+  <a href="./section11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Determinantes</span></a>
   </div>
 </li>
@@ -614,61 +648,61 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller1.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller2.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller3.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 3 (matrices)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller4.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 4 (Valores propios)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller5.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller 5 (Valores propios)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller6.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller resumen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller7.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller Operaciones con matrices n x n</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -684,14 +718,25 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#determinante-de-una-matriz" id="toc-determinante-de-una-matriz" class="nav-link active" data-scroll-target="#determinante-de-una-matriz">Determinante de una matriz</a>
-  <ul class="collapse">
-  <li><a href="#regla-de-sarrus" id="toc-regla-de-sarrus" class="nav-link" data-scroll-target="#regla-de-sarrus">Regla de Sarrus</a></li>
-  <li><a href="#regla-de-laplace" id="toc-regla-de-laplace" class="nav-link" data-scroll-target="#regla-de-laplace">Regla de Laplace</a></li>
+  <li><a href="#multiplicación-por-escalar" id="toc-multiplicación-por-escalar" class="nav-link active" data-scroll-target="#multiplicación-por-escalar">Multiplicación por escalar</a></li>
+  <li><a href="#multiplicación-de-una-matriz-por-un-vector" id="toc-multiplicación-de-una-matriz-por-un-vector" class="nav-link" data-scroll-target="#multiplicación-de-una-matriz-por-un-vector">Multiplicación de una matriz por un vector</a></li>
+  <li><a href="#multiplicación-de-matrices" id="toc-multiplicación-de-matrices" class="nav-link" data-scroll-target="#multiplicación-de-matrices">Multiplicación de matrices</a></li>
+  <li><a href="#matriz-identidad" id="toc-matriz-identidad" class="nav-link" data-scroll-target="#matriz-identidad">Matriz identidad</a></li>
+  <li><a href="#matriz-inversa" id="toc-matriz-inversa" class="nav-link" data-scroll-target="#matriz-inversa">Matriz inversa</a></li>
+  <li><a href="#calculo-de-la-matriz-inversa" id="toc-calculo-de-la-matriz-inversa" class="nav-link" data-scroll-target="#calculo-de-la-matriz-inversa">Calculo de la matriz inversa</a></li>
   <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
-  </ul></li>
-  <li><a href="#propiedades-de-los-determinantes" id="toc-propiedades-de-los-determinantes" class="nav-link" data-scroll-target="#propiedades-de-los-determinantes">Propiedades de los determinantes</a></li>
+  <li><a href="#ejercicio" id="toc-ejercicio" class="nav-link" data-scroll-target="#ejercicio">Ejercicio</a></li>
+  <li><a href="#matriz-escalonada-por-filas" id="toc-matriz-escalonada-por-filas" class="nav-link" data-scroll-target="#matriz-escalonada-por-filas">Matriz escalonada por filas</a>
+  <ul class="collapse">
   <li><a href="#ejemplo-1" id="toc-ejemplo-1" class="nav-link" data-scroll-target="#ejemplo-1">Ejemplo</a></li>
+  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio</a></li>
+  <li><a href="#matrices-con-python" id="toc-matrices-con-python" class="nav-link" data-scroll-target="#matrices-con-python">Matrices con python</a></li>
+  </ul></li>
+  <li><a href="#solcuiones-de-sistemas-de-ecuaciones-lineales-con-python" id="toc-solcuiones-de-sistemas-de-ecuaciones-lineales-con-python" class="nav-link" data-scroll-target="#solcuiones-de-sistemas-de-ecuaciones-lineales-con-python">Solcuiones de sistemas de ecuaciones lineales con python</a></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio</a></li>
+  <li><a href="#encontrar-la-matriz-inversa-con-python" id="toc-encontrar-la-matriz-inversa-con-python" class="nav-link" data-scroll-target="#encontrar-la-matriz-inversa-con-python">Encontrar la matriz inversa con python</a></li>
+  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3">Ejercicio</a></li>
+  <li><a href="#matriz-escalonada-con-python" id="toc-matriz-escalonada-con-python" class="nav-link" data-scroll-target="#matriz-escalonada-con-python">Matriz escalonada con python</a></li>
   </ul>
 </nav>
     </div>
@@ -708,9 +753,9 @@ window.Quarto = {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section10.html">Matrices N x N</a></li><li class="breadcrumb-item"><a href="./section11.html">Determinantes</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section10.html">Matrices N x N</a></li><li class="breadcrumb-item"><a href="./section10.html">Matrices</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Determinantes</h1>
+<h1 class="title">Autovalores y autovectores</h1>
 </div>
 
 
@@ -727,64 +772,270 @@ window.Quarto = {
 </header>
 
 
-<section id="determinante-de-una-matriz" class="level2">
-<h2 class="anchored" data-anchor-id="determinante-de-una-matriz">Determinante de una matriz</h2>
-<p>El determinante de una matriz cuadrada <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span> se denota como <span class="math inline">\(|A|\)</span> y se define como</p>
-<ol type="1">
-<li><p>Si <span class="math inline">\(n=1\)</span>, entonces <span class="math inline">\(|A| = a_{11}\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(n=2\)</span>, entonces <span class="math inline">\(|A| = a_{11}a_{22} - a_{12}a_{21}\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(n&gt;2\)</span>, entonces el determinante de una matriz <span class="math inline">\(A\)</span> se puede calcular mediante la regla de Sarrus o mediante la regla de Laplace.</p></li>
-</ol>
-<section id="regla-de-sarrus" class="level3">
-<h3 class="anchored" data-anchor-id="regla-de-sarrus">Regla de Sarrus</h3>
-<p>Para calcular el determinante de una matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(3 \times 3\)</span> se puede utilizar la regla de Sarrus. Dada una matriz <span class="math inline">\(A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{bmatrix}\)</span>, el determinante de <span class="math inline">\(A\)</span> se puede calcular como</p>
+<p>Operaciones con matrices <span class="math inline">\(n \times n\)</span></p>
+<p>Dadas dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> de tamaño <span class="math inline">\(n \times n\)</span>, la suma de matrices se define como</p>
 <p><span class="math display">\[
-|A| = a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{13}a_{22}a_{31} - a_{12}a_{21}a_{33} - a_{11}a_{23}a_{32}
+A + B = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}
+\end{bmatrix}
++
+\begin{bmatrix}
+b_{11} &amp; b_{12} &amp; \cdots &amp; b_{1n} \\
+b_{21} &amp; b_{22} &amp; \cdots &amp; b_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+b_{n1} &amp; b_{n2} &amp; \cdots &amp; b_{nn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11} + b_{11} &amp; a_{12} + b_{12} &amp; \cdots &amp; a_{1n} + b_{1n} \\
+a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; \cdots &amp; a_{2n} + b_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} + b_{n1} &amp; a_{n2} + b_{n2} &amp; \cdots &amp; a_{nn} + b_{nn}
+\end{bmatrix}
+\]</span></p>
+<section id="multiplicación-por-escalar" class="level3">
+<h3 class="anchored" data-anchor-id="multiplicación-por-escalar">Multiplicación por escalar</h3>
+<p>Dada una matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span> y un escalar <span class="math inline">\(c\)</span>, el producto de la matriz por el escalar se define como</p>
+<p><span class="math display">\[
+cA = c \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+ca_{11} &amp; ca_{12} &amp; \cdots &amp; ca_{1n} \\
+ca_{21} &amp; ca_{22} &amp; \cdots &amp; ca_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+ca_{n1} &amp; ca_{n2} &amp; \cdots &amp; ca_{nn}
+\end{bmatrix}
 \]</span></p>
 </section>
-<section id="regla-de-laplace" class="level3">
-<h3 class="anchored" data-anchor-id="regla-de-laplace">Regla de Laplace</h3>
-<p>Para calcular el determinante de una matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span> se puede utilizar la regla de Laplace. Dada una matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span>, el determinante de <span class="math inline">\(A\)</span> se puede calcular como</p>
+<section id="multiplicación-de-una-matriz-por-un-vector" class="level3">
+<h3 class="anchored" data-anchor-id="multiplicación-de-una-matriz-por-un-vector">Multiplicación de una matriz por un vector</h3>
+<p>Podemos multiplicar una matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(m \times n\)</span> por un vector <span class="math inline">\(v\)</span> de tamaño <span class="math inline">\(n \times 1\)</span> para obtener un nuevo vector <span class="math inline">\(w\)</span> de tamaño <span class="math inline">\(m \times 1\)</span>. La multiplicación se define como</p>
 <p><span class="math display">\[
-|A| = \sum_{i=1}^{n} (-1)^{i+j} a_{ij} |A_{ij}|
+w = Av = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2 \\      
+\vdots \\
+v_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}v_1 + a_{12}v_2 + \cdots + a_{1n}v_n \\
+a_{21}v_1 + a_{22}v_2 + \cdots + a_{2n}v_n \\
+\vdots \\
+a_{m1}v_1 + a_{m2}v_2 + \cdots + a_{mn}v_n
+\end{bmatrix}
 \]</span></p>
-<p>donde <span class="math inline">\(|A_{ij}|\)</span> es el determinante de la matriz que se obtiene al eliminar la fila <span class="math inline">\(i\)</span> y la columna <span class="math inline">\(j\)</span> de la matriz <span class="math inline">\(A\)</span>.</p>
+</section>
+<section id="multiplicación-de-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="multiplicación-de-matrices">Multiplicación de matrices</h3>
+<p>Para multiplicar dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> debe coincidir el tamaño de las columnas de la primera matriz con el tamaño de las filas de la segunda matriz. Si <span class="math inline">\(A\)</span> es de tamaño <span class="math inline">\(m \times n\)</span> y <span class="math inline">\(B\)</span> es de tamaño <span class="math inline">\(n \times p\)</span>, entonces el producto de las matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es una matriz <span class="math inline">\(C\)</span> de tamaño <span class="math inline">\(m \times p\)</span>, para realizar este producto podemos escribir la segunda matriz como columnas y multiplicar cada columna por la matriz <span class="math inline">\(A\)</span>.</p>
+<p><span class="math display">\[
+C = AB = A [B_1, B_2, \ldots, B_p] = [AB_1, AB_2, \ldots, AB_p]
+\]</span></p>
+<p>donde <span class="math inline">\(B_1, B_2, \ldots, B_p\)</span> son las columnas de la matriz <span class="math inline">\(B\)</span>.</p>
+</section>
+<section id="matriz-identidad" class="level3">
+<h3 class="anchored" data-anchor-id="matriz-identidad">Matriz identidad</h3>
+<p>La matriz identidad <span class="math inline">\(I\)</span> es una matriz cuadrada de tamaño <span class="math inline">\(n \times n\)</span> con unos en la diagonal principal y ceros en las demás entradas. La matriz identidad cumple la propiedad de que al multiplicar cualquier matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span> por la matriz identidad se obtiene la misma matriz <span class="math inline">\(A\)</span>.</p>
+<p><span class="math display">\[
+AI = IA = A
+\]</span></p>
+</section>
+<section id="matriz-inversa" class="level3">
+<h3 class="anchored" data-anchor-id="matriz-inversa">Matriz inversa</h3>
+<p>Dada una matriz cuadrada <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span>, la matriz inversa <span class="math inline">\(A^{-1}\)</span> es aquella que cumple la propiedad de que al multiplicarla por la matriz original se obtiene la matriz identidad.</p>
+<p><span class="math display">\[
+AA^{-1} = A^{-1}A = I
+\]</span></p>
+</section>
+<section id="calculo-de-la-matriz-inversa" class="level3">
+<h3 class="anchored" data-anchor-id="calculo-de-la-matriz-inversa">Calculo de la matriz inversa</h3>
+<p>Dada una matriz cuadrada <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span>, encontrar la matriz inversa de <span class="math inline">\(A\)</span> es equivalente a resolver <span class="math inline">\(n\)</span> sistemas de ecuaciones lineales. Asi, para calcular la matriz inversas se puede encontrar con el siguiente algoritmo:</p>
+<p>Para esta deducción podemos considerar que <span class="math inline">\(A^{-1}=[x_1|x_2|\ldots|x_n]\)</span> y que <span class="math inline">\(e_1,e_2,\ldots,e_n\)</span> son las columnas de la matriz identidad de tamaño <span class="math inline">\(n \times n\)</span>. Entonces, la matriz inversa se puede encontrar a partir</p>
+<p><span class="math display">\[
+AA^{-1} = A[x_1|x_2|\ldots|x_n] = [Ax_1|Ax_2|\ldots|Ax_n] = [e_1|e_2|\ldots|e_n] = I
+\]</span></p>
+<p>Así el cálculo de la matriz inversa se puede realizar a partir de la resolución de <span class="math inline">\(n\)</span> sistemas de ecuaciones lineales de la forma <span class="math display">\[Ax_1=e_1\]</span> <span class="math display">\[Ax_2=e_2\]</span> <span class="math display">\[Ax_3=e_3\]</span> <span class="math display">\[\vdots\]</span> <span class="math display">\[Ax_n=e_n\]</span></p>
+<p>Aunque este procedimiento es dispendioso, podemos utilizar la eliminación gaussiana para encontrar la matriz inversa de una matriz cuadrada. El algoritmo para encontrar la matriz inversa de una matriz cuadrada <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(n \times n\)</span> es el siguiente:</p>
+<ol type="1">
+<li>Se construye la matriz <span class="math inline">\([A|I]\)</span> donde <span class="math inline">\(I\)</span> es la matriz identidad de tamaño <span class="math inline">\(n \times n\)</span>.</li>
+<li>Se aplica eliminación gaussiana para obtener la matriz <span class="math inline">\([I|A^{-1}]\)</span>.</li>
+<li>La matriz <span class="math inline">\(A^{-1}\)</span> es la matriz que se encuentra a la derecha de la barra vertical.</li>
+</ol>
+<p>Note que esto es equivalente a resolver un <span class="math inline">\(n\)</span> sistemas de ecuaciones lineales de la forma <span class="math inline">\(Ax = b\)</span> donde <span class="math inline">\(b\)</span> es una columna de la matriz identidad.</p>
 </section>
 <section id="ejemplo" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
-<p>Dada la matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>, encuentre el determinante de <span class="math inline">\(A\)</span>.</p>
-<p>Para encontrar el determinante de <span class="math inline">\(A\)</span> se puede utilizar la regla de Sarrus o la regla de Laplace. Si utilizamos la regla de Sarrus obtenemos</p>
+<p>Dada la matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 2 &amp;1 \\0&amp; 1 &amp; 4\\ 1&amp;0&amp;0 \end{bmatrix}\)</span>, encuentre la matriz inversa de <span class="math inline">\(A\)</span>.</p>
+<p>Para encontrar la matriz inversa de <span class="math inline">\(A\)</span> se puede resolver el sistema de ecuaciones lineales</p>
 <p><span class="math display">\[
-|A| = 1 \cdot 1 \cdot 0 + 2 \cdot 4 \cdot 5 + 3 \cdot 1 \cdot 6 - 3 \cdot 1 \cdot 5 - 2 \cdot 1 \cdot 0 - 1 \cdot 4 \cdot 6 = 1 \cdot 20 + 2 \cdot 5 + 3 \cdot 6 - 3 \cdot 5 - 2 \cdot 0 - 1 \cdot 24 = 20 + 10 + 18 - 15 - 0 - 24 = 29
+\begin{bmatrix}
+1  &amp; 2 &amp;1 &amp;|&amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 4 &amp;|&amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp;|&amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
 \]</span></p>
-<p>Por lo tanto, el determinante de <span class="math inline">\(A\)</span> es <span class="math inline">\(|A| = 29\)</span>.</p>
-<p>Ahora mediante la regla de Laplace</p>
+<p>Luego mediante operaciones elementales se puede encontrar la matriz inversa de <span class="math inline">\(A\)</span>, por ejemplo, si hacemos <span class="math inline">\(F_3=F_3 - F_1\)</span> obtenemos</p>
 <p><span class="math display">\[
-|A| = 1 \begin{vmatrix} 1 &amp; 4 \\ 6 &amp; 0 \end{vmatrix} - 2 \begin{vmatrix} 0 &amp; 4 \\ 5 &amp; 0 \end{vmatrix} + 3 \begin{vmatrix} 0 &amp; 1 \\ 5 &amp; 6 \end{vmatrix} = 1(1 \cdot 0 - 4 \cdot 6) - 2(0 \cdot 0 - 4 \cdot 5) + 3(0 \cdot 6 - 1 \cdot 5) = 1(-24) - 2(-20) + 3(-5) = -24 + 40 - 15 = 29
+\begin{bmatrix}
+1 &amp; 2  &amp;  1 &amp;|&amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1  &amp;  4 &amp;|&amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; -2 &amp; -1 &amp;|&amp; -1 &amp; 0 &amp; 1  
+\end{bmatrix}
+\]</span> Ahora, si hacemos <span class="math inline">\(F_1=F_1-2F_2\)</span> y <span class="math inline">\(F_3=F_3+2F_2\)</span> obtenemos</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -7 &amp;|&amp; 1 &amp; -2 &amp; 0 \\
+0 &amp; 1 &amp; 4 &amp;|&amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 7 &amp;|&amp; -1 &amp; 2 &amp; 1
+\end{bmatrix}
 \]</span></p>
+<p>Por ultimo si hacemos <span class="math inline">\(F_2=F_2-4F_3/7\)</span>, <span class="math inline">\(F_1=F_1+F_3\)</span> y <span class="math inline">\(F_3=F_3/7\)</span> obtenemos</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp;|&amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp;|&amp; 0 &amp; 1 &amp; -4/7 \\
+0 &amp; 0 &amp; 1 &amp;|&amp; -1/7 &amp; 2/7 &amp; 1/7
+\end{bmatrix}
+\]</span></p>
+<p>Por lo tanto, la matriz inversa de <span class="math inline">\(A\)</span> es <span class="math inline">\(A^{-1} = \begin{bmatrix} 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; -4/7 \\ -1/7 &amp; 2/7 &amp; 1/7 \end{bmatrix}\)</span>.</p>
+<p>Note que <span class="math inline">\(A^{-1}A = I\)</span> y <span class="math inline">\(AA^{-1}=I\)</span></p>
 </section>
+<section id="ejercicio" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio">Ejercicio</h3>
+<p>Dada la matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>, encuentre la matriz inversa de <span class="math inline">\(A\)</span>.</p>
+<p><strong>De esta forma nos podemos preguntar</strong> ¿Cuando una matriz cuadrada <span class="math inline">\(A\)</span> tiene inversa?</p>
 </section>
-<section id="propiedades-de-los-determinantes" class="level2">
-<h2 class="anchored" data-anchor-id="propiedades-de-los-determinantes">Propiedades de los determinantes</h2>
+<section id="matriz-escalonada-por-filas" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-escalonada-por-filas">Matriz escalonada por filas</h2>
+<p>Definimos una matriz escalonada como una matriz cuadrada <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(m \times n\)</span> que cumple las siguientes propiedades:</p>
 <ol type="1">
-<li><p>Si <span class="math inline">\(A\)</span> es una matriz cuadrada de tamaño <span class="math inline">\(n \times n\)</span>, entonces <span class="math inline">\(|A^T| = |A|\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> es una matriz cuadrada de tamaño <span class="math inline">\(n \times n\)</span>, entonces <span class="math inline">\(|kA| = k^n |A|\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son matrices cuadradas de tamaño <span class="math inline">\(n \times n\)</span>, entonces <span class="math inline">\(|AB| = |A| |B|\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> es una matriz cuadrada de tamaño <span class="math inline">\(n \times n\)</span>, entonces <span class="math inline">\(|A^{-1}| = \frac{1}{|A|}\)</span>.</p></li>
-<li><p>Si una matriz <span class="math inline">\(A\)</span> tiene una fila o columna de ceros, entonces <span class="math inline">\(|A| = 0\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> es una matriz cuadrada de tamaño <span class="math inline">\(n \times n\)</span> y <span class="math inline">\(B\)</span> es una matriz que se obtiene al intercambiar dos filas o dos columnas de <span class="math inline">\(A\)</span>, entonces <span class="math inline">\(|B| = -|A|\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> es una matriz cuadrada y tiene dos filas o columnas iguales, entonces <span class="math inline">\(|A| = 0\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A=\begin{bmatrix} a_{11} &amp; a_{12} \\ a_{21} +c&amp; a_{22} +d\end{bmatrix}\)</span> entonces <span class="math display">\[
-|A| = \Bigg|\begin{bmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22}\end{bmatrix}\Bigg|+ \Bigg|\begin{bmatrix} a_{11} &amp; a_{12} \\a&amp;d \end{bmatrix}\Bigg|
-\]</span></p></li>
+<li>Todos los renglones cero están en la parte inferior de la matriz.</li>
+<li>El elemento delantero de cada renglón diferente de cero está a la derecha del elemento delantero diferente de cero del renglón anterior.</li>
+<li>El primer elemento diferente de 0 y 1 de cada fila está a la derecha del primer elemento diferente de 0.</li>
 </ol>
+<section id="ejemplo-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-1">Ejemplo</h3>
+<p>Matriz escalonada</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+0 &amp; 1 &amp; 2 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</span></p>
+<p>Matriz escalonada reducida</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</span></p>
+<p>Matriz no escalonada</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+0 &amp; 1 &amp; 2 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+1 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</span></p>
 </section>
-<section id="ejemplo-1" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-1">Ejemplo</h2>
-<p>Dada la matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>, encuentre el determinante de <span class="math inline">\(A\)</span>.</p>
+<section id="ejercicio-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio</h3>
+<p>Dada la matriz <span class="math inline">\(C = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>, determine si la matriz <span class="math inline">\(C\)</span> es una matriz escalonada o una matriz escalonada reducida.</p>
+<p><strong>Note que si una matriz cuadrada <span class="math inline">\(A\)</span> y se puede escribir como una matriz escalonada con todos los elementos de la diagonal principal diferentes de cero, entonces la matriz <span class="math inline">\(A\)</span> tiene inversa.</strong> ¿Por qué esta afirmación es cierta?</p>
+</section>
+<section id="matrices-con-python" class="level3">
+<h3 class="anchored" data-anchor-id="matrices-con-python">Matrices con python</h3>
+<div id="f8a746e2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Supongamos que bw es tu matriz binaria (NumPy array o matrix)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>], [<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>]])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1️⃣ Dimensiones (filas, columnas)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>filas, columnas <span class="op">=</span> A.shape</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dimensiones: </span><span class="sc">{</span>filas<span class="sc">}</span><span class="ss"> filas × </span><span class="sc">{</span>columnas<span class="sc">}</span><span class="ss"> columnas"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2️⃣ Total de elementos (filas×columnas)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> A.size</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total de elementos: </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3️⃣ Elementos de la diagonal principal</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>diagonal <span class="op">=</span> np.diag(A)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elementos de la diagonal principal: </span><span class="sc">{</span>diagonal<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4️⃣ ver un elemento de la matriz</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elemento en la fila 1 y columna 1: </span><span class="sc">{</span>A[<span class="dv">0</span>, <span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elemento en la fila 2 y columna 3: </span><span class="sc">{</span>A[<span class="dv">1</span>, <span class="dv">2</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: 3 filas × 3 columnas
+Total de elementos: 9
+Elementos de la diagonal principal: [3 3 4]
+Elemento en la fila 1 y columna 1: 3
+Elemento en la fila 2 y columna 3: 3</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="solcuiones-de-sistemas-de-ecuaciones-lineales-con-python" class="level2">
+<h2 class="anchored" data-anchor-id="solcuiones-de-sistemas-de-ecuaciones-lineales-con-python">Solcuiones de sistemas de ecuaciones lineales con python</h2>
+<p>Quereos resolver el siguiente sistema de ecuaciones lineales</p>
+<p><span class="math display">\[
+\begin{align*}
+3x + 2y +3z &amp;= 1 \\
+2x + 3y + 3z &amp;= 2 \\
+3x + 3y + 4z &amp;= 3
+\end{align*}
+\]</span></p>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Note</strong> Si el determinante de una matriz es cero, entonces la matriz no es invertible.</p>
+</section>
+<section id="ejercicio-2" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-2">Ejercicio</h2>
+<p>Resuelva el siguiente sistema de ecuaciones lineales</p>
+<p><span class="math display">\[
+\begin{align*}
+2x + 3y + 4z &amp;= 1 \\
+3x + 4y + 5z &amp;= 2 \\
+4x + 5y + 6z &amp;= 3
+\end{align*}
+\]</span></p>
+</section>
+<section id="encontrar-la-matriz-inversa-con-python" class="level2">
+<h2 class="anchored" data-anchor-id="encontrar-la-matriz-inversa-con-python">Encontrar la matriz inversa con python</h2>
+<p>Queremos encontrar la matriz inversa de la matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>.</p>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="ejercicio-3" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-3">Ejercicio</h2>
+<p>Encuentre la matriz inversa de la matriz <span class="math inline">\(B = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>.</p>
+</section>
+<section id="matriz-escalonada-con-python" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-escalonada-con-python">Matriz escalonada con python</h2>
+<p>Queremos determinar si la matriz <span class="math inline">\(D = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span> es una matriz escalonada.</p>
+<div id="qpyodide-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
 </section>

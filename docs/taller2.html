@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ejercicio computacional valores y vectores propios (Matrices 2x2)</title>
+<title>Ejercicios \mathbb{R}^2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller6.html">Taller resumen</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller2.html">Taller 2</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +146,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="./section0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acerca de</span></a>
   </div>
 </li>
@@ -268,7 +268,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller2.html" class="sidebar-item-text sidebar-link">
+  <a href="./taller2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Taller 2</span></a>
   </div>
 </li>
@@ -292,7 +292,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller6.html" class="sidebar-item-text sidebar-link active">
+  <a href="./taller6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller resumen</span></a>
   </div>
 </li>
@@ -304,19 +304,19 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller8.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller9.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectores y matrices II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller10.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./taller10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subespacios vectoriales</span></a>
   </div>
 </li>
@@ -332,32 +332,23 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#matriz-con-parámetros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz" id="toc-matriz-con-parámetros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz" class="nav-link active" data-scroll-target="#matriz-con-parámetros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz">1. <strong>Matriz con Parámetros:</strong> Determina los valores propios y los vectores propios de la matriz</a></li>
-  <li><a href="#matriz-con-exponente-sea-la-matriz" id="toc-matriz-con-exponente-sea-la-matriz" class="nav-link" data-scroll-target="#matriz-con-exponente-sea-la-matriz">2. <strong>Matriz con Exponente:</strong> Sea la matriz</a></li>
-  <li><a href="#propiedades-de-la-suma-y-producto" id="toc-propiedades-de-la-suma-y-producto" class="nav-link" data-scroll-target="#propiedades-de-la-suma-y-producto">3. <strong>Propiedades de la Suma y Producto:</strong></a></li>
-  <li><a href="#matriz-singular" id="toc-matriz-singular" class="nav-link" data-scroll-target="#matriz-singular">4. <strong>Matriz Singular:</strong></a></li>
-  <li><a href="#demuestra-que-si-a-tiene-valores-propios-lambda_1-lambda_2-entonces" id="toc-demuestra-que-si-a-tiene-valores-propios-lambda_1-lambda_2-entonces" class="nav-link" data-scroll-target="#demuestra-que-si-a-tiene-valores-propios-lambda_1-lambda_2-entonces">5. Demuestra que si <span class="math inline">\(A\)</span> tiene valores propios <span class="math inline">\(\lambda_1, \lambda_2\)</span>, entonces:</a></li>
-  <li><a href="#de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga" id="toc-de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga" class="nav-link" data-scroll-target="#de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga">6. De un ejemplo de matriz <span class="math inline">\(2 \times 2\)</span> que no sea diagonalizable y tenga</a></li>
-  <li><a href="#redes-sociales-y-difusión-de-información" id="toc-redes-sociales-y-difusión-de-información" class="nav-link" data-scroll-target="#redes-sociales-y-difusión-de-información">7. <strong>📲 Redes Sociales y Difusión de Información</strong></a>
+  <li><a href="#problema-1" id="toc-problema-1" class="nav-link active" data-scroll-target="#problema-1"><strong>Problema 1</strong></a>
   <ul class="collapse">
-  <li><a href="#pregunta" id="toc-pregunta" class="nav-link" data-scroll-target="#pregunta"><strong>Pregunta</strong></a></li>
+  <li><a href="#pregunta" id="toc-pregunta" class="nav-link" data-scroll-target="#pregunta"><strong>Pregunta:</strong></a></li>
   </ul></li>
-  <li><a href="#aplicación-en-economía-modelado-de-mercados-interdependientes" id="toc-aplicación-en-economía-modelado-de-mercados-interdependientes" class="nav-link" data-scroll-target="#aplicación-en-economía-modelado-de-mercados-interdependientes">8. <strong>📈 Aplicación en Economía: Modelado de Mercados Interdependientes</strong></a>
+  <li><a href="#problema-2" id="toc-problema-2" class="nav-link" data-scroll-target="#problema-2"><strong>Problema 2</strong></a>
   <ul class="collapse">
-  <li><a href="#contexto-evolución-de-precios-en-dos-sectores-económicos" id="toc-contexto-evolución-de-precios-en-dos-sectores-económicos" class="nav-link" data-scroll-target="#contexto-evolución-de-precios-en-dos-sectores-económicos"><strong>📌 Contexto: Evolución de Precios en Dos Sectores Económicos</strong></a></li>
-  <li><a href="#preguntas" id="toc-preguntas" class="nav-link" data-scroll-target="#preguntas"><strong>📌 Preguntas</strong></a></li>
+  <li><a href="#preguntas" id="toc-preguntas" class="nav-link" data-scroll-target="#preguntas"><strong>Preguntas:</strong></a></li>
   </ul></li>
-  <li><a href="#responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2times-2" id="toc-responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2times-2" class="nav-link" data-scroll-target="#responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2times-2">9. <strong>🏗️ Responde si es falso o verdadero, recuerde que el contexto A es una matriz <span class="math inline">\(2\times 2\)</span></strong></a></li>
-  <li><a href="#gráfica-la-figura-que-esta-formada-por-los-puntos" id="toc-gráfica-la-figura-que-esta-formada-por-los-puntos" class="nav-link" data-scroll-target="#gráfica-la-figura-que-esta-formada-por-los-puntos">10. <strong>🏠 Gráfica la figura que esta formada por los puntos</strong></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller6.html">Taller resumen</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./taller1.html">Talleres</a></li><li class="breadcrumb-item"><a href="./taller2.html">Taller 2</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Ejercicio computacional valores y vectores propios (Matrices 2x2)</h1>
+<h1 class="title">Ejercicios <span class="math inline">\(\mathbb{R}^2\)</span></h1>
 </div>
 
 
@@ -374,161 +365,37 @@ window.Quarto = {
 </header>
 
 
-<section id="matriz-con-parámetros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz" class="level1">
-<h1>1. <strong>Matriz con Parámetros:</strong> Determina los valores propios y los vectores propios de la matriz</h1>
-<p><span class="math display">\[ A = \begin{bmatrix} 2 &amp; a \\ 3 &amp; 4 \end{bmatrix} \]</span> en función de <span class="math inline">\(a\)</span>. Analiza los casos en los que los valores propios sean reales o complejos.</p>
-</section>
-<section id="matriz-con-exponente-sea-la-matriz" class="level1">
-<h1>2. <strong>Matriz con Exponente:</strong> Sea la matriz</h1>
-<p><span class="math display">\[ B = \begin{bmatrix} 5 &amp; -2 \\ 1 &amp; 3 \end{bmatrix} \]</span> Calcula sus valores propios y usa ese resultado para encontrar <span class="math inline">\(B^n\)</span> sin multiplicaciones sucesivas.</p>
-</section>
-<section id="propiedades-de-la-suma-y-producto" class="level1">
-<h1>3. <strong>Propiedades de la Suma y Producto:</strong></h1>
-<p><span class="math display">\[ C = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}, \quad D = \begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{bmatrix} \]</span> ¿Se cumple que los valores propios de <span class="math inline">\(C+D\)</span> son la suma de los valores propios de <span class="math inline">\(C\)</span> y <span class="math inline">\(D\)</span>?</p>
-</section>
-<section id="matriz-singular" class="level1">
-<h1>4. <strong>Matriz Singular:</strong></h1>
-<p>Encuentra una matriz no nula <span class="math inline">\(A\)</span> con un valor propio igual a cero. Interpreta geométricamente su efecto sobre los vectores.</p>
-</section>
-<section id="demuestra-que-si-a-tiene-valores-propios-lambda_1-lambda_2-entonces" class="level1">
-<h1>5. Demuestra que si <span class="math inline">\(A\)</span> tiene valores propios <span class="math inline">\(\lambda_1, \lambda_2\)</span>, entonces:</h1>
-<p><span class="math display">\[ \text{traza}(A) = \lambda_1 + \lambda_2, \quad \det(A) = \lambda_1 \lambda_2. \]</span></p>
-</section>
-<section id="de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga" class="level1">
-<h1>6. De un ejemplo de matriz <span class="math inline">\(2 \times 2\)</span> que no sea diagonalizable y tenga</h1>
-<pre><code>a. 1 Valores propio real.
-
-b. 2 Valores propios reales distintos.
-
-c. Valores propios complejos.</code></pre>
-</section>
-<section id="redes-sociales-y-difusión-de-información" class="level1">
-<h1>7. <strong>📲 Redes Sociales y Difusión de Información</strong></h1>
-<p>En el mundo digital, las noticias y rumores se propagan rápidamente a través de las redes sociales. Imagina que estamos analizando la difusión de una noticia entre <strong>dos comunidades en línea</strong>:<br>
-- <strong>Comunidad A</strong>: Un grupo de influencers en Twitter.<br>
-- <strong>Comunidad B</strong>: Un grupo de usuarios generales en Facebook.<br>
-Cada día, una <strong>porción de personas en cada comunidad cambia su percepción sobre la noticia</strong> debido a la interacción con otros usuarios. Esta dinámica se modela mediante la siguiente <strong>matriz de transición</strong>:</p>
-<p><span class="math display">\[
-A = \begin{bmatrix} 0.9 &amp; 0.1 \\ 0.2 &amp; 0.8 \end{bmatrix}
-\]</span></p>
-<p>Donde:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 85%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Entrada</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>0.9</strong></td>
-<td>El 90% de la comunidad A mantiene su opinión actual al día siguiente.</td>
-</tr>
-<tr class="even">
-<td><strong>0.1</strong></td>
-<td>El 10% de la comunidad A adopta la opinión de la comunidad B.</td>
-</tr>
-<tr class="odd">
-<td><strong>0.2</strong></td>
-<td>El 20% de la comunidad B adopta la opinión de la comunidad A.</td>
-</tr>
-<tr class="even">
-<td><strong>0.8</strong></td>
-<td>El 80% de la comunidad B mantiene su opinión actual.</td>
-</tr>
-</tbody>
-</table>
+<section id="problema-1" class="level2">
+<h2 class="anchored" data-anchor-id="problema-1"><strong>Problema 1</strong></h2>
+<p>En una ciudad se úed modelar mediante un plano cartesiano, en ella existen doa avenidas, <strong>La avenida A</strong> pasa por el punto <span class="math inline">\((2,5)\)</span> y tiene dirección <span class="math inline">\((6,9)\)</span>, mientras que <strong>La avenida B</strong> pasa por el punto <span class="math inline">\((5,8)\)</span> y tiene dirección <span class="math inline">\((1,\dfrac{3}{2})\)</span>.</p>
 <section id="pregunta" class="level3">
-<h3 class="anchored" data-anchor-id="pregunta"><strong>Pregunta</strong></h3>
-<p>¿Este sistema alcanza un estado estable? Es decir, ¿llegará un momento en que la proporción de personas en cada comunidad con la noticia se mantenga constante? Antes de responder estas preguntas, debes hacer un plan para encontrar la respuesta, escribela.</p>
+<h3 class="anchored" data-anchor-id="pregunta"><strong>Pregunta:</strong></h3>
+<p>Encuentra la distancia mínima entre ellas.</p>
 </section>
 </section>
-<section id="aplicación-en-economía-modelado-de-mercados-interdependientes" class="level1">
-<h1>8. <strong>📈 Aplicación en Economía: Modelado de Mercados Interdependientes</strong></h1>
-<section id="contexto-evolución-de-precios-en-dos-sectores-económicos" class="level3">
-<h3 class="anchored" data-anchor-id="contexto-evolución-de-precios-en-dos-sectores-económicos"><strong>📌 Contexto: Evolución de Precios en Dos Sectores Económicos</strong></h3>
-<p>En economía, los precios de bienes y servicios están interconectados. Por ejemplo, el precio de los metales afecta el costo de fabricación de automóviles, y el precio de la energía impacta la producción industrial.</p>
-<p>Imaginemos un modelo simplificado de <strong>dos sectores económicos</strong>:</p>
+<section id="problema-2" class="level2">
+<h2 class="anchored" data-anchor-id="problema-2"><strong>Problema 2</strong></h2>
+<p>Un ingeniero está analizando un sistema mecánico en el que dos fuerzas actúan sobre un punto en el plano ( ^2 ). Estas fuerzas están representadas por los siguientes vectores en Newtons:</p>
 <ul>
-<li><strong>Sector A</strong>: Producción de materias primas (metales, petróleo, insumos básicos).<br>
-</li>
-<li><strong>Sector B</strong>: Producción industrial (autos, electrodomésticos, maquinaria).</li>
+<li><strong>Fuerza 1</strong>:<br>
+<span class="math display">\[
+\mathbf{F}_1 = (5, 2)
+\]</span></li>
+<li><strong>Fuerza 2</strong>:<br>
+<span class="math display">\[
+\mathbf{F}_2 = (3, 6)
+\]</span></li>
 </ul>
-<p>Cada periodo, los precios en estos sectores cambian en función de la oferta y la demanda, siguiendo la <strong>matriz de transición de precios</strong>:</p>
-<p><span class="math display">\[
-P_{n+1} = A P_n
-\]</span></p>
-<p>donde <span class="math inline">\(P_n\)</span> representa los precios en el periodo <span class="math inline">\(n\)</span> y la <strong>matriz de influencia</strong> <span class="math inline">\(A\)</span> es:</p>
-<p><span class="math display">\[
-A = \begin{bmatrix} 0.8 &amp; 0.3 \\ 0.2 &amp; 0.7 \end{bmatrix}
-\]</span></p>
-<p>Cada entrada de <span class="math inline">\(A\)</span> indica cómo el precio de un sector influye en sí mismo y en el otro sector.</p>
-<ul>
-<li><strong>0.8</strong>: El 80% del precio en el sector A depende de su propio precio del período anterior.<br>
-</li>
-<li><strong>0.3</strong>: El 30% del precio en el sector A depende del precio del sector B del período anterior.<br>
-</li>
-<li><strong>0.2</strong>: El 20% del precio en el sector B depende del precio del sector A del período anterior.<br>
-</li>
-<li><strong>0.7</strong>: El 70% del precio en el sector B depende de su propio precio del período anterior.</li>
-</ul>
-<hr>
-</section>
-<section id="preguntas" class="level2">
-<h2 class="anchored" data-anchor-id="preguntas"><strong>📌 Preguntas</strong></h2>
-<ol type="1">
-<li>¿Cómo evolucionarán los precios en el largo plazo?<br>
-</li>
-<li>¿Se alcanzará un equilibrio en los precios?<br>
-</li>
-<li>Encuentra los <strong>valores propios y vectores propios</strong> de la matriz <span class="math inline">\(A\)</span> y explica como podrían ayudar a responder las preguntas anteriores.</li>
-<li>Coloca una condiciones iniciales para los precios y calcula los precios en el largo plazo.</li>
-</ol>
-</section>
-</section>
-<section id="responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2times-2" class="level1">
-<h1>9. <strong>🏗️ Responde si es falso o verdadero, recuerde que el contexto A es una matriz <span class="math inline">\(2\times 2\)</span></strong></h1>
+<p>El ingeniero necesita determinar el ángulo entre estas dos fuerzas para analizar su efecto combinado sobre la estructura.</p>
+<section id="preguntas" class="level3">
+<h3 class="anchored" data-anchor-id="preguntas"><strong>Preguntas:</strong></h3>
 <ol type="a">
-<li><p>Si <span class="math inline">\(A\)</span> es una matriz simétrica, entonces sus valores propios son reales.</p></li>
-<li><p>Si el sistema <span class="math inline">\(Ax=b\)</span> tiene infinitas soluciones entonces <span class="math inline">\(A\)</span> tiene un valor propio igual a cero.</p></li>
-<li><p>Si una matriz es diagonalizable, entonces sus valores propios son reales.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> tiene un valor propio igual a cero, entonces <span class="math inline">\(A^{-1}\)</span> no existe.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> tiene un valor propio igual a cero y otro diferente, entonces <span class="math inline">\(A\)</span> es no es diagonalizable.</p></li>
+<li>Calcula el ángulo <span class="math inline">\(\theta\)</span> entre los dos vectores</li>
+<li>¿Cómo influiría este ángulo en la estabilidad del sistema si ambas fuerzas estuvieran actuando sobre un mismo punto?</li>
 </ol>
+
+
 </section>
-<section id="gráfica-la-figura-que-esta-formada-por-los-puntos" class="level1">
-<h1>10. <strong>🏠 Gráfica la figura que esta formada por los puntos</strong></h1>
-<p>Observa la figura que se forma al unir los puntos en el plano cartesiano.</p>
-<div id="7ae250ec" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/user/miniforge3/envs/class/lib/python3.12/site-packages/IPython/core/pylabtools.py:170: UserWarning: Glyph 127968 (\N{HOUSE BUILDING}) missing from current font.
-  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="taller6_files/figure-html/cell-2-output-2.png" width="506" height="470" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Esta figura se rota como se muestra en la siguiente gráfica.</p>
-<div id="275dacb1" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="taller6_files/figure-html/cell-3-output-1.png" width="589" height="449" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Encuentre la matriz de rotación que se utilizó para rotar la figura.</p>
-
-
 </section>
 
 </main> <!-- /main -->
