@@ -1,0 +1,318 @@
+---
+title: Rectas en $\mathbb{R}^2$
+format: html
+filters:
+  - pyodide
+---
+
+# Rectas en $\mathbb{R}^2$
+
+Nosotros podemos dibujar una recta en $\mathbb{R}^2$ si conocemos un punto de la recta y su pendiente. La ecuación de la recta es:
+
+$$y = m \cdot x + b$$
+
+Donde $m$ es la pendiente y $b$ es la ordenada al origen, esta ecuación se llama una ecuación cartesiana de la recta. Existe otra forma de escribir la ecuación de la recta, que es llamada una recta paramétrica, para poder intuir como podemos escribir una recta paramétrica, vamos a ver un ejemplo. Para ello necesitamos un punto **por donde pase la recta** y un **vector director**.
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Definir el punto y el vector director
+punto = np.array([3, 2])
+vector_director = np.array([1, 2])
+
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Dibujar el punto
+ax.plot(punto[0], punto[1], 'ro')  # 'ro' es para puntos rojos
+
+# Dibujar el vector director
+ax.quiver(0, 0, vector_director[0], vector_director[1], angles='xy', scale_units='xy', scale=1, color='b')
+
+# Configurar los límites del gráfico
+ax.set_xlim(0, 5)
+ax.set_ylim(0, 5)
+
+# Añadir etiquetas
+ax.text(punto[0], punto[1], '  Punto', verticalalignment='bottom', horizontalalignment='right')
+ax.text(vector_director[0],  vector_director[1], '  Vector director', verticalalignment='bottom', horizontalalignment='right')
+
+# Añadir cuadrícula
+ax.grid()
+
+# Mostrar el gráfico
+plt.show()
+```
+
+Ahora supongamos que tenemos un punto $P$ y un vector director $\vec{v}$, entonces la recta que pasa por el punto $P$ y tiene dirección $\vec{v}$ se puede escribir como:
+
+$$\vec{l}(t) = \vec{P} + t \cdot \vec{v}$$
+
+
+de esta forma podriamos dibujar la recta que pasa por el punto $P$ y tiene dirección $\vec{v}$.
+
+```{python}
+#| echo: false
+# Definir el punto y el vector director
+punto = np.array([3, 2])
+vector_director = np.array([1, 2])
+
+# Crear los valores de t
+t = np.linspace(-5, 5, 100)
+
+# Calcular los puntos de la recta
+recta = punto[:, np.newaxis] + t * vector_director[:, np.newaxis]
+
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Dibujar la recta
+ax.plot(recta[0], recta[1], label='Recta')
+
+# Dibujar el punto
+ax.plot(punto[0], punto[1], 'ro', label='Punto (3,2)')  # 'ro' es para puntos rojos
+
+# Dibujar el vector director
+ax.quiver(0, 0, vector_director[0], vector_director[1], angles='xy', scale_units='xy', scale=1, color='b', label='Vector director')
+
+# Configurar los límites del gráfico
+ax.set_xlim(-5, 10)
+ax.set_ylim(-5, 10)
+
+# Añadir etiquetas
+ax.text(punto[0], punto[1], '  Punto', verticalalignment='bottom', horizontalalignment='right')
+ax.text(vector_director[0], vector_director[1], '  Vector director', verticalalignment='bottom', horizontalalignment='right')
+
+# Añadir cuadrícula
+ax.grid()
+
+# Añadir leyenda
+ax.legend()
+# Configurar la cuadrícula cuadrada
+ax.set_aspect('equal', adjustable='box')
+
+# Mostrar el gráfico
+plt.show()
+```
+
+
+De esta forma podríamos definir una recta en $\mathbb{R}^2$ de forma paramétrica.
+
+::: {.callout-caution collapse="true"}
+## Ejercicio
+
+Dibuja la recta que pasa por el punto $P(3,2)$ y tiene dirección $\vec{v} = (1,2)$.
+:::
+
+
+
+Aquí tenemos una pregunta que nos podemos hacer, ¿cómo podemos saber si dos rectas son paralelas o perpendiculares? Para ello necesitamos saber que dos rectas son paralelas si sus vectores directores son proporcionales, es decir, si $\vec{v}_1 = k \cdot \vec{v}_2$ entonces las rectas son paralelas. Por otro lado, dos rectas son perpendiculares si sus vectores directores son ortogonales, es decir, si $\vec{v}_1 \cdot \vec{v}_2 = 0$ entonces las rectas son perpendiculares.
+
+
+
+
+```{python}
+#| echo: false
+# Definir el punto y el vector director
+punto = np.array([3, 2])
+vector_director = np.array([1, 2])
+vector_director2 = np.array([2,-1])
+
+# Crear los valores de t
+t = np.linspace(-5, 5, 100)
+
+# Calcular los puntos de la recta
+recta = punto[:, np.newaxis] + t * vector_director[:, np.newaxis]
+recta2 = punto[:, np.newaxis] + t * vector_director2[:, np.newaxis]
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Dibujar la recta
+ax.plot(recta[0], recta[1], label='Recta')
+ax.plot(recta2[0], recta2[1], label='Recta 2')
+
+# Dibujar el punto
+ax.plot(punto[0], punto[1], 'ro', label='Punto (3,2)')  # 'ro' es para puntos rojos
+
+# Dibujar el vector director
+ax.quiver(0, 0, vector_director[0], vector_director[1], angles='xy', scale_units='xy', scale=1, color='b', label='Vector director')
+ax.quiver(0, 0, vector_director2[0], vector_director2[1], angles='xy', scale_units='xy', scale=1, color='g', label='Vector director 2')
+
+# Configurar los límites del gráfico
+ax.set_xlim(-5, 10)
+ax.set_ylim(-5, 10)
+
+# Añadir etiquetas
+ax.text(punto[0], punto[1], '  Punto', verticalalignment='bottom', horizontalalignment='right')
+ax.text(vector_director[0], vector_director[1], '  Vector director', verticalalignment='bottom', horizontalalignment='right')
+ax.text(vector_director2[0], vector_director2[1], '  Vector director 2', verticalalignment='bottom', horizontalalignment='right')
+
+# Añadir cuadrícula
+ax.grid()
+# Configurar la cuadrícula cuadrada
+ax.set_aspect('equal', adjustable='box')
+
+
+# Mostrar el gráfico
+plt.show()
+```
+
+
+## Pasar de la forma cartesiana a la forma paramétrica
+
+Para pasar de una ecuación cartesiana a una ecuación paramétrica, lo podemos hacer de la siguiente forma:
+
+1. Despejamos $y$ de la ecuación cartesiana:
+
+$$y = m \cdot x + b$$
+
+2. Ahora igualamos a $t$ a $x$, de esta forma tenemos dos nuevas ecuaciones:
+
+$$x = t$$
+$$y = m \cdot t + b$$
+
+3. De aquí podemos obtener el vector directriz 
+
+$$\vec{v} = (1,m)$$
+
+ y el punto $P = (0,b)$, de esta forma la ecuación paramétrica de la recta es:
+
+$$\vec{l}(t) = \vec{P} + t \cdot \vec{v}$$
+
+## Pasar de la forma paramétrica a la forma cartesiana
+
+Para pasar de una ecuación paramétrica a una ecuación cartesiana, lo podemos hacer de la siguiente forma:
+
+1. Reescribimos nuestra ecuación paramétrica de la siguiente forma:
+
+$$\vec{l}(t) = \vec{P} + t \cdot \vec{v}=\Big(P_1t+v_1,P_2t+v_2\Big)$$
+
+2. Ahora igualamos cada término al vector $(x,y)$, de esta forma tenemos dos nuevas ecuaciones:
+
+$$x = P_1t+v_1$$
+$$y = P_2t+v_2$$
+
+3. Despejamos $t$ en las ecuaciones anteriores:
+
+$$t = \frac{x-v_1}{P_1}$$
+$$t = \frac{y-v_2}{P_2}$$
+
+4. Igualamos las dos ecuaciones anteriores y obtenemos la ecuación cartesiana de la recta:
+
+$$\frac{x-v_1}{P_1} = \frac{y-v_2}{P_2}$$
+
+
+De esta forma podemos pasar de una ecuación paramétrica a una ecuación cartesiana.
+
+
+## Distancia entre dos puntos 
+
+Para calcular la distancia entre dos puntos se debe un vector que una los dos puntos y luego podremos calcular la norma de este vector.
+
+### Ejemplo
+
+Calcular la distancia entre el punto $P(2,3)$ y el punto $Q(4,5)$.
+Para calcular un vector que parta del punto $P$ y llegue al punto $Q$ podemos hacer lo siguiente:
+
+$$\vec{v} = Q - P = (4-2,5-3) = (2,2)$$
+
+Ahora podemos calcular la norma de este vector
+
+$$||\vec{v}|| = \sqrt{2^2+2^2} = \sqrt{8}$$
+
+Este seria la longitud ecludiana de este vector, que es la distancia entre los dos puntos.
+
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+# Definir los puntos P y Q
+P = np.array([2, 3])
+Q = np.array([4, 5])
+
+# Calcular el vector que une P y Q
+vector_v = Q - P
+
+# Calcular la norma del vector
+distancia = np.linalg.norm(vector_v)
+
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Dibujar los puntos P y Q
+ax.plot(P[0], P[1], 'ro', label='Punto P (2,3)')
+ax.plot(Q[0], Q[1], 'go', label='Punto Q (4,5)')
+
+# Dibujar el vector que une P y Q
+ax.quiver(P[0], P[1], vector_v[0], vector_v[1], angles='xy', scale_units='xy', scale=1, color='b', label='Vector PQ')
+
+# Configurar los límites del gráfico
+ax.set_xlim(0, 6)
+ax.set_ylim(0, 6)
+
+# Añadir etiquetas
+ax.text(P[0], P[1], '  P', verticalalignment='bottom', horizontalalignment='right')
+ax.text(Q[0], Q[1], '  Q', verticalalignment='bottom', horizontalalignment='right')
+
+# Añadir cuadrícula
+ax.grid()
+
+# Añadir leyenda
+ax.legend()
+
+# Mostrar el gráfico
+plt.show()
+
+# Mostrar la distancia calculada
+print(f"La distancia entre los puntos P y Q es: {distancia}")
+
+## Distancia entre dos rectas
+```
+
+
+## Angulo entre dos vectores 
+
+Para calcular el ángulo entre dos vectores podemos hacer lo siguiente:
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+# Definir los vectores
+vector1 = np.array([1, 2])
+vector2 = np.array([2, -1])
+
+# Calcular el ángulo entre los vectores
+cos_theta = np.dot(vector1, vector2) / (np.linalg.norm(vector1) * np.linalg.norm(vector2))
+angulo = np.arccos(cos_theta)
+
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Dibujar los vectores
+ax.quiver(0, 0, vector1[0], vector1[1], angles='xy', scale_units='xy', scale=1, color='b', label='Vector 1')
+ax.quiver(0, 0, vector2[0], vector2[1], angles='xy', scale_units='xy', scale=1, color='g', label='Vector 2')
+
+# Configurar los límites del gráfico
+ax.set_xlim(-3, 3)
+ax.set_ylim(-3, 3)
+
+# Añadir etiquetas
+ax.text(vector1[0], vector1[1], '  Vector 1', verticalalignment='bottom', horizontalalignment='right')
+ax.text(vector2[0], vector2[1], '  Vector 2', verticalalignment='bottom', horizontalalignment='right')
+
+# Añadir cuadrícula
+ax.grid()
+
+# Añadir leyenda
+ax.legend()
+
+# Mostrar el gráfico
+plt.show()
+
+# Mostrar el ángulo calculado en grados
+angulo_grados = np.degrees(angulo)
+print(f"El ángulo entre los vectores es: {angulo_grados} grados")
+```

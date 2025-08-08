@@ -1,0 +1,6 @@
+---
+title: Eliminación de Gauss-Jordan
+format: html
+filters:
+  - pyodide
+---

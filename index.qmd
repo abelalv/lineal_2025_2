@@ -1,0 +1,40 @@
+---
+title: "Lineal_2025_2"
+---
+
+Este es cronograma de la asignatura Álgebra Lineal 2025-2.
+
+
+| Semana     | | Tema |
+|------------|--------------------------|------|
+| 27 Julio   | 1 Agosto                 | Presentación del curso, actividad de enganche, vectores en R^2  |
+|            |                          | Vectores en $R^2$, operaciones: suma, multiplicación por un escalar y producto punto con sus respectivas propiedades. |
+| 4 Agosto   | 8 Agosto (Jueves)        | Ecuación de la recta. Rectas paralelas, perpendiculares, **(independencia lineal, bases desde una perspectiva geométrica)** |
+| 11 Agosto  | 15 Agosto                | Vectores en $R^3$, ecuación de Plano y de la recta |
+|            |                          | Subespacios en $R^2$. Proyección de un vector sobre otro, norma, distancia entre dos puntos, Distancia entre un punto y una recta. |
+| 18 Agosto  | 22 Agosto (Lunes)        | Matrices 2x2, determinantes, operaciones entre matrices. |
+| 25 Agosto  | 29 Agosto                | Trabajo computacional |
+|            |                          | Sistemas de ecuaciones 2x2 (Notación matricial) - Inversa de una matriz 2x2 |
+| 1 Sep      | 5 Sep                    | **Parcial I** |
+|            |                          | Inversa de una matriz. Aplicaciones de sistemas de ecuaciones 2x2. |
+| 8 Sep      | 12 Sep                   | Matrices NxM, operaciones, |
+|            |                          | Determinantes de NxN, Inversa de una matriz |
+| 15 Sep     | 19 Sep                   | Soluciones de sistemas de ecuaciones lineales I |
+|            |                          | Soluciones de sistemas de ecuaciones lineales II |
+| 22 Sep     | 26 Sep                   | Vectores en $R^N$, operaciones (suma, resta, producto punto, norma), e interpretabilidad |
+|            |                          | Espacios generadores en $R^N$, subespacios |
+| 29 Sep     | 3 Oct                    | Independencia lineal, bases y dimensión |
+|            |                          | Relación entre la solución de sistemas e independencia lineal |
+| 6 Oct      | 10 Oct                   | Trabajo computacional |
+|            |                          | Bases ortonormales |
+| 13 Oct     | 17 Oct (Lunes)           | **Parcial II** |
+|            |                          | Coordenadas y cambio de base |
+| 20 Oct     | 24 Oct                   | Transformaciones lineales en $R^n$ |
+|            |                          | Núcleo e imagen de una transformación |
+| 27 Oct     | 31 Oct                   | La matriz de una transformación lineal |
+| 3 Nov      | 7 Nov (Lunes)            | Vectores y valores propios en $R^2$ |
+|            |                          | Cálculo de valores propios y vectores propios |
+| 10 Nov     | 14 Nov                   | Diagonalización |
+|            |                          | Trabajo computacional |
+| 17 Nov     | 20 Nov (Lunes)           | *(Sin contenido específico indicado)* |
+| 24 Nov     | 27 Nov                   | **Parcial III** |
