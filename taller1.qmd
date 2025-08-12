@@ -136,7 +136,7 @@ Dada la recta que pasa por el punto $\mathbf{P} = (1, -2)$ y que **tiene como di
    > $$\mathbf{r}(t) = \mathbf{P} + t\,\mathbf{v}, \quad t \in \mathbb{R}.$$
    > 
 
-2. Verifica que el punto $\mathbf{Q} = (3,1)$ **no** pertenece a dicha recta (sustituyendo en la forma paramétrica y comprobando si existe un valor de $t$ que lo satisfaga).
+2. Verifica que el punto $\mathbf{Q} = (3,5)$ **no** pertenece a dicha recta (sustituyendo en la forma paramétrica y comprobando si existe un valor de $t$ que lo satisfaga).
 
 3. Escribe la ecuación de forma cartesiana, es decir de la forma $y =ax+b$.
 

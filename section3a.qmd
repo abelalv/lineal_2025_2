@@ -1,0 +1,106 @@
+---
+title: Independencia lineal
+format: html
+filters:
+  - pyodide
+---
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def norm(v): 
+    return np.linalg.norm(v)
+
+def proj(v, u):
+    u = np.asarray(u, dtype=float)
+    v = np.asarray(v, dtype=float)
+    if np.allclose(u, 0):
+        raise ValueError("u no puede ser el vector cero para proyectar")
+    return (v @ u) / (u @ u) * u
+
+def dist_point_line_general(p, a, b, c):
+    x0, y0 = p
+    return abs(a*x0 + b*y0 + c) / np.hypot(a, b)
+
+def foot_of_perpendicular(p, a, b, c):
+    """Pie de la perpendicular desde p a ax+by+c=0."""
+    x0, y0 = p
+    denom = a*a + b*b
+    t = (a*x0 + b*y0 + c) / denom
+    return np.array([x0 - a*t, y0 - b*t])
+
+def plot_vector(ax, v, color="C0", label=None, origin=(0,0), **kw):
+    ox, oy = origin
+    ax.arrow(ox, oy, v[0], v[1], 
+             head_width=0.12, length_includes_head=True,
+             fc=color, ec=color, **kw)
+    if label:
+        ax.text(ox + v[0]*1.02, oy + v[1]*1.02, label, color=color, fontsize=11)
+
+def plot_span_line(ax, u, color="k", alpha=0.2, width=1.5):
+    u = np.asarray(u, dtype=float)
+    t = np.linspace(-5, 5, 2)
+    pts = np.outer(t, u)
+    ax.plot(pts[:,0], pts[:,1], color=color, alpha=alpha, lw=width)
+```
+
+```{python}
+fig, ax = plt.subplots(figsize=(5.5,5.5))
+ax.set_aspect("equal")
+ax.axhline(0, color="lightgray", lw=1)
+ax.axvline(0, color="lightgray", lw=1)
+
+# {0}
+ax.scatter([0],[0], color="C2", s=40, label="{0}")
+
+# Línea por el origen: span{(1,2)}
+u = np.array([1,2], dtype=float)
+plot_span_line(ax, u, color="C1", alpha=0.8, width=2)
+ax.text(2.2, 4.4, "span{(1,2)}", color="C1")
+
+# Todo R^2 (solo a modo ilustrativo con grilla)
+ax.set_xlim(-5,5); ax.set_ylim(-5,5)
+ax.set_title("Los únicos subespacios de ℝ²")
+ax.legend(loc="upper left")
+plt.show()
+
+
+
+```
+
+
+
+```{python}
+u = np.array([2,1], dtype=float)
+v = np.array([2.5, 3.0], dtype=float)
+
+v_proj = proj(v,u)
+r = v - v_proj
+
+fig, ax = plt.subplots(figsize=(6,6))
+ax.set_aspect("equal")
+ax.axhline(0, color="lightgray", lw=1)
+ax.axvline(0, color="lightgray", lw=1)
+ax.set_xlim(-1,5); ax.set_ylim(-1,5)
+
+plot_span_line(ax, u, color="k", alpha=0.25)
+plot_vector(ax, u, color="C1", label="u")
+plot_vector(ax, v, color="C0", label="v")
+plot_vector(ax, v_proj, color="C3", label="proj_u(v)")
+# Residuo (perpendicular)
+plot_vector(ax, r, color="C2", label="r = v - proj_u(v)")
+
+# Trazo punteado desde v al span(u)
+ax.plot([v[0], v_proj[0]], [v[1], v_proj[1]], "C2--", alpha=0.9)
+
+ax.set_title("Proyección y residuo (perpendicular a u)")
+plt.show()
+
+print("||u|| =", norm(u))
+print("v · u =", float(v @ u))
+print("proj_u(v) =", v_proj)
+print("||r|| = dist(v, span{u}) =", norm(r))
+
+```
+
